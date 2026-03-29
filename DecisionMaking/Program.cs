@@ -1,4 +1,36 @@
-﻿/*
+﻿int month = 5;
+string monthName;
+
+if (month == 1)
+{
+    monthName = "January";
+}
+else if (month == 2) monthName = "February";
+else if (month == 3) monthName = "March";
+else monthName = "Unknown";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // Two different values a bool can have
 
 int num1 = 5;
@@ -34,7 +66,7 @@ if (num1 == int.Parse(Console.ReadLine()))
 else
 {
     Console.WriteLine("Numbers are not Equal!");
-    
+
     // address is not accessible in this scope
 }
 
@@ -69,6 +101,9 @@ else
 
 */
 
+
+/*
+
 Console.WriteLine("Please enter your age: ");
 int age = int.Parse(Console.ReadLine());
 bool isWithParents;
@@ -90,7 +125,7 @@ else
     Console.WriteLine("Go party in the kindergarten!");
 }
 
-
+*/
 
 
 
