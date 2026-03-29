@@ -1,6 +1,6 @@
 ﻿
 // Two different values a bool can have
-bool isRaining = false;
+bool isRaining = true;
 bool hasUmberella = false;
 
 
@@ -22,10 +22,16 @@ if(isRaining && hasUmberella)
 // false || true -> true
 // flase || false -> false
 
+// Variants of AND statements
+// true && true -> true 
+// true && flase -> false
+// false && true -> false
+// flase && false -> false
+
 // negation
-if (!isRaining  || hasUmberella)
+if (isRaining && !hasUmberella)
 {
-    Console.WriteLine("I'm not getting WET!");
+    Console.WriteLine("I'm getting WET!");
 }
 
 
