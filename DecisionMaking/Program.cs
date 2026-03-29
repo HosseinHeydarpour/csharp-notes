@@ -9,11 +9,24 @@ bool isNotEqual = num1 != num2;
 
 Console.WriteLine("Please enter a whole number: ");
 
-if (num1 == int.Parse(Console.ReadLine())) Console.WriteLine("Numbers are Equal!");
-else
+if (num1 == int.Parse(Console.ReadLine())) 
 {
-    Console.WriteLine("Numbers are not Equal!");
+    Console.WriteLine("Numbers are Equal!");
+
+
+    Console.WriteLine("Please enter your age: ");
+
+    int age = int.Parse(Console.ReadLine());
+    if(age >= 18)
+    {
+        Console.WriteLine("Please enter your address, so we can send you the prize: ");
+        string address = Console.ReadLine();
+    } else Console.WriteLine("Sorry, you cannot get your prize due to your age");
 }
+else Console.WriteLine("Numbers are not Equal!");
+
+
+    
 
 
 /*
