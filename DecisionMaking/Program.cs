@@ -1,4 +1,4 @@
-﻿
+﻿/*
 // Two different values a bool can have
 
 int num1 = 5;
@@ -40,8 +40,10 @@ else
 
 
 
+
 // reset age to 0
 age = 0;
+*/
 
 /*
 
@@ -66,4 +68,33 @@ else
 }
 
 */
-    Console.ReadKey();
+
+Console.WriteLine("Please enter your age: ");
+int age = int.Parse(Console.ReadLine());
+bool isWithParents;
+
+if(age>=18)
+{
+    Console.WriteLine("Go party in the club!");
+} else if (age >= 13)
+{
+    Console.WriteLine("Are you with your parents? Answer with y or n");
+    string isWithParentsString = Console.ReadLine();
+    if(isWithParentsString == "y")
+    {
+        Console.WriteLine("Go party in the club with your parents!");
+    } else Console.WriteLine("No Party For You!");
+}
+else
+{
+    Console.WriteLine("Go party in the kindergarten!");
+}
+
+
+
+
+
+
+
+
+Console.ReadKey();
