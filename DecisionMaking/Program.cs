@@ -1,2 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+// Two different values a bool can have
+bool isRaining = true;
+bool hasUmberella = true;
+
+
+if(isRaining)
+{
+    Console.WriteLine("It is Rainy!");    
+}
+
+
+Console.WriteLine("Ay OK");
+Console.ReadKey();

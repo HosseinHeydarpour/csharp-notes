@@ -1,0 +1,14 @@
+D:\backend\C#\DecisionMaking\DecisionMaking\bin\Debug\net8.0\DecisionMaking.exe
+D:\backend\C#\DecisionMaking\DecisionMaking\bin\Debug\net8.0\DecisionMaking.deps.json
+D:\backend\C#\DecisionMaking\DecisionMaking\bin\Debug\net8.0\DecisionMaking.runtimeconfig.json
+D:\backend\C#\DecisionMaking\DecisionMaking\bin\Debug\net8.0\DecisionMaking.dll
+D:\backend\C#\DecisionMaking\DecisionMaking\bin\Debug\net8.0\DecisionMaking.pdb
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\DecisionMaking.GeneratedMSBuildEditorConfig.editorconfig
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\DecisionMaking.AssemblyInfoInputs.cache
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\DecisionMaking.AssemblyInfo.cs
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\DecisionMaking.csproj.CoreCompileInputs.cache
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\DecisionMaking.dll
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\refint\DecisionMaking.dll
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\DecisionMaking.pdb
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\DecisionMaking.genruntimeconfig.cache
+D:\backend\C#\DecisionMaking\DecisionMaking\obj\Debug\net8.0\ref\DecisionMaking.dll
