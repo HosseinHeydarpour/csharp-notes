@@ -4,6 +4,19 @@
 int num1 = 5;
 int num2 = 6;
 
+bool isEqual = num1 == num2;
+bool isNotEqual = num1 != num2;
+
+Console.WriteLine("Please enter a whole number: ");
+
+if (num1 == int.Parse(Console.ReadLine())) Console.WriteLine("Numbers are Equal!");
+else
+{
+    Console.WriteLine("Numbers are not Equal!");
+}
+
+
+/*
 
 // relational operator > >=  _  < <=
 // The default value for a bool is false
@@ -25,5 +38,5 @@ else
     Console.WriteLine("Go party in the kindergarten!");
 }
 
-
+*/
     Console.ReadKey();
