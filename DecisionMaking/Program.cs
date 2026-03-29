@@ -1,15 +1,36 @@
 ﻿int month = 5;
 string monthName;
 
-if (month == 1)
+//if (month == 1)
+//{
+//    monthName = "January";
+//}
+//else if (month == 2) monthName = "February";
+//else if (month == 3) monthName = "March";
+//else monthName = "Unknown";
+
+
+switch (month)
 {
-    monthName = "January";
+    case 1:
+        monthName = "January";
+        // break takes out the code out of other cases and makes it skip other cases
+        break;
+    case 2:
+        monthName = "February";
+        break;
+    case 3: 
+        monthName = "March";
+        break;
+
+    default:
+        monthName = "Unknown";
+        break;
 }
-else if (month == 2) monthName = "February";
-else if (month == 3) monthName = "March";
-else monthName = "Unknown";
 
+Console.WriteLine($"The month is: {monthName}");
 
+Console.ReadKey();
 
 
 
