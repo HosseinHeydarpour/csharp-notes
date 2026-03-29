@@ -3,6 +3,10 @@
 
 int num1 = 5;
 int num2 = 6;
+// to access age || the scope is entire program.cs file
+int age = 0;
+
+//string address = "";
 
 bool isEqual = num1 == num2;
 bool isNotEqual = num1 != num2;
@@ -16,18 +20,28 @@ if (num1 == int.Parse(Console.ReadLine()))
 
     Console.WriteLine("Please enter your age: ");
 
-    int age = int.Parse(Console.ReadLine());
+    age = int.Parse(Console.ReadLine());
+
     if(age >= 18)
     {
         Console.WriteLine("Please enter your address, so we can send you the prize: ");
+
+        //string address = Console.ReadLine();
+
         string address = Console.ReadLine();
     } else Console.WriteLine("Sorry, you cannot get your prize due to your age");
 }
-else Console.WriteLine("Numbers are not Equal!");
-
-
+else
+{
+    Console.WriteLine("Numbers are not Equal!");
     
+    // address is not accessible in this scope
+}
 
+
+
+// reset age to 0
+age = 0;
 
 /*
 
