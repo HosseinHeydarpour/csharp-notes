@@ -1,0 +1,14 @@
+D:\backend\C#\LoopsBasics\LoopsBasics\bin\Debug\net8.0\LoopsBasics.exe
+D:\backend\C#\LoopsBasics\LoopsBasics\bin\Debug\net8.0\LoopsBasics.deps.json
+D:\backend\C#\LoopsBasics\LoopsBasics\bin\Debug\net8.0\LoopsBasics.runtimeconfig.json
+D:\backend\C#\LoopsBasics\LoopsBasics\bin\Debug\net8.0\LoopsBasics.dll
+D:\backend\C#\LoopsBasics\LoopsBasics\bin\Debug\net8.0\LoopsBasics.pdb
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\LoopsBasics.GeneratedMSBuildEditorConfig.editorconfig
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\LoopsBasics.AssemblyInfoInputs.cache
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\LoopsBasics.AssemblyInfo.cs
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\LoopsBasics.csproj.CoreCompileInputs.cache
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\LoopsBasics.dll
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\refint\LoopsBasics.dll
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\LoopsBasics.pdb
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\LoopsBasics.genruntimeconfig.cache
+D:\backend\C#\LoopsBasics\LoopsBasics\obj\Debug\net8.0\ref\LoopsBasics.dll
