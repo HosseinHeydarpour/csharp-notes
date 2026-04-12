@@ -1,33 +1,76 @@
-﻿
-// Creating an instance of the Random Class
-Random random = new Random();
-// Max value is exclusive 
-int randomNumber = random.Next(1, 11);
+﻿double num1 = 0, num2=0, result=0;
+string op = "";
+bool isValid = true;
+string userInput;
+
+Console.WriteLine("Welcome to CLI Calculator");
+Console.WriteLine("---------------");
+
+Console.WriteLine("Please enter the first number: ");
+userInput = Console.ReadLine();
 
 
-
-Console.WriteLine("Guess the number: ");
-string inputString = Console.ReadLine();
-// integers by default get set to 0
-int num1;
-bool isNumber = int.TryParse(inputString, out num1);
-
-if (isNumber)
+if (!double.TryParse(userInput, out num1))
 {
-    if(num1 == randomNumber)
-    {
-        Console.WriteLine("You guessed right!");
-    } else
-    {
-        Console.WriteLine("You guessed wrong! try again!");
-    }
-}else
-{
-    Console.WriteLine("Input is not a number!");
+    Console.WriteLine("Input is not a number please try again!");
+    isValid = false;
 }
 
-    num1++;
-Console.WriteLine("User entered number +1 is: " + num1);
+if(isValid)
+{
+    Console.WriteLine("Please enter the second number: ");
+    userInput = Console.ReadLine();
+    if(!double.TryParse(userInput, out num2))
+    {
+        Console.WriteLine("Input is not a number please try again!");
+        isValid = false;
+    }
+}
+
+
+if (isValid) 
+{
+    Console.WriteLine("Please enter the operator: ");
+    op = Console.ReadLine();
+    switch (op)
+    {
+        case "*":
+            result = num1 * num2;
+            break;
+        case "+":
+            result = num1 + num2;
+            break;
+        case "/":
+            result = num1 / num2;
+            if (num2 == 0)
+            {
+                Console.WriteLine("Error: Cannot divide by zero!");
+                isValid=false;
+            } else
+            {
+                result = num1 / num2;
+            }
+                break;
+        case "-":
+            result = num1 - num2;
+            break;
+        default:
+            Console.WriteLine("Error: Invalid operator.");
+            isValid = false;
+            break;
+    }
+
+}
+
+
+
+
+if (isValid)
+{
+    Console.WriteLine($"Result is: {result}");
+}
+
+
 
 
 
