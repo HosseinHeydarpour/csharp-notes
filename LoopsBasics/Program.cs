@@ -7,11 +7,23 @@
 
 Console.WriteLine("---- Coming from while loop ----");
 
-int counter = 0;
-while (counter<10)
+//bool isGood = true;
+
+//while (isGood)
+//{
+//    Console.WriteLine("God is Good");
+//    isGood = false;
+//}
+
+Console.WriteLine("Enter go or stay?");
+string userChoice = Console.ReadLine();
+
+while (userChoice.ToLower().Trim() =="go")
 {
-    Console.WriteLine(counter);
-    counter++; // IMPORTANT: if we do not do this we will have an infinite loop
+    Console.WriteLine("God for a mile!");
+    Console.WriteLine("Wanna keep going? enrter go!");
+    userChoice = Console.ReadLine();
 }
+Console.WriteLine("Oh! Finally!!");
 
 Console.ReadKey();
