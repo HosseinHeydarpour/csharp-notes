@@ -1,33 +1,17 @@
-﻿
-//for (int counter = 0; counter <= 10; counter++)
+﻿// The While Loop
+//Console.WriteLine("---- Coming from for loop ----");
+//for (int i = 0; i < 10; i++)
 //{
-//    Console.WriteLine("Counter is: "+counter);
+//    Console.WriteLine(i);
 //}
 
-// in Strings \ is an "Escape Character
-// \n stands for new Line
-// \r\n this will work on windows/mac/linux
-// \r carriage return
+Console.WriteLine("---- Coming from while loop ----");
 
-string rocket = "     |\r\n     |\r\n    / \\\r\n   / _ \\\r\n  |.o '.|\r\n  |'._.'|\r\n  |     |\r\n ,'|  | |`.\r\n/  |  | |  \\\r\n|,-'--|--'-.|";
-
-
-
-
-for (int counter = 10; counter >= 0; counter--)
+int counter = 0;
+while (counter<10)
 {
-    Console.Clear();
-    //Console.WriteLine(myString);
-    Console.WriteLine("Counter is: " + counter);
-    Console.WriteLine(rocket);
-    // YOU SHOULD NOT USE IN PRODUCTION AND REAL WORD APPS | WHOLE PROGRAM SLEEPS
-    rocket = "\r\n" + rocket;
-    Thread.Sleep(1000);
+    Console.WriteLine(counter);
+    counter++; // IMPORTANT: if we do not do this we will have an infinite loop
 }
-Console.WriteLine("THE ROCKET HAS LANDED!");
 
-
-
-
-// DO NOT DELETE
 Console.ReadKey();
