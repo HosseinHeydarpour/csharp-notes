@@ -9,19 +9,22 @@
 // \r\n this will work on windows/mac/linux
 // \r carriage return
 
-string myString = "Hi \r\nHi";
+string rocket = "     |\r\n     |\r\n    / \\\r\n   / _ \\\r\n  |.o '.|\r\n  |'._.'|\r\n  |     |\r\n ,'|  | |`.\r\n/  |  | |  \\\r\n|,-'--|--'-.|";
 
 
 
 
 for (int counter = 10; counter >= 0; counter--)
 {
+    Console.Clear();
     //Console.WriteLine(myString);
     Console.WriteLine("Counter is: " + counter);
-
+    Console.WriteLine(rocket);
     // YOU SHOULD NOT USE IN PRODUCTION AND REAL WORD APPS | WHOLE PROGRAM SLEEPS
+    rocket = "\r\n" + rocket;
     Thread.Sleep(1000);
 }
+Console.WriteLine("THE ROCKET HAS LANDED!");
 
 
 
