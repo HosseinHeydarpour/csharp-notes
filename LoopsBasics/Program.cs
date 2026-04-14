@@ -1,38 +1,20 @@
 ﻿
-//int counter = 15;
-
-// This will get printed 
-//int counter = 15;
-// It runs at least once even if the condition is not true | checkout the code above | do while is a post test loop
-//do
-//{
-//    Console.WriteLine(counter);
-//    counter++;
-//}
-//while (counter<10);
-
-int currentScore;
-int sum = 0;
-int counter = 0;
-
-do
+for (int i = 0; i < 4; i++)
 {
-    Console.WriteLine("Enter your students score. Enter -1 to finish!");
-    currentScore = int.Parse(Console.ReadLine());
-    if (currentScore != -1)
+    Console.WriteLine(i);
+    if(i==2)
     {
-        sum = sum + currentScore;
-        counter++;
+        //Console.WriteLine("I have had enough!");
+        // It gets out of the for loop
+        //break;
+
+        continue;
     }
-   
+    Console.WriteLine(i);
 }
-while (currentScore != -1);
-
-int average = sum / counter;
 
 
-
-Console.WriteLine($"The average is: {average}");
 
 // DO NOT DELETE
+Console.WriteLine("\n\nPress a key to close the program...");
 Console.ReadKey();
