@@ -11,16 +11,28 @@
 //}
 //while (counter<10);
 
-int number;
+int currentScore;
+int sum = 0;
+int counter = 0;
 
 do
 {
-    Console.WriteLine("Enter a positive whole number: ");
-    number = int.Parse(Console.ReadLine());
+    Console.WriteLine("Enter your students score. Enter -1 to finish!");
+    currentScore = int.Parse(Console.ReadLine());
+    if (currentScore != -1)
+    {
+        sum = sum + currentScore;
+        counter++;
+    }
+   
 }
-while (number <= 0);
-Console.WriteLine("Finally!");
+while (currentScore != -1);
 
+int average = sum / counter;
+
+
+
+Console.WriteLine($"The average is: {average}");
 
 // DO NOT DELETE
 Console.ReadKey();
