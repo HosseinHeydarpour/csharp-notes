@@ -1,29 +1,30 @@
-﻿// The While Loop
-//Console.WriteLine("---- Coming from for loop ----");
-//for (int i = 0; i < 10; i++)
-//{
-//    Console.WriteLine(i);
-//}
+﻿Console.WriteLine("Guess the number i'm thinking of between 1 and 100: ");
 
-Console.WriteLine("---- Coming from while loop ----");
+Random random = new Random();
+int secretNumber = random.Next(1, 101);
+int userGuess = 0;
+int counter = 0;
 
-//bool isGood = true;
+bool isUserRight = false;
 
-//while (isGood)
-//{
-//    Console.WriteLine("God is Good");
-//    isGood = false;
-//}
-
-Console.WriteLine("Enter go or stay?");
-string userChoice = Console.ReadLine();
-
-while (userChoice.ToLower().Trim() =="go")
+while (userGuess != secretNumber)
 {
-    Console.WriteLine("God for a mile!");
-    Console.WriteLine("Wanna keep going? enrter go!");
-    userChoice = Console.ReadLine();
+    Console.WriteLine("Enter your guess: ");
+    userGuess = int.Parse(Console.ReadLine());
+    if(userGuess < secretNumber)
+    {
+        Console.WriteLine("Too low try again!");
+        counter++;
+    } else if (userGuess>secretNumber) {
+        Console.WriteLine("Too high try again");
+        counter++;
+    } else
+    {
+        Console.WriteLine("Congrats! guess is right!");
+        Console.WriteLine($"It took you {counter} tries!");
+    }
 }
-Console.WriteLine("Oh! Finally!!");
+
+
 
 Console.ReadKey();
