@@ -1,0 +1,14 @@
+D:\backend\C#\ListsApp\ListsApp\bin\Debug\net8.0\ListsApp.exe
+D:\backend\C#\ListsApp\ListsApp\bin\Debug\net8.0\ListsApp.deps.json
+D:\backend\C#\ListsApp\ListsApp\bin\Debug\net8.0\ListsApp.runtimeconfig.json
+D:\backend\C#\ListsApp\ListsApp\bin\Debug\net8.0\ListsApp.dll
+D:\backend\C#\ListsApp\ListsApp\bin\Debug\net8.0\ListsApp.pdb
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.AssemblyInfoInputs.cache
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.AssemblyInfo.cs
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.csproj.CoreCompileInputs.cache
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.dll
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\refint\ListsApp.dll
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.pdb
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.genruntimeconfig.cache
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ref\ListsApp.dll
