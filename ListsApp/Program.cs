@@ -5,14 +5,18 @@
         static void Main(string[] args)
         {
             // Declaring a list and initializing 
-            List<string> colors = new List<string>();
+            List<string> colors = 
+            [
+               // Adding items to the list | The simpler way
+               "Red","Blue","Green","Cyan","Red"
+            ];
 
 
-
-            colors.Add("Red");
-            colors.Add("Blue");
-            colors.Add("Green");
-            colors.Add("Red");
+            // Adding items to the list | but it can be simpler
+            colors.Add("Purple");
+            //colors.Add("Blue");
+            //colors.Add("Green");
+            //colors.Add("Red");
 
             Console.WriteLine("Current colors in the colors list: ");
             foreach (string color in colors)
