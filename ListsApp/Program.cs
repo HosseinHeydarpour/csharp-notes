@@ -36,7 +36,20 @@
                 Console.WriteLine($"Product Name: {product.Name} for {product.Price} \n");
             }
 
+            // Where returns an IEnumerable --> products.Where(p => p.Price < 1.0) we have to convert it to a list
+            // This gives us a product list where the product price is less than 1 dollar
+            List<Product> cheapProducts =  products.Where(p => p.Price < 1.0).ToList();
 
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Available Products for less than 1$: \n");
+            Console.ResetColor();
+
+            // iterate through the list
+            foreach (Product product in cheapProducts)
+            {
+                Console.WriteLine($"Product Name: {product.Name} for {product.Price} \n");
+            }
 
             Console.ReadLine();
         }
