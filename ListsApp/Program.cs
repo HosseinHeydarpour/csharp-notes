@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            List<int> numbers = new List<int>() {10,5,6,12,34,12,13 };
+            List<int> numbers = new List<int>() {10,5,6,12,12,13,100 };
 
 
 
@@ -17,6 +17,14 @@
              */
 
 
+            bool hasGreaterThanTwenty = numbers.Any(x => x > 200);
+            if (hasGreaterThanTwenty) {
+                Console.WriteLine("There are large numbers in the number list");
+            } else
+            {
+                Console.WriteLine("There are no large numbers in the number list");
+            }
+            Console.WriteLine("\n===============");
 
 
 
