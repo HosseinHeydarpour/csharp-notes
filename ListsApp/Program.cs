@@ -7,6 +7,21 @@
             List<int> numbers = new List<int>() {10,5,6,12,34,12,13 };
 
 
+
+            /*
+             *  In C#, a delegate is like a pointer or a reference to a method,
+             *  It allows you to pass methods as arguments to the other methods
+             *  store them in variables, and call them later.
+             *  This is useful when you want your code to be flexible and
+             *  able to handle different behaviors that are not predetermined
+             */
+
+
+
+
+
+
+
             // Define a predicate to check if a number is greater than or equal 10
             // A Predicate is just a function that takes one value (here: an int)
             // and returns TRUE or FALSE. It's used to test/check something.
@@ -14,11 +29,19 @@
             // In this case:
             // "isGreaterThan10" will return true if x is 10 or more,
             // and false if x is less than 10.
-            Predicate<int> isGreaterThan10 = x => x >= 10;
+            // You can assign a lambda expression to the delegate or a method
+            //Predicate<int> isGreaterThan10 = x => x >= 10; // simplified method of IsGreaterThanTen
+            Predicate<int> isGreaterThan10 = IsGreaterThanTen; // This works too | also we do not call the method
+
+
 
             // This will return a list of numbers that are 10 or higher
             List<int> biggerThanEqualTen = numbers.FindAll(isGreaterThan10);
+
+
             Console.WriteLine("10 or hihger numbers");
+
+
             // All numbers ten or higher in numbers list
             DisplayList(biggerThanEqualTen);
             Console.WriteLine("===============");
@@ -59,6 +82,10 @@
         static int Squaring(int num) 
         { 
             return num*num;
+        }
+
+        public static bool IsGreaterThanTen(int num) {
+            return num > 10;
         }
 
 
