@@ -12,3 +12,4 @@ D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\refint\ListsApp.dll
 D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.pdb
 D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.genruntimeconfig.cache
 D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ref\ListsApp.dll
+D:\backend\C#\ListsApp\ListsApp\obj\Debug\net8.0\ListsApp.sourcelink.json

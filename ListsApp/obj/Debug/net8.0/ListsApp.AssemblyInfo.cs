@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ListsApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffb6ed46b0b9043e4c61f064ec606f0bca8ee992")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9c490f08b4ac28d3df9ff468f30563c2251ee0b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ListsApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ListsApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
