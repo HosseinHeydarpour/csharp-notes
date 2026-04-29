@@ -23,7 +23,63 @@
         static void Main(string[] args)
         {
             int result = 0;
-        
+
+
+            /*
+Why try/catch is preferred over if/else for error handling
+
+Example using if/else:
+
+if (File.Exists("example.txt"))
+{
+    string content = File.ReadAllText("example.txt");
+    Console.WriteLine(content);
+}
+else
+{
+    Console.WriteLine("File not found.");
+}
+
+Problem:
+Even if File.Exists("example.txt") returns true, the file could be
+deleted, moved, or become inaccessible right after the check but
+before File.ReadAllText() runs.
+
+This creates a race condition and may still throw an exception
+that the if/else block does NOT handle.
+
+Because of this, checking conditions with if/else does not guarantee
+safety when working with external resources like files, networks,
+or databases.
+
+
+Correct approach: try/catch
+
+try
+{
+    string content = File.ReadAllText("example.txt");
+    Console.WriteLine(content);
+}
+catch (FileNotFoundException)
+{
+    Console.WriteLine("File not found.");
+}
+catch (UnauthorizedAccessException)
+{
+    Console.WriteLine("No permission to access the file.");
+}
+catch (IOException ex)
+{
+    Console.WriteLine("File error: " + ex.Message);
+}
+
+Explanation:
+- try: attempt the operation that might fail
+- catch: handle the error if it occurs
+- this safely handles unexpected runtime problems
+*/
+
+
 
             try
             {
