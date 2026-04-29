@@ -5,20 +5,6 @@ namespace ListsApp
     internal class Program
     {
 
-        class Employee
-        {
-            public string Name { get; set; }
-            public int Age { get; set; }
-
-            public int Salary { get; set; }
-
-            public Employee(string name, int age, int salary) 
-            { 
-                Name = name;
-                Age = age;
-                Salary = salary;
-            }
-        }
         
 
 
@@ -26,22 +12,31 @@ namespace ListsApp
 
         {
 
-            // key - value
-            // key is unique and only exists once
-            // Key cannot be null nad also cannot be nullable type
-            // Declaring and initializing a Dictionary
-            Dictionary<int,Employee> employees = new Dictionary<int,Employee>();
-
-            employees.Add(1, new Employee("Ned Stark", 42, 100000));
-            employees.Add(2, new Employee("Rob Stark", 20, 95000));
-            employees.Add(3, new Employee("Sansa Stark", 15, 30000));
-            employees.Add(4, new Employee("Arya Stak", 8, 5000));
-            employees.Add(5, new Employee("Katlyin Stark", 35, 200000));
-
-            foreach (KeyValuePair<int,Employee> emp in employees)
+            var codes = new Dictionary<string, string> 
             {
-                Console.WriteLine($"ID: {emp.Key}, Name: {emp.Value.Name}, Age: {emp.Value.Age}, Salary: {emp.Value.Salary}$");
+                ["NY"]= "New York",
+                ["CA"]= "California",
+                ["TX"] = "Texas"
+            };
+
+
+          
+
+            //string state;
+            // you pass the key if it is there it will output value in the state
+            // TryGetValue returns a boolean
+            if (codes.TryGetValue("NY", out string state))
+            {
+                Console.WriteLine(state);
             }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            foreach (var code in codes)
+            {   
+                Console.WriteLine("----------");
+                Console.WriteLine($"{code.Value} code is: {code.Key}");
+            }
+            Console.ResetColor();
 
 
             Console.ReadLine();
