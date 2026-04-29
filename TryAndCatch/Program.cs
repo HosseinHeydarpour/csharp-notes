@@ -50,11 +50,29 @@
                 Console.ResetColor();
                 
             }
+            /*
+                The finally keyword is used in a try/catch block to ensure that
+                certain code runs no matter what, whether an error happens or not.
+                Think of it as a cleanup crew that always comes in to tidy up,
+                like closing files or releasing resources, so your program stays
+                neat and doesn't leave any loose ends.
+            */
+            finally
+            {
+                // Code to cleanup or finalize
+                // ideal for cleaning up resources
+                // like closing file streams or database connections.
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("This always executes!");
+                Console.ResetColor();
+
+            }
 
 
 
-            Console.WriteLine("Result is: "+result);
-           
+
+            Console.WriteLine("Result is: " + result);
             Console.ReadKey();
 
         }

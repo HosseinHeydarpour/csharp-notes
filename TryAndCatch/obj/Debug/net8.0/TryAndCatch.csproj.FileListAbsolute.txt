@@ -12,3 +12,4 @@ D:\backend\C#\TryAndCatch\TryAndCatch\obj\Debug\net8.0\refint\TryAndCatch.dll
 D:\backend\C#\TryAndCatch\TryAndCatch\obj\Debug\net8.0\TryAndCatch.pdb
 D:\backend\C#\TryAndCatch\TryAndCatch\obj\Debug\net8.0\TryAndCatch.genruntimeconfig.cache
 D:\backend\C#\TryAndCatch\TryAndCatch\obj\Debug\net8.0\ref\TryAndCatch.dll
+D:\backend\C#\TryAndCatch\TryAndCatch\obj\Debug\net8.0\TryAndCatch.sourcelink.json
