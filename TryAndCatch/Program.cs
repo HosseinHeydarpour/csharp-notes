@@ -24,66 +24,66 @@ namespace TryAndCatch
     {
         static void Main(string[] args)
         {
-            int result = 0;
+         
 
-            // if we run program in debug mode this will get printed in the output section
-            Debug.WriteLine("Main method is running");
+
+
+            /*
+                THE "throw" KEYWORD (C#)
+
+                Purpose:
+                The throw keyword is used to signal that an exception has occurred.
+                It allows a method to report an error so it can be handled by a
+                try/catch block.
+
+                How It Works:
+                When an exception is thrown, the normal flow of the program stops,
+                and control is transferred to the nearest enclosing try/catch block
+                that can handle that exception.
+            */
+            Console.WriteLine("Please enter your age: ");
+            GetUserAge(Console.ReadLine());
+
 
             
-
-            try
-            {
-                Console.WriteLine("Please enter a number: ");
-
-                //int num1 = 0;
-
-
-                int num1 = int.Parse(Console.ReadLine());
-
-                int num2 = 2;
-          
-
-                result = num2 / num1;
-
-               
-
-            }
-            catch (Exception ex) 
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                //Console.WriteLine(ex.ToString());
-                Console.WriteLine("Error: "+ex.Message);
-                // These next lines will only get excecuted during "Debugging"
-                //Debug.WriteLine(ex.StackTrace);
-                Debug.WriteLine(ex.ToString());
-                Console.ResetColor();
-                
-            }
-            /*
-                The finally keyword is used in a try/catch block to ensure that
-                certain code runs no matter what, whether an error happens or not.
-                Think of it as a cleanup crew that always comes in to tidy up,
-                like closing files or releasing resources, so your program stays
-                neat and doesn't leave any loose ends.
-            */
-            finally
-            {
-                // Code to cleanup or finalize
-                // ideal for cleaning up resources
-                // like closing file streams or database connections.
-
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("This always executes!");
-                Console.ResetColor();
-
-            }
-
-
-
-
-            Console.WriteLine("Result is: " + result);
             Console.ReadKey();
 
         }
+
+        // What Does throw Do?
+        // The throw keyword in C# is used to indicate that a problem
+        // has occurred in your program
+        // When you use throw, you're essentially saying,
+        // "Hey, something went wrong here, and I can't handle it by myself." 
+        // You're creating an error on purpose, which is called an exception.
+
+        // Why use throw?
+        /*
+         * 1. To Stop Bad Things from Happening: If something in your program 
+         * isn't right, like if a necessary file is missing or a number
+         * that should never be zero is zero, using throw stops the program
+         * before any more damage can happen.
+         * 
+         * 2. To Tell Other Parts of Your Program about the Problem: 
+         * Sometimes, one part of your program might not know 
+         * how to fix a problem, but another part does. By using throw,
+         * the first part can let the second part handle the issue.
+         * 
+         */
+
+        static int GetUserAge(string input)
+        {
+            int age;
+            if (!int.TryParse(input, out age)) 
+            {
+                throw new Exception("The age is not in valid format");
+            }
+            if(age < 0 || age > 120)
+            {
+                throw new Exception("The age must be between 0 and 120");
+            }
+            return age;
+        }
+
     }
 }
