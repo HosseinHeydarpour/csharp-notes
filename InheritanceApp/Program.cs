@@ -13,6 +13,10 @@ namespace InheritanceApp
             Manager carl = new Manager("Carl",45,"Manager",231564,50);
             carl.DisplayManagerInfo();
 
+            // This tostring method comes from Object not the carl object which is a Manager instance
+            // every single class in C# iherits from Object class
+            Console.WriteLine(carl.ToString());
+
 
             Console.ReadKey();
         }
