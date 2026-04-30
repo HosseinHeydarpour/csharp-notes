@@ -50,18 +50,23 @@ namespace TryAndCatch
                 Console.WriteLine($"Entery must be a number!\n" + ex.Message);
                 Console.ResetColor();
             }
-            catch(OverflowException ex)
+            //catch(OverflowException ex)
+            //{
+            //    Console.ForegroundColor = ConsoleColor.Red;
+            //    Console.WriteLine($"Number is too big!\n" + ex.Message);
+            //    Console.ResetColor();
+            //}
+
+            // If we comment the default catch block if an exception happens and we do not catch it the app will crash
+            // This is the parent exception to all other exceptions
+            catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Number is too big!\n" + ex.Message);
-                Console.ResetColor();
-            }
-            catch (Exception ex) {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Error: {ex.ToString()}");
                 Console.ResetColor();
-            
-            } finally
+
+            }
+            finally
             {
                 Console.WriteLine("This always executes!");
             }
