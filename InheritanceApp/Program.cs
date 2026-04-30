@@ -115,6 +115,7 @@ namespace InheritanceApp
 
         public virtual void MakeSound()
         {
+       
             Console.WriteLine("Animal is making sound... ");
         }
     }
@@ -123,6 +124,10 @@ namespace InheritanceApp
     {
         public override void MakeSound()
         {
+            // access what this method in base class do PLUS
+            // what we want to add to this method
+
+            base.MakeSound();
             Console.WriteLine("Barking...");
         }
 
