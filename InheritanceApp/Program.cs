@@ -7,9 +7,11 @@ namespace InheritanceApp
 
         static void Main(string[] args)
         {
-            Employee joe = new Employee("Joe", 23, "Sales Rep", 23456);
-            joe.DisplayEmployeeInfo();
+            // Employee joe = new Employee("Joe", 23, "Sales Rep", 23456);
+            // joe.DisplayEmployeeInfo();
 
+            Manager carl = new Manager("Carl",45,"Manager",231564,50);
+            carl.DisplayManagerInfo();
 
 
             Console.ReadKey();
@@ -17,69 +19,63 @@ namespace InheritanceApp
     }
 
     // --------------------------------------------
-    // Constructors
+    // Things to Remember - Constructor Chaining
     // --------------------------------------------
     //
-    // Constructors are special methods in a class 
-    // that are called when an instance of the class 
-    // is created.
+    // Constructor chaining ensures proper setup
+    // when working with inheritance.
     //
-    // In the context of inheritance,
-    // constructors of the base class are called 
-    // before the constructors of the derived class.
+    // When creating an object from a derived class,
+    // its constructor should call the base class
+    // constructor.
     //
-    // This ensures that the base class is properly 
-    // initialized before any additional initialization 
-    // in the derived class takes place.
-    //
-
-    // --------------------------------------------
-    // Constructors - Proper Initialization
-    // --------------------------------------------
-    //
-    // Proper initialization ensures that all fields
-    // and properties of the base class are correctly
-    // set up before any operations of the derived
-    // class can take place.
-    //
-    // This means that when creating an object of a
-    // derived class, the constructor of the base
-    // class runs first to initialize its members.
+    // This guarantees that the base class is
+    // properly initialized before the derived
+    // class performs its own initialization.
     //
     // --------------------------------------------
 
     // --------------------------------------------
-    // Constructors - Consistent State
+    // Things to Remember - Order of Execution
     // --------------------------------------------
     //
-    // Constructors help maintain a consistent and
-    // valid state across the object hierarchy.
+    // Order of Execution: Base Class First
     //
-    // This ensures that both the base class and
-    // the derived class remain in a valid state
-    // throughout the object's lifetime.
+    // The base class constructor runs before the
+    // derived class constructor.
     //
-    // By running the base class constructor first,
-    // any dependencies or required initial states
-    // are properly established.
+    // This guarantees that all necessary
+    // initializations in the base class are
+    // completed before any setup in the derived
+    // class begins.
+    //
+    // --------------------------------------------
+
+
+    // --------------------------------------------
+    // Custom Initialization - Adding Unique Setup
+    // --------------------------------------------
+    //
+    // Derived classes can include their own
+    // initialization code in addition to what
+    // the base class provides.
+    //
+    // This allows derived classes to extend
+    // functionality while still reusing the
+    // common setup code from the base class.
     //
     // --------------------------------------------
 
     // --------------------------------------------
-    // Constructors - Reuse of Initialization Code
+    // Flexibility and Reuse - Promotes Clean Code
     // --------------------------------------------
     //
-    // Constructors help avoid duplication of
-    // initialization code by reusing the base
-    // class constructor.
+    // Using constructor inheritance increases
+    // flexibility and code reuse.
     //
-    // Common setup tasks needed by both the
-    // base class and the derived class are
-    // handled once in the base class constructor.
-    //
-    // The derived class does not need to repeat
-    // this setup, which keeps the code cleaner
-    // and reduces the chance of errors.
+    // It helps build complex class hierarchies
+    // while keeping the code clean and
+    // maintainable.
     //
     // --------------------------------------------
 
@@ -89,6 +85,8 @@ namespace InheritanceApp
         // Properties
         public string Name { get; private set; }
         public int Age { get; private set; }
+
+
 
         // Base class constructor
         public Person(string name, int age) 
@@ -127,8 +125,28 @@ namespace InheritanceApp
         public void DisplayEmployeeInfo()
         {
             DisplayPersonInfo(); // call this method from the base class
-            Console.WriteLine($"Jon Title: {JobTitle}, EmployeeID: {EmployeeID}");
+            Console.WriteLine($"Job Title: {JobTitle}, EmployeeID: {EmployeeID}");
         }
     }
-   
+
+
+
+    public class Manager : Employee
+    {
+
+        public int TeamSize { get; private set; }
+
+        public Manager(string name, int age, string jobTitle, int employeeID, int teamSize) : base(name, age, jobTitle, employeeID)
+        {
+            TeamSize = teamSize;
+        }
+
+        public void DisplayManagerInfo()
+        {
+          
+            DisplayEmployeeInfo();   // call this method from the base class
+            Console.WriteLine($"Team Size: {TeamSize}");
+        }
+    }
+
 }
