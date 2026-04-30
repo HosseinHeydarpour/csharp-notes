@@ -91,14 +91,14 @@ namespace InheritanceApp
         static void Main(string[] args)
         {
 
-            BaseClass baseClass = new BaseClass();
 
-            baseClass.ShowFields();
+            Dog myDog = new Dog();
+            myDog.MakeSound();
+
+
+            Cat myCat = new Cat();
+            myCat.MakeSound();
            
-
-            DerivedClass derivedClass = new DerivedClass();
-            derivedClass.AccessFields();
-            derivedClass.ShowFields();
 
 
             Console.ReadKey();
@@ -106,30 +106,35 @@ namespace InheritanceApp
     }
 
 
-    class BaseClass 
+    class Animal 
     {
-        // access modifiers
-        public int publicField;
-        protected int protectedField;
-        private int privateField;
-
-        // This method is exposing the value of the private value, but we cannot access it
-        public void ShowFields()
+       public void Eat()
         {
-            Console.WriteLine($"Public: {publicField}," +
-                $" Protected: {protectedField}," +
-                $" Private: {privateField}");
+            Console.WriteLine("Eating...");
+        }
+
+        public virtual void MakeSound()
+        {
+            Console.WriteLine("Animal is making sound... ");
         }
     }
 
-    class DerivedClass : BaseClass
+    class Dog : Animal
     {
-        public void AccessFields() 
+        public override void MakeSound()
         {
-            publicField = 1;
-            protectedField = 2;
-            // privateField = 3; we cannot do this because this is private in the base class
+            Console.WriteLine("Barking...");
         }
+
+     
     }
 
+
+    class Cat: Animal
+    {
+        public override void MakeSound()
+        {
+            Console.WriteLine("Meowing... ");
+        }
+    }
 }
