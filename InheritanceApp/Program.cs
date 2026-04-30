@@ -90,15 +90,9 @@ namespace InheritanceApp
 
         static void Main(string[] args)
         {
+            Employee joe = new Employee("Joe", 23);
+            joe.DisplayPersonInfo();
 
-
-            Dog myDog = new Dog();
-            myDog.MakeSound();
-
-
-            Cat myCat = new Cat();
-            myCat.MakeSound();
-           
 
 
             Console.ReadKey();
@@ -106,40 +100,40 @@ namespace InheritanceApp
     }
 
 
-    class Animal 
+
+    // Base Class
+    public class Person
     {
-       public void Eat()
+        // Properties
+        public string Name { get; private set; }
+        public int Age { get; private set; }
+
+        // Base class constructor
+        public Person(string name, int age) 
         {
-            Console.WriteLine("Eating...");
+            Name = name;
+            Age = age;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("Person constructor called... ");
+            Console.ResetColor();
         }
 
-        public virtual void MakeSound()
+        public void DisplayPersonInfo()
         {
-       
-            Console.WriteLine("Animal is making sound... ");
+            Console.WriteLine($"Name: {Name}, Age: {Age}");
+
         }
     }
 
-    class Dog : Animal
+
+    public class Employee: Person
     {
-        public override void MakeSound()
+        public Employee(string name, int age) : base(name,age)
         {
-            // access what this method in base class do PLUS
-            // what we want to add to this method
-
-            base.MakeSound();
-            Console.WriteLine("Barking...");
-        }
-
-     
-    }
-
-
-    class Cat: Animal
-    {
-        public override void MakeSound()
-        {
-            Console.WriteLine("Meowing... ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Employee(Derived class) Constructor called!");
+            Console.ResetColor();
         }
     }
+   
 }
