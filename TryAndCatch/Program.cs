@@ -24,58 +24,37 @@ namespace TryAndCatch
     {
         static void Main(string[] args)
         {
-            
-            int result = 0;
 
-            Debug.WriteLine("Main method is running!");
-
+            Console.WriteLine("App running before the try block!");
 
             try
             {
-                Console.WriteLine("Please enter two numbers to divide: ");
-                int num1 = int.Parse(Console.ReadLine());
-                int num2 = int.Parse(Console.ReadLine());
-
-                result = num1 / num2;
+                LevelOne();
             }
-            catch (DivideByZeroException ex)
+            catch (Exception ex) 
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Do not divide by zero!\n"+ex.Message);
+                Console.WriteLine("Execption caught in Main: "+ex.Message);
                 Console.ResetColor();
             }
-            catch(FormatException ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Entery must be a number!\n" + ex.Message);
-                Console.ResetColor();
-            }
-            //catch(OverflowException ex)
-            //{
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine($"Number is too big!\n" + ex.Message);
-            //    Console.ResetColor();
-            //}
 
-            // If we comment the default catch block if an exception happens and we do not catch it the app will crash
-            // This is the parent exception to all other exceptions
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Error: {ex.ToString()}");
-                Console.ResetColor();
-
-            }
-            finally
-            {
-                Console.WriteLine("This always executes!");
-            }
-
-
-
-            Console.WriteLine(result);
+            Console.WriteLine("App is still running!");
             Console.ReadKey();
 
+        }
+
+
+        static void LevelOne()
+        {
+            LevelTwo();
+        }
+
+
+        static void LevelTwo()
+        {
+            Console.WriteLine("Level 2 before the throw!");
+            throw new Exception("Oops! something went wrong!");
+            Console.WriteLine("Level 2 after the throw!"); // this will not get exceuted because it is after throw line
         }
 
 
