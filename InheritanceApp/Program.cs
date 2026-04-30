@@ -17,71 +17,16 @@ namespace InheritanceApp
             // every single class in C# iherits from Object class
             Console.WriteLine(carl.ToString());
 
+            carl.BecomeOlder(5);
+
+            carl.DisplayPersonInfo();
+
 
             Console.ReadKey();
         }
     }
 
-    // --------------------------------------------
-    // Things to Remember - Constructor Chaining
-    // --------------------------------------------
-    //
-    // Constructor chaining ensures proper setup
-    // when working with inheritance.
-    //
-    // When creating an object from a derived class,
-    // its constructor should call the base class
-    // constructor.
-    //
-    // This guarantees that the base class is
-    // properly initialized before the derived
-    // class performs its own initialization.
-    //
-    // --------------------------------------------
-
-    // --------------------------------------------
-    // Things to Remember - Order of Execution
-    // --------------------------------------------
-    //
-    // Order of Execution: Base Class First
-    //
-    // The base class constructor runs before the
-    // derived class constructor.
-    //
-    // This guarantees that all necessary
-    // initializations in the base class are
-    // completed before any setup in the derived
-    // class begins.
-    //
-    // --------------------------------------------
-
-
-    // --------------------------------------------
-    // Custom Initialization - Adding Unique Setup
-    // --------------------------------------------
-    //
-    // Derived classes can include their own
-    // initialization code in addition to what
-    // the base class provides.
-    //
-    // This allows derived classes to extend
-    // functionality while still reusing the
-    // common setup code from the base class.
-    //
-    // --------------------------------------------
-
-    // --------------------------------------------
-    // Flexibility and Reuse - Promotes Clean Code
-    // --------------------------------------------
-    //
-    // Using constructor inheritance increases
-    // flexibility and code reuse.
-    //
-    // It helps build complex class hierarchies
-    // while keeping the code clean and
-    // maintainable.
-    //
-    // --------------------------------------------
+    
 
     // Base Class
     public class Person
@@ -106,6 +51,18 @@ namespace InheritanceApp
         {
             Console.WriteLine($"Name: {Name}, Age: {Age}");
 
+        }
+
+        // XML comments
+        /// <summary>
+        /// Makes our object(Person) older 
+        /// </summary>
+        /// <param name="years">The parameter which indicates the amount of years the object should age</param>
+        /// <returns>Returns the new age after aging / becoming older</returns>
+        public int BecomeOlder(int years)
+        {
+            Age = years + Age;
+            return Age;
         }
     }
 
