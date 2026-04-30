@@ -5,93 +5,10 @@ namespace InheritanceApp
     internal class Program
     {
 
-        /*
-        ===========================
-        1. PUBLIC
-        ===========================
-        public int publicField;
-        
-        - Accessible from ANYWHERE in the program.
-        - Other classes, other files, even other projects (if referenced).
-        - Most permissive access level.
-        */
-
-
-
-        /*
-        ===========================
-        2. PROTECTED
-        ===========================
-        protected int protectedField;
-
-        - Accessible ONLY inside:
-            • The class where it is declared
-            • Any class that INHERITS from it (subclasses)
-        - Not accessible from outside unless through inheritance.
-        */
-
-
-
-        /*
-        ===========================
-        3. PRIVATE
-        ===========================
-        private int privateField;
-
-        - Accessible ONLY inside the SAME class.
-        - Not accessible from subclasses.
-        - Most restrictive access level.
-        */
-
-
-
-        /*
-        ================================
-        4. INTERNAL
-        ===========================
-        internal int internalField;
-
-        - Accessible anywhere WITHIN THE SAME PROJECT (same assembly).
-        - NOT accessible from other projects unless 'InternalsVisibleTo' is used.
-        */
-
-
-
-        /*
-        ========================================
-        5. PROTECTED INTERNAL
-        ========================================
-        protected internal int value;
-
-        - Accessible in:
-            • The same project (like internal)
-            • Any derived class, even if the subclass is in another project
-        - Combination of protected + internal rules.
-        */
-
-
-
-        /*
-        ========================================
-        6. PRIVATE PROTECTED
-        ========================================
-        private protected int value;
-
-        - Accessible ONLY in:
-            • The class itself
-            • Derived classes that are in the SAME PROJECT
-
-        - More restrictive version of protected internal.
-        */
-
-        // class DerivedClass : BaseClass1, BaseClass2 { }  // Not allowed
-
-
-
         static void Main(string[] args)
         {
-            Employee joe = new Employee("Joe", 23);
-            joe.DisplayPersonInfo();
+            Employee joe = new Employee("Joe", 23, "Sales Rep", 23456);
+            joe.DisplayEmployeeInfo();
 
 
 
@@ -99,7 +16,72 @@ namespace InheritanceApp
         }
     }
 
+    // --------------------------------------------
+    // Constructors
+    // --------------------------------------------
+    //
+    // Constructors are special methods in a class 
+    // that are called when an instance of the class 
+    // is created.
+    //
+    // In the context of inheritance,
+    // constructors of the base class are called 
+    // before the constructors of the derived class.
+    //
+    // This ensures that the base class is properly 
+    // initialized before any additional initialization 
+    // in the derived class takes place.
+    //
 
+    // --------------------------------------------
+    // Constructors - Proper Initialization
+    // --------------------------------------------
+    //
+    // Proper initialization ensures that all fields
+    // and properties of the base class are correctly
+    // set up before any operations of the derived
+    // class can take place.
+    //
+    // This means that when creating an object of a
+    // derived class, the constructor of the base
+    // class runs first to initialize its members.
+    //
+    // --------------------------------------------
+
+    // --------------------------------------------
+    // Constructors - Consistent State
+    // --------------------------------------------
+    //
+    // Constructors help maintain a consistent and
+    // valid state across the object hierarchy.
+    //
+    // This ensures that both the base class and
+    // the derived class remain in a valid state
+    // throughout the object's lifetime.
+    //
+    // By running the base class constructor first,
+    // any dependencies or required initial states
+    // are properly established.
+    //
+    // --------------------------------------------
+
+    // --------------------------------------------
+    // Constructors - Reuse of Initialization Code
+    // --------------------------------------------
+    //
+    // Constructors help avoid duplication of
+    // initialization code by reusing the base
+    // class constructor.
+    //
+    // Common setup tasks needed by both the
+    // base class and the derived class are
+    // handled once in the base class constructor.
+    //
+    // The derived class does not need to repeat
+    // this setup, which keeps the code cleaner
+    // and reduces the chance of errors.
+    //
+    // --------------------------------------------
 
     // Base Class
     public class Person
@@ -128,11 +110,24 @@ namespace InheritanceApp
 
     public class Employee: Person
     {
-        public Employee(string name, int age) : base(name,age)
+        public string JobTitle { get; private set; }
+        public int EmployeeID { get; private set; }
+
+
+        public Employee(string name, int age, string jobTitle, int employeeID) : base(name, age) // calling the base class constructor
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Employee(Derived class) Constructor called!");
             Console.ResetColor();
+            JobTitle = jobTitle;
+            EmployeeID = employeeID;
+        }
+
+
+        public void DisplayEmployeeInfo()
+        {
+            DisplayPersonInfo(); // call this method from the base class
+            Console.WriteLine($"Jon Title: {JobTitle}, EmployeeID: {EmployeeID}");
         }
     }
    
