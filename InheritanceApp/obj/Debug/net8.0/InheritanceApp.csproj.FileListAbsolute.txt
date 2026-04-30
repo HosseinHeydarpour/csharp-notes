@@ -1,0 +1,14 @@
+D:\backend\C#\InheritanceApp\InheritanceApp\bin\Debug\net8.0\InheritanceApp.exe
+D:\backend\C#\InheritanceApp\InheritanceApp\bin\Debug\net8.0\InheritanceApp.deps.json
+D:\backend\C#\InheritanceApp\InheritanceApp\bin\Debug\net8.0\InheritanceApp.runtimeconfig.json
+D:\backend\C#\InheritanceApp\InheritanceApp\bin\Debug\net8.0\InheritanceApp.dll
+D:\backend\C#\InheritanceApp\InheritanceApp\bin\Debug\net8.0\InheritanceApp.pdb
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.AssemblyInfoInputs.cache
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.AssemblyInfo.cs
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.csproj.CoreCompileInputs.cache
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.dll
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\refint\InheritanceApp.dll
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.pdb
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.genruntimeconfig.cache
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\ref\InheritanceApp.dll
