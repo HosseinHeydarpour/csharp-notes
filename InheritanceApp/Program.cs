@@ -4,82 +4,101 @@ namespace InheritanceApp
 {
     internal class Program
     {
+
         /*
-            TYPES OF INHERITANCE IN C# (WITH EXAMPLES)
-
-            Note:
-                C# supports several forms of inheritance, but *does NOT* allow
-                multiple inheritance of classes directly. However, multiple
-                inheritance is possible through interfaces.
-
-        ========================
-         1. SINGLE INHERITANCE
-        ========================
-                Single inheritance means a class inherits from ONE base class.
-                The derived class gets access to the public and protected members
-                (methods, properties, etc.) of the base class.
-
-        ========================
-        2. MULTILEVEL INHERITANCE
-        ========================
-                Multilevel inheritance happens when a class is derived from another
-                derived class, forming a chain of inheritance.
+        ===========================
+        1. PUBLIC
+        ===========================
+        public int publicField;
         
-                Example chain:
-                BaseClass → DerivedClass → FurtherDerivedClass
-
-                The last class inherits features from BOTH previous classes.
-
-            ========================
-            3. HIERARCHICAL INHERITANCE
-            ========================
-            Hierarchical inheritance means MULTIPLE classes inherit
-            from the SAME base class.
-            
-            Example:
-            BaseClass
-               |---- DerivedClassA
-               |---- DerivedClassB
-            
-            Both derived classes share the same base functionality.
+        - Accessible from ANYWHERE in the program.
+        - Other classes, other files, even other projects (if referenced).
+        - Most permissive access level.
+        */
 
 
 
-        ========================
-        4. MULTIPLE INHERITANCE
-        ========================
-        Multiple inheritance means a class inherits from MORE THAN ONE
-        base class.
-        
-        C# DOES NOT allow multiple inheritance with classes because it can
-        create ambiguity problems (for example if both base classes have
-        the same method).
-        
-        Example below would cause a compile error in C#.
+        /*
+        ===========================
+        2. PROTECTED
+        ===========================
+        protected int protectedField;
+
+        - Accessible ONLY inside:
+            • The class where it is declared
+            • Any class that INHERITS from it (subclasses)
+        - Not accessible from outside unless through inheritance.
+        */
 
 
-        ========================
-        MULTIPLE INHERITANCE USING INTERFACES
-        ========================
-        Although C# does not support multiple inheritance with classes,
-        it allows a class to implement multiple interfaces.
-        
-        Interfaces only contain method declarations, so there is no conflict.
-*/
 
-// class DerivedClass : BaseClass1, BaseClass2 { }  // Not allowed
-            
-      
+        /*
+        ===========================
+        3. PRIVATE
+        ===========================
+        private int privateField;
+
+        - Accessible ONLY inside the SAME class.
+        - Not accessible from subclasses.
+        - Most restrictive access level.
+        */
+
+
+
+        /*
+        ================================
+        4. INTERNAL
+        ===========================
+        internal int internalField;
+
+        - Accessible anywhere WITHIN THE SAME PROJECT (same assembly).
+        - NOT accessible from other projects unless 'InternalsVisibleTo' is used.
+        */
+
+
+
+        /*
+        ========================================
+        5. PROTECTED INTERNAL
+        ========================================
+        protected internal int value;
+
+        - Accessible in:
+            • The same project (like internal)
+            • Any derived class, even if the subclass is in another project
+        - Combination of protected + internal rules.
+        */
+
+
+
+        /*
+        ========================================
+        6. PRIVATE PROTECTED
+        ========================================
+        private protected int value;
+
+        - Accessible ONLY in:
+            • The class itself
+            • Derived classes that are in the SAME PROJECT
+
+        - More restrictive version of protected internal.
+        */
+
+        // class DerivedClass : BaseClass1, BaseClass2 { }  // Not allowed
+
+
 
         static void Main(string[] args)
         {
 
-            Dog myDog = new Dog();
+            BaseClass baseClass = new BaseClass();
 
-            // This Eat method comes from the Animal class
-            myDog.Eat();
-            // This method comes from the Dog class 
-            myDog.Bark();
+            baseClass.ShowFields();
+           
+
+            DerivedClass derivedClass = new DerivedClass();
+            derivedClass.AccessFields();
+            derivedClass.ShowFields();
 
 
             Console.ReadKey();
@@ -87,56 +106,30 @@ namespace InheritanceApp
     }
 
 
-    // Base Class (Parent Class - Super Class)
-    class Animal
+    class BaseClass 
     {
-        public void Eat()
+        // access modifiers
+        public int publicField;
+        protected int protectedField;
+        private int privateField;
+
+        // This method is exposing the value of the private value, but we cannot access it
+        public void ShowFields()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Eating...");
-            Console.ResetColor();
+            Console.WriteLine($"Public: {publicField}," +
+                $" Protected: {protectedField}," +
+                $" Private: {privateField}");
         }
     }
 
-
-    class Dog : Animal
+    class DerivedClass : BaseClass
     {
-
-        public void Bark()
+        public void AccessFields() 
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("WOOF! WOOF!");
-            Console.ResetColor();
-        }
-
-    }
-
-    // This is HIERARCHICAL INHERITANCE | one base class and multiple deriving classes
-    class Cat : Animal { 
-    
-        public void Meow()
-        {
-            Console.WriteLine("Cat is MEOWING");
-        }
-    
-    }
-
-
-
-
-
-
-
-
-    // a breed of Dog | this is a multi level inheritance
-    class Collie : Dog
-    {
-        public void GoingNuts()
-        {
-            Console.WriteLine("I AM GOING nUTS");
+            publicField = 1;
+            protectedField = 2;
+            // privateField = 3; we cannot do this because this is private in the base class
         }
     }
-
-
 
 }

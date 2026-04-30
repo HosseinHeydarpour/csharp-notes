@@ -12,3 +12,4 @@ D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\refint\InheritanceA
 D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.pdb
 D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.genruntimeconfig.cache
 D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\ref\InheritanceApp.dll
+D:\backend\C#\InheritanceApp\InheritanceApp\obj\Debug\net8.0\InheritanceApp.sourcelink.json
