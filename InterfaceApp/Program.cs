@@ -63,10 +63,32 @@
 
         }
 
+        public class Dog : IAnimal
+        {
+            public void Eat(string food)
+            {
+                Console.WriteLine("Dog ate "+food);
+            }
+
+            public void MakeSound()
+            {
+                Console.WriteLine("Bark");
+            }
+        }
+
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Dog dog = new Dog();
+
+            dog.Eat("Treat");
+
+
+            Console.ReadKey();
         }
+
+
+      
+
     }
 }

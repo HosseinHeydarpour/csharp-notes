@@ -1,0 +1,15 @@
+D:\backend\C#\InterfaceApp\InterfaceApp\bin\Debug\net8.0\InterfaceApp.exe
+D:\backend\C#\InterfaceApp\InterfaceApp\bin\Debug\net8.0\InterfaceApp.deps.json
+D:\backend\C#\InterfaceApp\InterfaceApp\bin\Debug\net8.0\InterfaceApp.runtimeconfig.json
+D:\backend\C#\InterfaceApp\InterfaceApp\bin\Debug\net8.0\InterfaceApp.dll
+D:\backend\C#\InterfaceApp\InterfaceApp\bin\Debug\net8.0\InterfaceApp.pdb
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\InterfaceApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\InterfaceApp.AssemblyInfoInputs.cache
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\InterfaceApp.AssemblyInfo.cs
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\InterfaceApp.csproj.CoreCompileInputs.cache
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\InterfaceApp.sourcelink.json
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\InterfaceApp.dll
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\refint\InterfaceApp.dll
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\InterfaceApp.pdb
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\InterfaceApp.genruntimeconfig.cache
+D:\backend\C#\InterfaceApp\InterfaceApp\obj\Debug\net8.0\ref\InterfaceApp.dll
