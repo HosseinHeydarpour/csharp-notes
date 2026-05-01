@@ -56,22 +56,37 @@
           without participating in class-based inheritance hierarchies.
     */
 
+    
+
+
     public struct Point
     {
+        /*
+            * It's a common practice to make struts immutable
+            * by declaring all fields as readonly and providing only
+            * get accessors for properties.
+             * 
+         */
         // Structs can have props
-        //public int X { get; set; }
-        //public int Y { get; set; }
+        public double X { get;  }
+        public double Y { get;  }
 
-        public int X;
-        public int Y;
-
+        
         // Structs can have constructors
         // This is a custom cnstructor
-        public Point(int x, int y)
+        public Point(double x, double y)
         {
             X = x;
             Y = y;
         }
+
+        public double DistanceTo(Point other)
+        {
+            double dx = X - other.X;
+            double dy = Y - other.Y;
+            return Math.Sqrt(dx * dx + dy * dy);
+        }
+
 
         public void Display()
         {
@@ -87,23 +102,17 @@
 
         static void Main(string[] args)
         {
-            Point p1 = new Point(10,20);
-
+            Point p1 = new Point(10, 20);
             p1.Display();
 
-
-            // structs allow us to create a new instance without using new keyword
-            // pay attention that this is allowed only when there are fields in the struct not props
-            Point p2;
-            p2.X = 10;
-            p2.Y = 20;
+            Point p2 = new Point(20,30);
             p2.Display();
 
-            // struct is a value reference
-            Point p3 = p1;
-            p3.X = 50;
-            p1.Display();
-            p3.Display();
+
+            double distance = p1.DistanceTo(p2);
+            // This F2 = Floating 2 returns 2 points after the decimal point
+            Console.WriteLine($"Distance between points: {distance:F2}");
+            
 
             Console.ReadLine();
         }

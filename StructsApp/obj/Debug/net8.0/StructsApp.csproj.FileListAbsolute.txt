@@ -12,3 +12,4 @@ D:\backend\C#\StructsApp\StructsApp\obj\Debug\net8.0\refint\StructsApp.dll
 D:\backend\C#\StructsApp\StructsApp\obj\Debug\net8.0\StructsApp.pdb
 D:\backend\C#\StructsApp\StructsApp\obj\Debug\net8.0\StructsApp.genruntimeconfig.cache
 D:\backend\C#\StructsApp\StructsApp\obj\Debug\net8.0\ref\StructsApp.dll
+D:\backend\C#\StructsApp\StructsApp\obj\Debug\net8.0\StructsApp.sourcelink.json
