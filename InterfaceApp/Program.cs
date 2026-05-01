@@ -2,58 +2,61 @@
 {
     internal class Program
     {
-        // What is an Interface?
+        // What is Polymorphism?
         //
-        // An interface in C# is like a blueprint that defines methods and 
-        // properties a class must have, but it doesn't provide the actual 
-        // code for them. 
-        //
-        // It's used to ensure different classes follow the same rules.
+        // Polymorphism, derived from Greek meaning "many shapes," refers to 
+        // the ability in programming where a single interface or method can 
+        // operate in multiple ways based on the object it interacts with.
 
-        // Why use an Interface?
+        // What is Polymorphism?
         //
-        // 1. Abstraction:
+        // • One "play" button can operate a TV, DVD player, or stereo differently.
         //
-        // Defines what methods a class should implement without specifying how.
+        // • The same method works uniquely depending on the object it controls.
+
+        // What is Polymorphism?
         //
-        // Interfaces tell classes what they need to do, but not how to do it.
+        // One Interface, Many Implementations:
+        //
+        // A single function or method can handle objects of various types.
+        // The implementation depends on the specific object being referenced.
 
 
-        // Why use an Interface?
+        // What is Polymorphism?
         //
-        // 2. Polymorphism:
+        // Different animals make different sounds.
         //
-        // Allows different classes to be treated as instances of the interface type.
-        //
-        // Interfaces let different classes be used in the same way.
+        // The MakeSound method will produce the appropriate sound 
+        // for any given animal.
 
-        // Why use an Interface?
+        // Why Polymorphism?
         //
-        // 3. Decoupling:
+        // Flexibility:
         //
-        // Reduces dependencies between classes, making the code more modular 
-        // and easier to maintain.
+        // • Write adaptable and reusable code.
         //
-        // Interfaces help keep classes separate so the code is easier to 
-        // manage and update.
+        // • Methods can work with different object types 
+        //   without knowing the specific types in advance.
 
-        // Why use an Interface?
-        //
-        // 4. Reusability:
-        //
-        // Ensures that different classes can use common methods, 
-        // enhancing code reusability.
-        //
-        // Interfaces make it easy to reuse code across different classes.
 
-        // Why use an Interface?
+        // Why Polymorphism?
         //
-        // 5. Testability:
+        // Code Maintenance:
         //
-        // Facilitates unit testing by allowing mock implementations of interfaces.
+        // • Simplifies maintenance and extension.
         //
-        // Interfaces make testing easier by allowing fake versions of classes 
-        // for testing purposes.
+        // • New object types can be added easily 
+        //   if they conform to the expected interface or base class.
+
+        // Why Polymorphism?
+        //
+        // Simplifies Code:
+        //
+        // • Enables treating different objects uniformly.
+        //
+        // • Reduces complexity by handling diverse objects 
+        //   through a common interface.
+
 
         // I in the IAnimal indicates that this is an interface
         public interface IAnimal
