@@ -58,53 +58,52 @@
         //   through a common interface.
 
 
-        // I in the IAnimal indicates that this is an interface
-        public interface IAnimal
+        
+
+        public class Animal
         {
-            void MakeSound();
-            void Eat(string food);
+            // With virtual keyword we are allowed to override this method 
+            public virtual void MakeSound()
+            {
+                Console.WriteLine("Some generic animal sound... ");
+            }
+        }
+
+        public class Dog : Animal
+        {
+            public override void MakeSound() 
+            {
+                Console.WriteLine("WOOOOF! WOOOOF!");
+            } 
+        }
+
+
+        public class Cat : Animal 
+        {
+            public override void MakeSound()
+            {
+                Console.WriteLine("Meow Meow");
+            }
 
         }
 
 
-
-        public class Dog : IAnimal
-        {
-            public void Eat(string food)
-            {
-                Console.WriteLine("Dog ate "+food);
-            }
-
-            public void MakeSound()
-            {
-                Console.WriteLine("Bark");
-            }
-        }
-
-        public class Cat : IAnimal
-        {
-            public void Eat(string food)
-            {
-                Console.WriteLine("Cat ate " + food);
-            }
-
-            public void MakeSound()
-            {
-                Console.WriteLine("Meow...");
-            }
-        }
 
 
         static void Main(string[] args)
         {
-            Dog dog = new Dog();
-            dog.MakeSound();
-            dog.Eat("Treat");
+            // Part two of the ploymorphism
+            // This is possible to store a Dog object in Animal object because Dog is inheritinng from Animal
+            Animal myDog = new Dog();
+            myDog.MakeSound();
+             
+            // But this is not possible
+            //Dog my2ndDog = new Animal();
 
-            Cat cat = new Cat();
-            cat.MakeSound();
-            cat.Eat("Fish");
 
+
+
+          
             Console.ReadKey();
         }
 
