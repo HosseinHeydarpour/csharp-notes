@@ -200,25 +200,38 @@ namespace InterfaceApp
         // Dependency here is that the Builder here depends on the hammer and the saw
         public class Builder
         {
+
+            // Setter dependency injection
+            public Hammer Hammer { get; set; }
+            public Saw Saw { get; set; }
+
+
             private Hammer _hammer;
             private Saw _saw;
 
             // Construnctor Dependency Injection (DI)
-            public Builder(Hammer hammmer, Saw saw)
-            {
+            //public Builder(Hammer hammmer, Saw saw)
+            //public Builder()
+            //{
 
                 //_hammer = new Hammer(); // Builder is responsible for creating its dependencies
                 //_saw = new Saw();
 
 
-                _hammer = hammmer; // Now we inject and give the builder its dependencies and the builder is no longer responsible for it
-                _saw = saw;
-            }
+                //_hammer = hammmer; // Now we inject and give the builder its dependencies and the builder is no longer responsible for it
+                //_s aw = saw;
+            //}
 
             public void BuildHouse()
             {
-                _hammer.Use();
-                _saw.Use();
+                 // This is for Constructor DI
+                //_hammer.Use();
+                //_saw.Use();
+
+                // Setter DI
+                Hammer.Use();
+                Saw.Use();
+
                 Console.WriteLine("The house is built! ");
             }
         }
@@ -230,9 +243,20 @@ namespace InterfaceApp
         static void Main(string[] args)
         {
 
+            // this is for constructor DI
+            //Hammer hammer = new Hammer();
+            //Saw saw = new Saw();
+            //Builder builder = new Builder(hammer, saw);
+
+
             Hammer hammer = new Hammer();
             Saw saw = new Saw();
-            Builder builder = new Builder(hammer, saw);
+
+
+            Builder builder = new Builder();
+
+            builder.Hammer = hammer; // Inject dependencies via setters
+            builder.Saw = saw;  // Inject dependencies via setters
 
             builder.BuildHouse();
 
