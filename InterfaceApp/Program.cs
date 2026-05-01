@@ -1,108 +1,98 @@
-﻿namespace InterfaceApp
+﻿using System.Xml.Serialization;
+
+namespace InterfaceApp
 {
     internal class Program
     {
-        // What is Polymorphism?
-        //
-        // Polymorphism, derived from Greek meaning "many shapes," refers to 
-        // the ability in programming where a single interface or method can 
-        // operate in multiple ways based on the object it interacts with.
-
-        // What is Polymorphism?
-        //
-        // • One "play" button can operate a TV, DVD player, or stereo differently.
-        //
-        // • The same method works uniquely depending on the object it controls.
-
-        // What is Polymorphism?
-        //
-        // One Interface, Many Implementations:
-        //
-        // A single function or method can handle objects of various types.
-        // The implementation depends on the specific object being referenced.
 
 
-        // What is Polymorphism?
+        // Why Polymorphic Interfaces?
         //
-        // Different animals make different sounds.
+        // 1. Where:
         //
-        // The MakeSound method will produce the appropriate sound 
-        // for any given animal.
-
-        // Why Polymorphism?
+        // When you need different classes to implement the same
+        // set of methods or properties.
         //
-        // Flexibility:
-        //
-        // • Write adaptable and reusable code.
-        //
-        // • Methods can work with different object types 
-        //   without knowing the specific types in advance.
+        // This ensures consistency and allows for flexible
+        // implementations.
 
 
-        // Why Polymorphism?
+        // Why Polymorphic Interfaces?
         //
-        // Code Maintenance:
+        // 2. Why:
         //
-        // • Simplifies maintenance and extension.
+        // Promotes code reusability and flexibility.
         //
-        // • New object types can be added easily 
-        //   if they conform to the expected interface or base class.
+        // Different classes can implement the same interface
+        // in various ways, allowing for diverse behavior while
+        // maintaining a common contract.
 
-        // Why Polymorphism?
+        // Why Polymorphic Interfaces?
         //
-        // Simplifies Code:
+        // 3. When:
         //
-        // • Enables treating different objects uniformly.
+        // Use interfaces when you have multiple classes that
+        // should provide the same functionality but might
+        // implement it differently.
         //
-        // • Reduces complexity by handling diverse objects 
-        //   through a common interface.
+        // Real-World Example: Payment Processing System
 
+
+        public interface IPaymentProcessor 
+        {
+            void ProcessPayment(decimal amount);
+        }
+
+        public class CreditCardProcessor : IPaymentProcessor
+        {
+            public void ProcessPayment(decimal amount)
+            {
+                Console.WriteLine("Processing credit card payment of: "+amount);
+                // Implement the credit card payment logic
+            }
+        }
+
+
+        public class PaypalProcessor : IPaymentProcessor
+        {
+            public void ProcessPayment(decimal amount)
+            {
+                Console.WriteLine("Processing paypal payment of: " + amount);
+                // Implement the paypal payment logic
+            }
 
         
-
-        public class Animal
-        {
-            // With virtual keyword we are allowed to override this method 
-            public virtual void MakeSound()
-            {
-                Console.WriteLine("Some generic animal sound... ");
-            }
-        }
-
-        public class Dog : Animal
-        {
-            public override void MakeSound() 
-            {
-                Console.WriteLine("WOOOOF! WOOOOF!");
-            } 
         }
 
 
-        public class Cat : Animal 
+        public class PaymentService
         {
-            public override void MakeSound()
+            private readonly IPaymentProcessor _processor;
+
+
+            public PaymentService(IPaymentProcessor processor)
             {
-                Console.WriteLine("Meow Meow");
+                _processor = processor;
             }
 
+            public void ProcessOrederPayment(decimal amount) {
+                _processor.ProcessPayment(amount);
+            }
         }
-
-
-
 
         static void Main(string[] args)
         {
-            // Part two of the ploymorphism
-            // This is possible to store a Dog object in Animal object because Dog is inheritinng from Animal
-            Animal myDog = new Dog();
-            myDog.MakeSound();
-             
-            // But this is not possible
-            //Dog my2ndDog = new Animal();
+            
+            IPaymentProcessor creditCardProcessor = new CreditCardProcessor();
+            PaymentService paymentService = new PaymentService(creditCardProcessor);
 
+            // m for decimal
+            paymentService.ProcessOrederPayment(100.30m);
 
+            IPaymentProcessor paypalProcessor = new PaypalProcessor();  
+            PaymentService paymentService1 = new PaymentService(paypalProcessor);
 
-
+            paymentService1.ProcessOrederPayment(200m);
           
             Console.ReadKey();
         }
