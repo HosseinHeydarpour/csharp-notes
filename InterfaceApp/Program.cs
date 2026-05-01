@@ -2,249 +2,94 @@
 
 namespace InterfaceApp
 {
-    // Why Interface Dependency Injection?
-    //
-    // Flexibility!
-    // - Interface Injection provides flexibility because the class
-    //   receives its dependencies through an interface-defined method.
-    // - This means the class does NOT control how the dependency is created.
-    //   Instead, an external source injects it at runtime.
-    //
-    // Explanation:
-    // - The interface defines a method like SetDependency(...).
-    // - Any class that needs the dependency must implement this method.
-    // - This makes switching or updating dependencies easy,
-    //   because the injector only depends on the interface,
-    //   not on concrete implementations.
-    //
-    // Real-world example:
-    //
-    // Imagine a modular application with plugins.
-    // Each plugin may need a Logger, but the core system doesn't want
-    // to hard‑code how each plugin gets its logger.
-    //
-    // public interface ILoggerInjector
-    // {
-    //     void SetLogger(ILogger logger);
-    // }
-    //
-    // public class PaymentPlugin : ILoggerInjector
-    // {
-    //     private ILogger _logger;
-    //
-    //     public void SetLogger(ILogger logger)
-    //     {
-    //         _logger = logger;
-    //     }
-    //
-    //     public void Process()
-    //     {
-    //         _logger.Log("Payment plugin processing");
-    //     }
-    // }
-    //
-    // Why this is useful:
-    // - The main system creates the Logger service only once.
-    // - Each plugin receives the same logger instance via the interface method.
-    // - Plugins stay flexible, loosely coupled, and easy to extend.
-    //
-    // Summary:
-    // - Interface Injection = flexibility + external dependency control
-    // - Especially useful in extensible systems like plugins or modules.
+    /*
+        Interfaces: Where, Why, and When to Use
+        
+        1) Where to use interfaces
+        - In systems with interchangeable components or varying implementations
+        - To decouple clients from concrete classes and rely on abstractions
+        - When you need a common contract across disparate types or modules
+        
+        2) Why use interfaces
+        - Promote loose coupling and easier substitution of implementations
+        - Improve testability by enabling mocks/stubs and isolated testing
+        - Support adherence to SOLID principles, especially Dependency Inversion
+        
+        3) When to use interfaces
+        - In extensible architectures that support plugins or extensions
+        - When you want to swap implementations without changing clients
+        - When a stable, shared API is needed across multiple classes or services
+        - When enforcing a consistent contract across a family of related types
 
+        4) Facilitating Unit Testing with Mock Implementations
 
-    // Types of Dependency Injection (DI)
-    //
-    // Constructor Injection
-    // - Dependencies are provided through the class constructor.
-    // - This ensures that a class receives all required dependencies
-    //   at the time of its creation (instantiation).
-    // - It is the most common and recommended approach for mandatory dependencies,
-    //   because it enforces dependency availability and promotes immutability.
-    //
-    // Example:
-    //
-    // public class MyClass
-    // {
-    //     private readonly IDependency _dependency;
-    //
-    //     // Dependency is passed through the constructor
-    //     public MyClass(IDependency dependency)
-    //     {
-    //         _dependency = dependency;
-    //     }
-    // }
-    //
-    // Benefits:
-    // - Guarantees that the dependency is available when the object is created.
-    // - Makes the object easy to test because dependencies can be mocked.
-    // - Promotes clean architecture by separating dependency creation from usage.
-    //
-    // Real-world example:
-    // Suppose we have a ReportGenerator that relies on a DatabaseService.
-    //
-    // public class ReportGenerator
-    // {
-    //     private readonly IDatabaseService _databaseService;
-    //
-    //     public ReportGenerator(IDatabaseService databaseService)
-    //     {
-    //         _databaseService = databaseService;
-    //     }
-    //
-    //     public void GenerateReport()
-    //     {
-    //         var data = _databaseService.GetData();
-    //         Console.WriteLine("Report generated with data: " + data);
-    //     }
-    // }
-    //
-    // Usage:
-    //
-    // IDatabaseService dbService = new SqlDatabaseService();
-    // var reportGenerator = new ReportGenerator(dbService);
-    // reportGenerator.GenerateReport();
-    //
-    // - Here, all necessary dependencies (like IDatabaseService)
-    //   are injected when creating ReportGenerator.
-    // - This follows Dependency Inversion Principle (DIP)
-    //   and ensures the class depends on abstractions, not implementations.
-
-
-    // Types of Dependency Injection (DI)
-    //
-    // Setter Injection
-    // - Dependencies are assigned through public setter methods or properties.
-    // - This allows dependencies to be injected after the object has been created.
-    // - It is typically used when a dependency is optional or can be changed later.
-    //
-    // Example:
-    //
-    // public class MyClass
-    // {
-    //     // Dependency can be set after object creation
-    //     public IDependency Dependency { private get; set; }
-    // }
-    //
-    // Benefits:
-    // - The object can be created without immediately providing the dependency.
-    // - Useful for optional services or features.
-    // - Dependencies can be changed at runtime if needed.
-    //
-    // Real-world example:
-    // Imagine a ReportService that can optionally use a Logger.
-    //
-    // public class ReportService
-    // {
-    //     public ILogger Logger { private get; set; }
-    //
-    //     public void GenerateReport()
-    //     {
-    //         Logger?.Log("Generating report...");
-    //         Console.WriteLine("Report generated");
-    //     }
-    // }
-    //
-    // Usage:
-    //
-    // var reportService = new ReportService();
-    // reportService.Logger = new FileLogger(); // dependency injected after creation
-    //
-    // reportService.GenerateReport();
-    //
-    // - Here, the Logger is not mandatory for creating the ReportService.
-    // - It can be injected later using the setter property.
-
-
-
+        Where:
+        - When writing unit tests for classes that depend on external services or components.
+        - When isolating a class from infrastructure concerns such as databases, APIs, or file systems.
+        
+        Why:
+        - To test classes in isolation without relying on real implementations.
+        - To simulate specific behaviors (success, failure, edge cases) in a controlled way.
+        - To improve reliability and speed of automated tests.
+        
+        When:
+        - When a class has external dependencies that should not be invoked during testing.
+        - When predictable and repeatable behavior is required in test scenarios.
+        
+        
+        5) Achieving Multiple Inheritance (via Interfaces)
+        
+        Where:
+        - When a class needs to implement multiple distinct behaviors.
+        - When combining different roles or capabilities in a single class.
+        
+        Why:
+        - To allow a class to conform to multiple contracts.
+        - To separate capabilities into clear, focused abstractions.
+        - To avoid tight coupling that would result from deep inheritance hierarchies.
+        
+        When:
+        - When a class must expose multiple independent responsibilities.
+        - When different parts of the system rely on different aspects of the same class through separate contracts.
+        
+      */
 
 
 
     internal class Program
     {
-
-        public interface IToolUser
+        public interface IPrintable
         {
-            void SetHammer(Hammer hammer);
-            void SetSaw(Saw saw);
+            void Print();
+        }
+       
+        public interface IScannable
+        {
+            void Scan();
         }
 
 
-        public class Hammer
+        // This is multiple inheritance to a degree
+        public class MultiFunctionPrinter : IPrintable, IScannable
         {
-            public void Use()
+            public void Print()
             {
-                Console.WriteLine("Hammering nails!");
+                Console.WriteLine("Printing Document");
             }
 
-
-        }
-
-        public class Saw
-        {
-            public void Use()
+            public void Scan()
             {
-                Console.WriteLine("Sawing wood!");
-
+                Console.WriteLine("Scanning Document");
             }
         }
-
-
-        // Dependency here is that the Builder here depends on the hammer and the saw
-        public class Builder: IToolUser
-        {
-
-            private Hammer _hammer;
-            private Saw _saw;
-
-
-
-
-            public void BuildHouse()
-            {
-                
-                _hammer.Use();
-                _saw.Use();
-
-                Console.WriteLine("The house is built! ");
-            }
-
-            public void SetHammer(Hammer hammer)
-            {
-                _hammer = hammer;
-            }
-
-            public void SetSaw(Saw saw)
-            {
-                _saw = saw;
-            }
-        }
-
-
-
 
 
         static void Main(string[] args)
         {
-
-            // this is for constructor DI
-            //Hammer hammer = new Hammer();
-            //Saw saw = new Saw();
-            //Builder builder = new Builder(hammer, saw);
-
-
-            Hammer hammer = new Hammer();
-            Saw saw = new Saw();
-
-
-            Builder builder = new Builder();
-
-            // Dependency injection using interface
-            builder.SetHammer(hammer);
-            builder.SetSaw(saw);
-
-
-            builder.BuildHouse();
+            MultiFunctionPrinter printer = new MultiFunctionPrinter();
+            printer.Print();
+            printer.Scan();
+            
 
             Console.ReadKey();
         }
