@@ -6,36 +6,25 @@ namespace InterfaceApp
     {
 
 
-        // Why Polymorphic Interfaces?
-        //
-        // 1. Where:
-        //
-        // When you need different classes to implement the same
-        // set of methods or properties.
-        //
-        // This ensures consistency and allows for flexible
-        // implementations.
+        
 
 
-        // Why Polymorphic Interfaces?
-        //
-        // 2. Why:
-        //
-        // Promotes code reusability and flexibility.
-        //
-        // Different classes can implement the same interface
-        // in various ways, allowing for diverse behavior while
-        // maintaining a common contract.
+        /*
+            Interfaces and Polymorphism in Payment Processing
+            
+            IPaymentProcessor
+                - CreditCardProcessor: Implements and processes credit card payments
+                - PaypalProcessor: Implements and processes PayPal payments
+            
+            PaymentService
+                - Uses an IPaymentProcessor to process payments
+                - ProcessOrderPayment: Delegates payment processing to IPaymentProcessor
+            
+            Program
+                - Sets up and uses PaymentService
+                - Main: Initiates payment processing with different processors
+        */
 
-        // Why Polymorphic Interfaces?
-        //
-        // 3. When:
-        //
-        // Use interfaces when you have multiple classes that
-        // should provide the same functionality but might
-        // implement it differently.
-        //
-        // Real-World Example: Payment Processing System
 
 
         public interface IPaymentProcessor 
@@ -83,6 +72,7 @@ namespace InterfaceApp
         static void Main(string[] args)
         {
             
+            // Polymorphism line
             IPaymentProcessor creditCardProcessor = new CreditCardProcessor();
             PaymentService paymentService = new PaymentService(creditCardProcessor);
 
