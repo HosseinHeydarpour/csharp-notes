@@ -1,50 +1,99 @@
-﻿namespace StructsApp
+﻿using Microsoft.VisualBasic;
+
+namespace StructsApp
 {
-
-    enum Day { Mo, Tu, We, Th, Fr, Sa, Su };
-
-    // Now indexing starts at 1
-    enum Month
-    {
-        Jan=1,
-        Feb,
-        Mar,
-        Apr,
-        May,
-        Jun,
-        Jul = 12,
-        Aug,
-        Sep,
-        Oct,
-        Nov,
-        Dec
-    };
     internal class Program
     {
 
 
         static void Main(string[] args)
         {
-            Day fr = Day.Fr;
-            Day su  = Day.Su;
+            // DateTime dateTime = new DateTime(1998,3,20);
 
-            Day a = Day.Fr;
+            DateTime dateTime = new DateTime(1998, 3, 20);
+            Console.WriteLine("My birthday is: {0}", dateTime);
 
-            // This is true because both have the value of Fr
-            Console.WriteLine(fr==a);
+            Console.WriteLine("----------------");
 
-            Console.WriteLine(Day.Mo);
+            // Write today on screen
+            Console.WriteLine(DateTime.Today);
 
-            // We can also get the index of MO
-            Console.WriteLine((int)Day.Mo);
+            Console.WriteLine("----------------");
 
-            // Feb is at index 2 now because we set the indexing to start from 1
-            Console.WriteLine((int)Month.Feb);
+            // Write current time on screen
+            Console.WriteLine(DateTime.Now);
 
-            // August is now 13 because we changed july index to 12
-            Console.WriteLine((int)Month.Aug);
+            Console.WriteLine("----------------");
 
-            Console.ReadLine();
+            // Write tomorrow date on screen
+            DateTime tomorrow = GetTomorrow();
+            Console.WriteLine($"Tomorrow will be the: {tomorrow}");
+
+            Console.WriteLine("----------------");
+            Console.WriteLine($"Today is {DateTime.Today.DayOfWeek}");
+
+            Console.WriteLine("----------------");
+            Console.WriteLine(GetFirstDayOfTheYear(1998));
+
+            Console.WriteLine("----------------");
+            int days = DateTime.DaysInMonth(2000, 2);
+            Console.WriteLine("Days in February 2000: "+days); // leap year
+             days = DateTime.DaysInMonth(2001, 2);
+            Console.WriteLine("Days in February 2001: " + days);
+             days = DateTime.DaysInMonth(2004, 2);
+            Console.WriteLine("Days in February 2004: " + days); // leap year
+
+
+            DateTime now = DateTime.Now;
+            Console.WriteLine($"Minute is -{now.Minute}- ");
+
+
+            // Display the time in this structure -> x o'clock and y minutes and z seconds
+            Console.WriteLine($"{now.Hour} o'clock and {now.Minute} minutes and {now.Second} seconds. ");
+
+
+            Console.WriteLine("Write a date in this format: (yyyy-mm-dd)");
+            string input = Console.ReadLine();
+
+            if(DateTime.TryParse(input, out dateTime))
+            {
+                Console.WriteLine(dateTime);
+                TimeSpan daysPassed = now.Subtract(dateTime);
+                Console.WriteLine($"Days passed since: {daysPassed.Days}");
+            } else
+            {
+                Console.WriteLine("Wrong input! ");
+            }
+
+
+            Console.WriteLine("Enter your birthday in this format: (yyyy-mm-dd)");
+            string birthday = Console.ReadLine();
+
+            if(DateTime.TryParse(birthday, out dateTime))
+            {
+                Console.WriteLine(dateTime);
+                TimeSpan daysPassed = now.Subtract(dateTime);
+                Console.WriteLine($"Days passed since your birthday: {daysPassed.Days}");
+            } else
+            {
+                Console.WriteLine("Wrong format!");
+            }
+
+
+
+
+                Console.ReadLine();
         }
+
+        static DateTime GetTomorrow()
+        {
+            return DateTime.Today.AddDays(1);
+        }
+
+        static DateTime GetFirstDayOfTheYear(int year)
+        {
+            return new DateTime(year, 1, 1);
+        }
+
     }
 }
