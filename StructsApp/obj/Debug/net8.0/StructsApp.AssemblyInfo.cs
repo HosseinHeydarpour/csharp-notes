@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StructsApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34de005f92d2078302331ef896c9d91238839987")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1348a84b671df59fb8ba7a6c7026ab86f82457e")]
 [assembly: System.Reflection.AssemblyProductAttribute("StructsApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StructsApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
