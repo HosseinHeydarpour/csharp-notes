@@ -8,92 +8,32 @@ namespace StructsApp
 
         static void Main(string[] args)
         {
-            // DateTime dateTime = new DateTime(1998,3,20);
+            // You get the next whole number with the ceiling method
+            Console.WriteLine("Ceiling 15.3: " + Math.Ceiling(15.3));
 
-            DateTime dateTime = new DateTime(1998, 3, 20);
-            Console.WriteLine("My birthday is: {0}", dateTime);
+            Console.WriteLine("Flooring 15.3: "+ Math.Floor(15.3));
 
-            Console.WriteLine("----------------");
-
-            // Write today on screen
-            Console.WriteLine(DateTime.Today);
-
-            Console.WriteLine("----------------");
-
-            // Write current time on screen
-            Console.WriteLine(DateTime.Now);
-
-            Console.WriteLine("----------------");
-
-            // Write tomorrow date on screen
-            DateTime tomorrow = GetTomorrow();
-            Console.WriteLine($"Tomorrow will be the: {tomorrow}");
-
-            Console.WriteLine("----------------");
-            Console.WriteLine($"Today is {DateTime.Today.DayOfWeek}");
-
-            Console.WriteLine("----------------");
-            Console.WriteLine(GetFirstDayOfTheYear(1998));
-
-            Console.WriteLine("----------------");
-            int days = DateTime.DaysInMonth(2000, 2);
-            Console.WriteLine("Days in February 2000: "+days); // leap year
-             days = DateTime.DaysInMonth(2001, 2);
-            Console.WriteLine("Days in February 2001: " + days);
-             days = DateTime.DaysInMonth(2004, 2);
-            Console.WriteLine("Days in February 2004: " + days); // leap year
+            int num1 = 13;
+            int num2 = 9;
+            Console.WriteLine("Lower of num1 {0} and num2 {1} is: {2}",num1,num2,Math.Min(num1,num2));
+            Console.WriteLine("Higher of num1 {0} and num2 {1} is: {2}", num1, num2, Math.Max(num1, num2));
 
 
-            DateTime now = DateTime.Now;
-            Console.WriteLine($"Minute is -{now.Minute}- ");
+            Console.WriteLine("3 to the power of 5 is: {0}", Math.Pow(3,5));
 
+            Console.WriteLine("PI is {0}",Math.PI);
 
-            // Display the time in this structure -> x o'clock and y minutes and z seconds
-            Console.WriteLine($"{now.Hour} o'clock and {now.Minute} minutes and {now.Second} seconds. ");
+            Console.WriteLine("The square root of 25 is: {0}", Math.Sqrt(25));
 
+            // Abs returns positive value of any number
+            Console.WriteLine("Always positive is {0}", Math.Abs(-25));
 
-            Console.WriteLine("Write a date in this format: (yyyy-mm-dd)");
-            string input = Console.ReadLine();
+            Console.WriteLine("Cos of 1 is: {0}", Math.Cos(1));
 
-            if(DateTime.TryParse(input, out dateTime))
-            {
-                Console.WriteLine(dateTime);
-                TimeSpan daysPassed = now.Subtract(dateTime);
-                Console.WriteLine($"Days passed since: {daysPassed.Days}");
-            } else
-            {
-                Console.WriteLine("Wrong input! ");
-            }
-
-
-            Console.WriteLine("Enter your birthday in this format: (yyyy-mm-dd)");
-            string birthday = Console.ReadLine();
-
-            if(DateTime.TryParse(birthday, out dateTime))
-            {
-                Console.WriteLine(dateTime);
-                TimeSpan daysPassed = now.Subtract(dateTime);
-                Console.WriteLine($"Days passed since your birthday: {daysPassed.Days}");
-            } else
-            {
-                Console.WriteLine("Wrong format!");
-            }
-
-
-
-
-                Console.ReadLine();
+            Console.ReadLine();
         }
 
-        static DateTime GetTomorrow()
-        {
-            return DateTime.Today.AddDays(1);
-        }
-
-        static DateTime GetFirstDayOfTheYear(int year)
-        {
-            return new DateTime(year, 1, 1);
-        }
+       
 
     }
 }
