@@ -1,0 +1,14 @@
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\bin\Debug\net8.0\EventsAndDelegatesApp.exe
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\bin\Debug\net8.0\EventsAndDelegatesApp.deps.json
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\bin\Debug\net8.0\EventsAndDelegatesApp.runtimeconfig.json
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\bin\Debug\net8.0\EventsAndDelegatesApp.dll
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\bin\Debug\net8.0\EventsAndDelegatesApp.pdb
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.AssemblyInfoInputs.cache
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.AssemblyInfo.cs
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.csproj.CoreCompileInputs.cache
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.dll
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\refint\EventsAndDelegatesApp.dll
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.pdb
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.genruntimeconfig.cache
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\ref\EventsAndDelegatesApp.dll
