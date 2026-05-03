@@ -12,3 +12,4 @@ D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\refin
 D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.pdb
 D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.genruntimeconfig.cache
 D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\ref\EventsAndDelegatesApp.dll
+D:\backend\C#\EventsAndDelegatesApp\EventsAndDelegatesApp\obj\Debug\net8.0\EventsAndDelegatesApp.sourcelink.json
