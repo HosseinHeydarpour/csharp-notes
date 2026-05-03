@@ -1,11 +1,16 @@
 ﻿namespace EventsAndDelegatesApp
 {
+
+    // 1. Declaration:
+    // This says: "I can hold any method that returns void and takes a string."
+    // You can also declare a delegate outside of any class so it will be easily
+    // accessible by other classes without the need to create an instance object of another class
+    public delegate void Notify(string message);
+
     internal class Program
     {
 
-        // 1. Declaration:
-        // This says: "I can hold any method that returns void and takes a string."
-        public delegate void Notify(string message);
+        
 
         static void Main(string[] args)
         {
