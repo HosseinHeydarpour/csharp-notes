@@ -1,31 +1,38 @@
 ﻿namespace EventsAndDelegatesApp
 {
 
-    // Generics in C#?
-    //
-    // What are Generics?
-    //
-    // Generics are a way to make your code more flexible and reusable
-    // by allowing it to work with any data type.
-    //
-    // Think of generics as templates that you can fill in with different types
-    // when you use them.
+    public delegate int Comparison<T>(T x, T y);
 
-    // Generics in C#?
-    //
-    // Why would you use Generics?
-    //
-    // • Flexibility.
-    //   You can write one method, class, or interface and use it with
-    //   different data types without writing multiple versions.
-    //
-    // • Type Safety.
-    //   Generics help catch errors at compile time rather than at runtime,
-    //   making your code safer.
-    //
-    // • Performance.
-    //   Generics avoid the need for boxing and unboxing when working
-    //   with value types, which can improve performance.
+
+
+    public class Person
+    {
+        public int Age { get; set; }
+        public string Name { get; set; }
+    }
+    
+    public class PersonSorter
+    {
+        public void Sort(Person[] people, Comparison<Person> comparison) {
+
+            for (int i = 0; i < people.Length-1; i++) 
+            {
+                for (int j = i+1; j < people.Length; j++) 
+                {
+                    // Compare people[i] and people[j] using the provided comparison delegate
+                    if (comparison(people[i], people[j]) > 0)
+                    {
+                        // Swap poeple[i] and people[j] if they are in the wrong order
+                        Person temp = people[i];
+                        people[i] = people[j];
+                        people[j] = temp;
+                    }
+                }  
+            }
+
+        }
+    }
+
 
     internal class Program
     {
@@ -34,45 +41,54 @@
 
         static void Main(string[] args)
         {
-            int[] intArray = { 1, 2, 3, 4, 5 };
-            string[] stringArray = { "One", "Two", "Three", "Four" };
 
-            // PrintArray method works with both types
-            PrintArray(intArray);
-            PrintArray(stringArray);
+            Person[] people = 
+            {
+                new Person { Name = "Kosar", Age = 24 },
+                 new Person { Name = "Alice", Age=56 },
+                 new Person { Name = "Denis", Age=36 },
+                new Person { Name = "Bob", Age=44 }
+               
+            };
+
+
+            PersonSorter sorter = new PersonSorter();
+            sorter.Sort(people, CompareByAge);
+          
+
+
+            foreach (Person person in people)
+            {
+
+                Console.WriteLine($"{person.Name}, {person.Age}");
+            }
+
+            Console.WriteLine("----------");
+
+
+            sorter.Sort(people, CompareByName);
+            foreach (Person person in people)
+            {
+
+                Console.WriteLine($"{person.Name}, {person.Age}");
+            }
+
 
 
             Console.ReadKey();
         }
 
 
-        public static void PrintIntArray(int[] array)
+        static int CompareByAge(Person x, Person y)
         {
-            foreach (int item in array)
-            {
-                Console.WriteLine(item);
-            }
-        }
-
-        public static void PrintStringArray(string[] array)
-        {
-            foreach (string item in array)
-            {
-                Console.WriteLine(item);
-            }
+            return x.Age.CompareTo(y.Age);
         }
 
 
-        // a generic Method, that accepts a generic datatype
-        // this will allow us to send any datatype
-        public static void PrintArray<T>(T[] array)
+        static int CompareByName(Person x, Person y)
         {
-            foreach (T item in array)
-            {
-                Console.WriteLine(item);
-            }
+            return x.Name.CompareTo(y.Name);
         }
-
 
 
     }
