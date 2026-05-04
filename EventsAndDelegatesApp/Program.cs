@@ -1,38 +1,45 @@
 ﻿namespace EventsAndDelegatesApp
 {
 
-    public delegate int Comparison<T>(T x, T y);
+
+    // Multicast Delegates
+
+    // What are Multicast Delegates in C#?
+    // A multicast delegate in C# is a delegate
+    // that holds references to and can invoke
+    // multiple methods.
+
+    // Why use Multicast Delegates in C#?
+    // You would use a multicast delegate to allow 
+    // multiple methods to be called in sequence 
+    // through a single delegate invocation.
+
+    // When use Multicast Delegates in C#?
+
+    // You would use a multicast delegate when
+    // you need to notify multiple event handlers
+    // or execute multiple related methods
+    // in response to a single event or operation.
 
 
+    public delegate void LogHandler(string message);
 
-    public class Person
+    public class Logger
     {
-        public int Age { get; set; }
-        public string Name { get; set; }
-    }
-    
-    public class PersonSorter
-    {
-        public void Sort(Person[] people, Comparison<Person> comparison) {
-
-            for (int i = 0; i < people.Length-1; i++) 
-            {
-                for (int j = i+1; j < people.Length; j++) 
-                {
-                    // Compare people[i] and people[j] using the provided comparison delegate
-                    if (comparison(people[i], people[j]) > 0)
-                    {
-                        // Swap poeple[i] and people[j] if they are in the wrong order
-                        Person temp = people[i];
-                        people[i] = people[j];
-                        people[j] = temp;
-                    }
-                }  
-            }
-
+        public void LogToConsole(string message) 
+        {
+            Console.WriteLine("Console Log: "+message);
         }
+
+        public void LogToFile(string message) 
+        {
+          Console.WriteLine("File Log: "+ message);
+        }
+
     }
 
+
+    
 
     internal class Program
     {
@@ -42,53 +49,29 @@
         static void Main(string[] args)
         {
 
-            Person[] people = 
-            {
-                new Person { Name = "Kosar", Age = 24 },
-                 new Person { Name = "Alice", Age=56 },
-                 new Person { Name = "Denis", Age=36 },
-                new Person { Name = "Bob", Age=44 }
-               
-            };
+            Logger logger = new Logger();
+
+            // Creating a multi cast delegate
+            LogHandler logHandler = logger.LogToConsole;
+            // This += makes our logHanfler a multicast handler
+            logHandler += logger.LogToFile;
 
 
-            PersonSorter sorter = new PersonSorter();
-            sorter.Sort(people, CompareByAge);
-          
+            // This will invoke both methods console method and file method
+            // invoking multicast
+            logHandler("Log this Info");
 
+            // delete a method from our multicast delegate
+            logHandler -= logger.LogToFile;
 
-            foreach (Person person in people)
-            {
-
-                Console.WriteLine($"{person.Name}, {person.Age}");
-            }
-
-            Console.WriteLine("----------");
-
-
-            sorter.Sort(people, CompareByName);
-            foreach (Person person in people)
-            {
-
-                Console.WriteLine($"{person.Name}, {person.Age}");
-            }
-
+            logHandler("One method active");
 
 
             Console.ReadKey();
         }
 
 
-        static int CompareByAge(Person x, Person y)
-        {
-            return x.Age.CompareTo(y.Age);
-        }
-
-
-        static int CompareByName(Person x, Person y)
-        {
-            return x.Name.CompareTo(y.Name);
-        }
+     
 
 
     }
