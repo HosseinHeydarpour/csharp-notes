@@ -2,43 +2,58 @@
 {
 
 
-    // Multicast Delegates
+    // Events in C#?
 
-    // What are Multicast Delegates in C#?
-    // A multicast delegate in C# is a delegate
-    // that holds references to and can invoke
-    // multiple methods.
+    // What is an Event?
+    // An event lets one class tell others when something important happens.
+    // It uses a special method called a delegate.
+    // This means one part of the program can alert others
+    // without needing direct connections.
 
-    // Why use Multicast Delegates in C#?
-    // You would use a multicast delegate to allow 
-    // multiple methods to be called in sequence 
-    // through a single delegate invocation.
+    // Why use an Event?
+    // Events allow a class to send updates without knowing who gets them.
+    // This makes the system more flexible and organized.
+    // It helps different parts of the program work together
+    // without being tightly connected.
 
-    // When use Multicast Delegates in C#?
+    // When would we use and Event?
+    //
+    // Use events when one object needs to inform others about changes or actions.
+    // It's useful for keeping things updated without direct connections.
+    // This can be important in many scenarios where multiple parts need to stay in sync
+    // 
 
-    // You would use a multicast delegate when
-    // you need to notify multiple event handlers
-    // or execute multiple related methods
-    // in response to a single event or operation.
+    // Where would we use an event?
+    // Events are common in logging, monitoring, data changes, and button clicks. They are used whenever
+    // notifications are needed.
+    // Any situation where one action triggers other responses can benefit from events.
 
+    public delegate void Notify(string message); 
+       
 
-    public delegate void LogHandler(string message);
-
-    public class Logger
+    public class EventPublisher
     {
-        public void LogToConsole(string message) 
-        {
-            Console.WriteLine("Console Log: "+message);
-        }
+        // This OnNotify "On" is really important because it shows we are talking about an event
+        // The "On" prefix make it immediately clear that the method
+        // is associated with an event.
+        // It signifies that the method is not just a regular method but
+        // one that is called when a specific event occurs
+        public event Notify OnNotify;
 
-        public void LogToFile(string message) 
+        public void RaiseEvent(string meesage)
         {
-          Console.WriteLine("File Log: "+ message);
+            OnNotify?.Invoke(meesage); // Invoke event if they are any subscribers thats why we use "?"
         }
-
     }
 
-
+    public class EventSubscriber
+    {
+        public void OnEventRaised(string meesage)
+        {
+            Console.WriteLine("Event happened " + meesage);
+            //Console.WriteLine(2*2);
+        }
+    }
     
 
     internal class Program
@@ -49,50 +64,15 @@
         static void Main(string[] args)
         {
 
-            Logger logger = new Logger();
-
-            // Creating a multi cast delegate
-            LogHandler logHandler = logger.LogToConsole;
-            // This += makes our logHanfler a multicast handler
-            logHandler += logger.LogToFile;
+          
 
 
-            // This will invoke both methods console method and file method
-            // invoking multicast
-            //logHandler("Log this Info");
+            EventPublisher publisher = new EventPublisher();
+            EventSubscriber subscriber = new EventSubscriber();
 
-            // invokig methods in the delagte safely
-            foreach (LogHandler  handler in logHandler.GetInvocationList())
-            {
-                try
-                {
-                    handler("Event occured with error handling");
-                } catch (Exception ex) 
-                {
-                    Console.WriteLine("Exception caught: {0}", ex.Message);
-                }
-            }
-
-
-
-
-            // delete a method from our multicast delegate
-            //logHandler -= logger.LogToFile;
-
-            // delete a method from our multicast delegate SAFELY
-            if (isMethodInDelegate(logHandler, logger.LogToFile))
-            {
-                logHandler -= logger.LogToFile;
-                Console.WriteLine("LogToFile method removed");
-            } else
-            {
-                Console.WriteLine("LogToFile method not found");
-            }
-
-                // safe invoke
-                InvokeSafely(logHandler, "After revoking log to file");
-
-            // logHandler("After revoking log to file")
+            publisher.OnNotify += subscriber.OnEventRaised;
+            publisher.OnNotify += subscriber.OnEventRaised;
+            publisher.RaiseEvent("Test");
 
 
             Console.ReadKey();
@@ -100,34 +80,7 @@
 
 
      
-        static void InvokeSafely(LogHandler logHandler, string message)
-        {
-            LogHandler tempLogHandler = logHandler;
-            if(tempLogHandler != null)
-            {
-                tempLogHandler(message);
-            }
-        }
-
-        static bool isMethodInDelegate(LogHandler logHandler, LogHandler method)
-        {
-            if (logHandler == null) 
-            {
-              return false;
-            }
-
-            foreach (var d in logHandler.GetInvocationList())
-            {
-                // We cast it to make sure it is really celan and ok
-                if(d == (Delegate)method)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-          
-        }
+   
 
     }
 }
