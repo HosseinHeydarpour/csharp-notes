@@ -28,34 +28,47 @@
     // notifications are needed.
     // Any situation where one action triggers other responses can benefit from events.
 
-    public delegate void Notify(string message); 
-       
+    public delegate void TemperatureChangeHandler(string message);
 
-    public class EventPublisher
+    public class TempMonitor
     {
-        // This OnNotify "On" is really important because it shows we are talking about an event
-        // The "On" prefix make it immediately clear that the method
-        // is associated with an event.
-        // It signifies that the method is not just a regular method but
-        // one that is called when a specific event occurs
-        public event Notify OnNotify;
+        public event TemperatureChangeHandler OnTemperatureChanged;
 
-        public void RaiseEvent(string meesage)
+        private int _temp;
+
+        public int Temp { get { return _temp;  } 
+        set
+            {
+                _temp = value;
+                if (_temp > 30)
+                {
+                    // RAISE THE EVENT  
+                    RaiseTempChangedEvent("Temp is above threshold!");
+                }
+                if (_temp < 20)
+                {
+                    // RAISE THE EVENT  
+                    RaiseTempChangedEvent("Turn on the heater!");
+                }
+            }
+        
+        
+        }
+
+        protected virtual void RaiseTempChangedEvent(string message)
         {
-            OnNotify?.Invoke(meesage); // Invoke event if they are any subscribers thats why we use "?"
+            OnTemperatureChanged?.Invoke(message);
         }
     }
 
-    public class EventSubscriber
+    public class TempAlert
     {
-        public void OnEventRaised(string meesage)
+        public void OnTempChanged(string message)
         {
-            Console.WriteLine("Event happened " + meesage);
-            //Console.WriteLine(2*2);
+            Console.WriteLine("ALERT: " + message);
         }
-    }
-    
 
+    }
     internal class Program
     {
 
@@ -63,16 +76,36 @@
 
         static void Main(string[] args)
         {
+            TempMonitor tempMonitor = new TempMonitor();
+            TempAlert alert = new TempAlert();
+            tempMonitor.OnTemperatureChanged += alert.OnTempChanged;
 
-          
+            tempMonitor.Temp = 20;
+
+            Console.WriteLine("Please enter current degree: ");
+            
+            try
+            {
+                string? input = Console.ReadLine();
+                if(input == null) throw new Exception("Input cannot be null");
+
+                tempMonitor.Temp = int.Parse(input);
+
+            } catch (FormatException ex)
+            {
+                Console.WriteLine("Input must be an integer");
+            }
+            
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
 
-            EventPublisher publisher = new EventPublisher();
-            EventSubscriber subscriber = new EventSubscriber();
+           
 
-            publisher.OnNotify += subscriber.OnEventRaised;
-            publisher.OnNotify += subscriber.OnEventRaised;
-            publisher.RaiseEvent("Test");
+
+
 
 
             Console.ReadKey();
