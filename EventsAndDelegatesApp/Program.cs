@@ -2,73 +2,76 @@
 {
 
 
-    // Events in C#?
+    // Using the Generic Delegate EventHandler<TEventArgs>
 
-    // What is an Event?
-    // An event lets one class tell others when something important happens.
-    // It uses a special method called a delegate.
-    // This means one part of the program can alert others
-    // without needing direct connections.
+    // public delegate void TemperatureChangeHandler(string message);
 
-    // Why use an Event?
-    // Events allow a class to send updates without knowing who gets them.
-    // This makes the system more flexible and organized.
-    // It helps different parts of the program work together
-    // without being tightly connected.
+    public class TempChangedEventArgs : EventArgs
+    {
+        // Property holding the temperature
+        public int Temperature { get; }
 
-    // When would we use and Event?
-    //
-    // Use events when one object needs to inform others about changes or actions.
-    // It's useful for keeping things updated without direct connections.
-    // This can be important in many scenarios where multiple parts need to stay in sync
-    // 
 
-    // Where would we use an event?
-    // Events are common in logging, monitoring, data changes, and button clicks. They are used whenever
-    // notifications are needed.
-    // Any situation where one action triggers other responses can benefit from events.
+        // Constructur
+        public TempChangedEventArgs(int temperature) 
+        {
+            Temperature = temperature;
+        }
 
-    public delegate void TemperatureChangeHandler(string message);
+
+    }
 
     public class TempMonitor
     {
-        public event TemperatureChangeHandler OnTemperatureChanged;
+
+        public event EventHandler<TempChangedEventArgs> TemperatureChanged;
+        // public event TemperatureChangeHandler OnTemperatureChanged;
 
         private int _temp;
 
         public int Temp { get { return _temp;  } 
         set
             {
-                _temp = value;
-                if (_temp > 30)
+                
+                if(_temp != value)
                 {
-                    // RAISE THE EVENT  
-                    RaiseTempChangedEvent("Temp is above threshold!");
-                }
-                if (_temp < 20)
-                {
-                    // RAISE THE EVENT  
-                    RaiseTempChangedEvent("Turn on the heater!");
+                    _temp = value;
+                    // Raise event
+                    OnTempChanged(new TempChangedEventArgs(value));
                 }
             }
         
         
         }
 
-        protected virtual void RaiseTempChangedEvent(string message)
+        protected virtual void OnTempChanged(TempChangedEventArgs e)
         {
-            OnTemperatureChanged?.Invoke(message);
+            // Letting every subsciber know!
+            TemperatureChanged?.Invoke(this,e);
         }
     }
 
+    // Subscriber 
     public class TempAlert
     {
-        public void OnTempChanged(string message)
+        public void OnTempChanged(object sender, TempChangedEventArgs e)
         {
-            Console.WriteLine("ALERT: " + message);
+            Console.WriteLine($"ALERT: tempetature is {e.Temperature} sender is: {sender}" );
         }
 
     }
+
+    public class TempCoolingAlert
+    {
+        public void OnTempChanged(object sender, TempChangedEventArgs e)
+        {
+            Console.WriteLine($"Temp Cooling Alert: tempetature is {e.Temperature} sender is: {sender}");
+        }
+
+    }
+
+
+
     internal class Program
     {
 
@@ -78,7 +81,9 @@
         {
             TempMonitor tempMonitor = new TempMonitor();
             TempAlert alert = new TempAlert();
-            tempMonitor.OnTemperatureChanged += alert.OnTempChanged;
+            TempCoolingAlert alert2 = new TempCoolingAlert();
+            tempMonitor.TemperatureChanged += alert.OnTempChanged;
+            tempMonitor.TemperatureChanged += alert2.OnTempChanged;
 
             tempMonitor.Temp = 20;
 
