@@ -29,6 +29,7 @@ Ms Smith
 Ms Jackson
 
 // Challenge - find website links
+https?://(www\.)?(\w+)|\.\w+
 https://www.tutorials.eu
 https://tutorials.eu
 http://www.tutorials.eu
