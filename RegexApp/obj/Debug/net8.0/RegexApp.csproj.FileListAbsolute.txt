@@ -1,0 +1,15 @@
+D:\backend\C#\RegexApp\RegexApp\bin\Debug\net8.0\RegexApp.exe
+D:\backend\C#\RegexApp\RegexApp\bin\Debug\net8.0\RegexApp.deps.json
+D:\backend\C#\RegexApp\RegexApp\bin\Debug\net8.0\RegexApp.runtimeconfig.json
+D:\backend\C#\RegexApp\RegexApp\bin\Debug\net8.0\RegexApp.dll
+D:\backend\C#\RegexApp\RegexApp\bin\Debug\net8.0\RegexApp.pdb
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\RegexApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\RegexApp.AssemblyInfoInputs.cache
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\RegexApp.AssemblyInfo.cs
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\RegexApp.csproj.CoreCompileInputs.cache
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\RegexApp.sourcelink.json
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\RegexApp.dll
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\refint\RegexApp.dll
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\RegexApp.pdb
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\RegexApp.genruntimeconfig.cache
+D:\backend\C#\RegexApp\RegexApp\obj\Debug\net8.0\ref\RegexApp.dll

@@ -1,4 +1,6 @@
-﻿namespace RegexApp
+﻿using System.Text.RegularExpressions;
+
+namespace RegexApp
 {
     // What are Regular Expressions
     // A sequence of characters that define a search pattern.
@@ -37,7 +39,25 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            // To get all the digits
+            //string pattern = @"\d";
+            string pattern = @"\d{5}";
+            Regex regex = new Regex(pattern);
+
+            string text = "Hi there my number is: 123456";
+
+            MatchCollection matchCollection = regex.Matches(text);
+
+            Console.WriteLine("{0} hits found: \n {1}", matchCollection.Count, text);
+
+            foreach (Match hit in matchCollection) 
+            {
+                GroupCollection group = hit.Groups;
+                
+                Console.WriteLine("{0} found at {1}", group[0].Value, group[0].Index);
+            }
+
+            Console.ReadKey();
         }
     }
 }
