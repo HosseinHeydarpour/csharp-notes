@@ -19,6 +19,8 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 LaLa La La LaLa
 
+Mr\.?\s\w*
+(Mr\.?\s\w*)|(Ms\s\w*)
 Mr. Panjuta
 Mr Muller
 Mr Robertson
