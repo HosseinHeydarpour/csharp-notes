@@ -9,18 +9,19 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
             <!-- auto sets the space required by its content -->
             <!-- <ColumnDefinition Width="auto" /> -->
             <!-- * sets all space left -->
+            <!-- * To create a perfect size grid we can use * for all of the rows and cols -->
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
             <!-- * sets all space left ful height - 50 - 50 -->
             <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- Row and Column are just like arrays 0 based index -->
