@@ -21,15 +21,22 @@ namespace WpfDemo
             InitializeComponent();
 
             // This is good for when you want to create buttons dynamically
-            Button myButton = new Button();
-            myButton.Content = "B";
+            //Button myButton = new Button();
+            //myButton.Content = "B";
             
-            Grid.SetRow(myButton, 3);
-            Grid.SetColumn(myButton, 4);
+            //Grid.SetRow(myButton, 3);
+            //Grid.SetColumn(myButton, 4);
 
-            Grid myGrid = (Grid)FindName("myGrid");
-            myGrid.Children.Add(myButton);
+            //Grid myGrid = (Grid)FindName("myGrid");
+            //myGrid.Children.Add(myButton);
 
+
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello World!");
         }
     }
 }
