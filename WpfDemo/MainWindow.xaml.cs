@@ -19,6 +19,17 @@ namespace WpfDemo
         public MainWindow()
         {
             InitializeComponent();
+
+            // This is good for when you want to create buttons dynamically
+            Button myButton = new Button();
+            myButton.Content = "B";
+            
+            Grid.SetRow(myButton, 3);
+            Grid.SetColumn(myButton, 4);
+
+            Grid myGrid = (Grid)FindName("myGrid");
+            myGrid.Children.Add(myButton);
+
         }
     }
 }

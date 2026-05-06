@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="myGrid">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
@@ -35,7 +35,7 @@
         <Label Content="Sample Text csdavsvsadvsadvsadvsavdsda dvsdav" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"/>
         <Label Grid.Column="2" Content="Title of App" Grid.Row="1" />
         <Button Grid.Column="2" Content="A"   Grid.Row="3"    />
-        <Button Grid.Column="4" Content="B"  Grid.Row="3"  />
+      
 
 
 
