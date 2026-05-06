@@ -8,6 +8,28 @@
         Title="Todo Application V1" Height="450" Width="400" ResizeMode="NoResize">
     <!-- ResizeMode="NoResize" to prevent window resizing -->
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="5" Grid.Column="1" Content="Create Todo"/>
+
+        <TextBox Grid.Row="3" Grid.Column="1" Background="#FF272727" Foreground="White" />
+        
+        
 
     </Grid>
 </Window>
