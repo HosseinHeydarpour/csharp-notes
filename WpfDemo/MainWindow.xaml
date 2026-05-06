@@ -9,23 +9,34 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+
             <!-- auto sets the space required by its content -->
             <!-- <ColumnDefinition Width="auto" /> -->
             <!-- * sets all space left -->
             <!-- * To create a perfect size grid we can use * for all of the rows and cols -->
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
             <RowDefinition Height="*" />
             <!-- * sets all space left ful height - 50 - 50 -->
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
         <!-- Row and Column are just like arrays 0 based index -->
-        <Label Content="Hello World!" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Sample Text" Grid.Row="2" Grid.Column="2"/>
+        <Label Grid.Column="2" Content="Title of App" Grid.Row="1" />
+        <Button Grid.Column="1" Content="A"   Grid.Row="2" Grid.ColumnSpan="2" Margin="192,182,0,0" Grid.RowSpan="2"   />
+        <Button Grid.Column="4" Content="B"  Grid.Row="3"  />
+
 
 
     </Grid>
