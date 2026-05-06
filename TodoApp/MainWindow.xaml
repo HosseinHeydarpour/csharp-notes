@@ -25,13 +25,13 @@
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="5" Grid.Column="1" Content="Create Todo"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="Create Todo" Click="AddToDoButton_Click" />
 
-        <TextBox Grid.Row="3" Grid.Column="1" Background="#FF1B1740" Foreground="White" />
+        <TextBox x:Name="TodoInput" Grid.Row="3" Grid.Column="1" Background="#FF1B1740" Foreground="White" />
 
         <!-- VerticalScrollBarVisibility="Auto" it will automatically add scrollbar if it is scrollable -->
         <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="#FF1F204A" >
-            <StackPanel></StackPanel>
+            <StackPanel Background="#FF1F204A" x:Name="TodoList"></StackPanel>
         </ScrollViewer>
 
 
