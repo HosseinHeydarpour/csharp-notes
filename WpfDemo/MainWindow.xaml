@@ -25,10 +25,15 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="1" Grid.Column="1" Margin="2" Content="Name" />
-        <TextBox Text="{Binding Path=Name, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="2" />
+        <TextBox Text="{Binding Path=Name, Mode=OneWayToSource}" Grid.Row="1" Grid.Column="2" Margin="2" />
 
         <Label Grid.Row="2" Grid.Column="1" Margin="2" Content="Age" />
-        <TextBox Text="{Binding Path=Age, Mode=TwoWay}"  Grid.Row="2" Grid.Column="2" Margin="2" />
+        <!-- 
+             OneWayToSource binding:
+             UI pushes values to ViewModel only.
+             ViewModel changes do NOT affect the UI.
+        -->
+        <TextBox Text="{Binding Path=Age, Mode=OneWayToSource}"  Grid.Row="2" Grid.Column="2" Margin="2" />
 
         <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Content="Info" Click="Button_Click" />
 
