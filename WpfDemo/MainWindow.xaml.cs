@@ -22,5 +22,7 @@ namespace WpfDemo
 
             // We can access main content and set the content
             //MainContent.Content = 
+
+        }
     }
 }

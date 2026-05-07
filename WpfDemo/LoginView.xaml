@@ -6,7 +6,26 @@
              xmlns:local="clr-namespace:WpfDemo"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <!-- Design-time only: sets the size of the window/control in the Visual Studio designer.
+     Has no effect at runtime. -->
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="10"/>
+            <RowDefinition  Height="auto"/>
+            <RowDefinition  Height="25"/>
+            <RowDefinition  Height="50"/>
+            <RowDefinition  Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+           
+        </Grid.ColumnDefinitions>
+
+
+        <Label Content="Login" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+        <Button Content="Login"  Grid.Row="3" Grid.Column="1" />
     </Grid>
 </UserControl>

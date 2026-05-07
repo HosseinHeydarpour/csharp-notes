@@ -19,3 +19,5 @@ D:\backend\C#\WpfDemo\WpfDemo\obj\Debug\net8.0-windows\refint\WpfDemo.dll
 D:\backend\C#\WpfDemo\WpfDemo\obj\Debug\net8.0-windows\WpfDemo.pdb
 D:\backend\C#\WpfDemo\WpfDemo\obj\Debug\net8.0-windows\WpfDemo.genruntimeconfig.cache
 D:\backend\C#\WpfDemo\WpfDemo\obj\Debug\net8.0-windows\ref\WpfDemo.dll
+D:\backend\C#\WpfDemo\WpfDemo\obj\Debug\net8.0-windows\LoginView.g.cs
+D:\backend\C#\WpfDemo\WpfDemo\obj\Debug\net8.0-windows\LoginView.baml
