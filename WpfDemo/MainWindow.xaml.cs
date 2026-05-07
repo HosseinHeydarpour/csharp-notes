@@ -18,27 +18,22 @@ namespace WpfDemo
     public partial class MainWindow : Window
     {
 
-        Person person = new Person
-        {
-            Name = "Hossein",
-            Age = 28
-        };
+        
 
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // Sets the DataContext for the window, which acts as the default data source
-            // for all data bindings in this view. UI elements can bind to properties
-            // of the Person object (e.g., {Binding Name}) without explicitly referencing it.
-            this.DataContext = person;
+            // This takes an IENUM
+            ListBoxNames.ItemsSource = new List<string>()
+            {
+                "John",
+                "Pete",
+                "Jordan"
+            };
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string personData = $"{person.Name} is {person.Age} years old!";
-            MessageBox.Show(personData);
-        }
+        
     }
 }

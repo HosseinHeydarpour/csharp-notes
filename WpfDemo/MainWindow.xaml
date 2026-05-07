@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDemo"
         mc:Ignorable="d"
-        Title="Data Binding" Height="150" Width="265">
+        Title="DEMO" Height="350" Width="350">
     <Grid >
 
         <Grid.RowDefinitions>
@@ -24,21 +24,7 @@
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="1" Margin="2" Content="Name" />
-        <TextBox Text="{Binding Path=Name, Mode=OneTime}" Grid.Row="1" Grid.Column="2" Margin="2" />
-
-        <Label Grid.Row="2" Grid.Column="1" Margin="2" Content="Age" />
-        <!-- 
-            OneTime binding:
-            Data flows only ONCE from ViewModel → UI.
-            The UI is updated only when the binding is first created.
-            After that, ViewModel changes do NOT update the UI,
-            and UI changes do NOT update the ViewModel.
-            Useful for static or initialization-only values.
-        -->
-        <TextBox Text="{Binding Path=Age, Mode=OneTime}"  Grid.Row="2" Grid.Column="2" Margin="2" />
-
-        <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Content="Info" Click="Button_Click" />
+        <ListBox x:Name="ListBoxNames" Grid.Column="1" Grid.Row="1" />
 
     </Grid>
 </Window>
