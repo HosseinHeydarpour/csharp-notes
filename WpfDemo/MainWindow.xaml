@@ -10,16 +10,16 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="10"/>
+           
             <RowDefinition Height="*"/>
+           
+            
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="Auto"/>
+         
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
