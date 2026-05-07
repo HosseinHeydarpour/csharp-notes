@@ -5,9 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDemo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Data Binding" Height="150" Width="265">
     <Grid >
-        <!-- It controls the content -->
-        <ContentControl x:Name="MainContent" />
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="1" Margin="2" Content="Name" />
+        <TextBox  Grid.Row="1" Grid.Column="2" Margin="2" />
+
+        <Label Grid.Row="2" Grid.Column="1" Margin="2" Content="Age" />
+        <TextBox  Grid.Row="2" Grid.Column="2" Margin="2" />
+
+        <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Content="Info" Click="Button_Click" />
+
     </Grid>
 </Window>

@@ -20,10 +20,12 @@ namespace WpfDemo
         {
             InitializeComponent();
 
-            // We can access main content and set the content
-            // Login view will get displayed
-            // this something like Angular router
-            MainContent.Content = new LoginView();
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello World!");
         }
     }
 }
