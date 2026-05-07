@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
 D:\backend\C#\WpfDemo\WpfDemo\App.xaml
-21435113353
+3-1779620183
 
-5-213583612
+6-1312106807
 198-211836927
-LoginView.xaml;MainWindow.xaml;
+InvoiceView.xaml;LoginView.xaml;MainWindow.xaml;
 
 True
 
