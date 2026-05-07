@@ -24,7 +24,38 @@
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="ListBoxNames" Grid.Column="1" Grid.Row="1" />
+        <ListBox x:Name="ListBoxNames" Grid.Column="1" Grid.Row="1" >
+            <ListBox.ItemTemplate>
+                <!--
+                     ItemTemplate defines how EACH item in the ListBox should look.
+                     Whatever is inside this template is repeated for every item.
+                -->
+                <DataTemplate>
+                    <!--
+                         StackPanel is the root container.
+                         It stacks its child elements vertically by default.
+                    -->
+                    <StackPanel>
+
+                        <!--
+                            Displays the 'Name' property of the current item.
+                             'Binding Name' means:
+                                "Take the Name value from the object in the ListBox"
+                        -->
+                        <TextBlock Text="{Binding Name, StringFormat='Name: {0}'}" />
+
+                        <!--
+                            Displays the 'Age' property of the current item.
+                            'Binding Age' means:
+                            "Take the Age value from the object in the ListBox"
+                        -->
+                        <TextBlock Text="{Binding Age, StringFormat='Age: {0}'}" />
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
 
     </Grid>
 </Window>
