@@ -25,10 +25,10 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="1" Grid.Column="1" Margin="2" Content="Name" />
-        <TextBox Text="{Binding Name, Mode=OneWay}" Grid.Row="1" Grid.Column="2" Margin="2" />
+        <TextBox Text="{Binding Path=Name, Mode=TwoWay}" Grid.Row="1" Grid.Column="2" Margin="2" />
 
         <Label Grid.Row="2" Grid.Column="1" Margin="2" Content="Age" />
-        <TextBox Text="{Binding Age, Mode=OneWay}"  Grid.Row="2" Grid.Column="2" Margin="2" />
+        <TextBox Text="{Binding Path=Age, Mode=TwoWay}"  Grid.Row="2" Grid.Column="2" Margin="2" />
 
         <Button Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Content="Info" Click="Button_Click" />
 
