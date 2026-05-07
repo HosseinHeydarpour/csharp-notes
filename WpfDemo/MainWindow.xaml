@@ -6,38 +6,8 @@
         xmlns:local="clr-namespace:WpfDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="myGrid">
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10" />
-
-            <!-- auto sets the space required by its content -->
-            <!-- <ColumnDefinition Width="auto" /> -->
-            <!-- * sets all space left -->
-            <!-- * To create a perfect size grid we can use * for all of the rows and cols -->
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="10" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
-            <RowDefinition Height="*" />
-            <!-- * sets all space left ful height - 50 - 50 -->
-            <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="10" />
-        </Grid.RowDefinitions>
-
-        <!-- Row and Column are just like arrays 0 based index -->
-        <Label Content="Sample Text " Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"/>
-        <Label Grid.Column="2" Content="Title of App" Grid.Row="1" />
-        <Button Grid.Column="2" Content="A"   Grid.Row="3"  Click="Button_Click"  />
-      
-
-
-
+    <Grid >
+        <!-- It controls the content -->
+        <ContentControl x:Name="MainContent" />
     </Grid>
 </Window>

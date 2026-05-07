@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\backend\C#\WpfDemo\WpfDemo\App.xaml
-11407045341
+21435113353
 
-4-756627534
+5812594979
 198-211836927
-MainWindow.xaml;
+LoginView.xaml;MainWindow.xaml;
 
-False
+True
 
