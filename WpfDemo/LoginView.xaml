@@ -25,7 +25,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Label Content="Login" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
-        <Button Content="Login"  Grid.Row="3" Grid.Column="1" />
+        <Label Content="Please Login" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+        <Button Content="Login"  Grid.Row="3" Grid.Column="1" Click="LoginButton_Clicked" />
     </Grid>
 </UserControl>

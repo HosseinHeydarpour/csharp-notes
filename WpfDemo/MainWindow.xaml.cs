@@ -21,8 +21,9 @@ namespace WpfDemo
             InitializeComponent();
 
             // We can access main content and set the content
-            //MainContent.Content = 
-
+            // Login view will get displayed
+            // this something like Angular router
+            MainContent.Content = new LoginView();
         }
     }
 }
