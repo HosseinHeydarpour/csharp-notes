@@ -12,8 +12,12 @@
             <RowDefinition Height="10"/>
            
             <RowDefinition Height="*"/>
-           
-            
+
+
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="50"/>
+
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
@@ -24,7 +28,7 @@
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="ListBoxNames" Grid.Column="1" Grid.Row="1" >
+        <ListBox x:Name="ListBoxPeple" SelectionMode="Multiple" Grid.Column="1" Grid.Row="1" >
             <ListBox.ItemTemplate>
                 <!--
                      ItemTemplate defines how EACH item in the ListBox should look.
@@ -56,6 +60,9 @@
             </ListBox.ItemTemplate>
 
         </ListBox>
+
+
+        <Button  Click="Button_Click" Grid.Row="3" Grid.Column="1" Content="Show Selected"/>
 
     </Grid>
 </Window>

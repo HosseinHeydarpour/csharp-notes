@@ -34,9 +34,19 @@ namespace WpfDemo
             InitializeComponent();
 
             // This takes an IENUM like a List<>
-            ListBoxNames.ItemsSource = People;
+            ListBoxPeple.ItemsSource = People;
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItems = ListBoxPeple.SelectedItems;
+            foreach (var item in selectedItems) 
+            {
+                //MessageBox.Show(item.GetType().ToString());
+                var person = (Person)item;
+                MessageBox.Show($"{person.Name} with age {person.Age} years old is selected... 🎆");
+            }
+
+        }
     }
 }
