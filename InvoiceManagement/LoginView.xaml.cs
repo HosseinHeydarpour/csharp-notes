@@ -24,5 +24,30 @@ namespace InvoiceManagement
         {
             InitializeComponent();
         }
+
+
+        public void OnLoginButtonClicked(object sender, RoutedEventArgs e)
+        {
+            string passwordEntered = PasswordBox.Password;
+
+            // This value can be null
+           string? envPass = Environment.GetEnvironmentVariable("InvoiceManagement");
+
+            if(envPass != null)
+            {
+                if(passwordEntered == envPass)
+                {
+                    MessageBox.Show("Entered Correct Password!");
+                } else
+                {
+                    MessageBox.Show("Incorrect Password!");
+                }
+            } else
+            {
+                MessageBox.Show("Environemnt Vasriable Not Found!");
+            }
+
+      
+        }
     }
 }
