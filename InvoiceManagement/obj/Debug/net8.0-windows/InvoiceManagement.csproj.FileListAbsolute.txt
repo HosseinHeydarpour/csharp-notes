@@ -19,3 +19,5 @@ D:\backend\C#\InvoiceManagement\InvoiceManagement\obj\Debug\net8.0-windows\refin
 D:\backend\C#\InvoiceManagement\InvoiceManagement\obj\Debug\net8.0-windows\InvoiceManagement.pdb
 D:\backend\C#\InvoiceManagement\InvoiceManagement\obj\Debug\net8.0-windows\InvoiceManagement.genruntimeconfig.cache
 D:\backend\C#\InvoiceManagement\InvoiceManagement\obj\Debug\net8.0-windows\ref\InvoiceManagement.dll
+D:\backend\C#\InvoiceManagement\InvoiceManagement\obj\Debug\net8.0-windows\LoginView.g.cs
+D:\backend\C#\InvoiceManagement\InvoiceManagement\obj\Debug\net8.0-windows\LoginView.baml
