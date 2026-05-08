@@ -49,5 +49,11 @@ namespace InvoiceManagement
 
       
         }
+
+
+        public void OnPasswwordEntered(object sender, EventArgs e)
+        {
+            LoginButton.IsEnabled = !string.IsNullOrEmpty(PasswordBox.Password);
+        }
     }
 }

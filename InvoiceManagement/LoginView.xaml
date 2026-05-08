@@ -27,8 +27,8 @@
         <Label Content="Login" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
 
         <Label Content="Enter Password" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center"  />
-        <PasswordBox x:Name="PasswordBox" Grid.Column="1" Grid.Row="3" Width="300" Height="30" />
+        <PasswordBox x:Name="PasswordBox" Grid.Column="1" Grid.Row="3" Width="300" Height="30" PasswordChanged="OnPasswwordEntered"/>
 
-        <Button Grid.Column="1" Grid.Row="5" Height="50" Width="200" Content="Login" Click="OnLoginButtonClicked" />
+        <Button x:Name="LoginButton" IsEnabled="False" Grid.Column="1" Grid.Row="5" Height="50" Width="200" Content="Login" Click="OnLoginButtonClicked" />
     </Grid>
 </UserControl>
