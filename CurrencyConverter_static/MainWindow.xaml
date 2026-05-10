@@ -1,0 +1,55 @@
+﻿<Window x:Class="CurrencyConverter_static.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CurrencyConverter_static"
+        mc:Ignorable="d"
+        Title="مبدل ارز ارزینو" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <!-- 
+SizeToContent:
+    Determines whether the window size is automatically adjusted based on its content.
+    Options:
+        Manual          → The window size is set manually (default).
+        Width           → The window width adjusts automatically to the content.
+        Height          → The window height adjusts automatically to the content.
+        WidthAndHeight  → Both width and height adjust automatically to the content.
+
+WindowStartupLocation:
+    Determines where the window appears when it first opens.
+    Options:
+        Manual          → Position is determined by the Top and Left properties.
+        CenterScreen    → The window opens centered on the screen.
+        CenterOwner     → The window opens centered relative to its owner window.
+-->
+    
+    
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="2" Width="800" CornerRadius="10" BorderThickness="5">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#ec2075" Offset="0.0"/>
+                    <GradientStop Color="#f33944" Offset="0.50"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Rectangle>
+                <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#ec2075" Offset="0.0"/>
+                    <GradientStop Color="#f33944" Offset="0.50"/>
+                </LinearGradientBrush>
+               </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+
+        
+    </Grid>
+</Window>
