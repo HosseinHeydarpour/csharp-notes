@@ -18,3 +18,5 @@ D:\backend\C#\CurrencyConverter_static\CurrencyConverter_static\obj\Debug\net8.0
 D:\backend\C#\CurrencyConverter_static\CurrencyConverter_static\obj\Debug\net8.0-windows\CurrencyConverter_static.pdb
 D:\backend\C#\CurrencyConverter_static\CurrencyConverter_static\obj\Debug\net8.0-windows\CurrencyConverter_static.genruntimeconfig.cache
 D:\backend\C#\CurrencyConverter_static\CurrencyConverter_static\obj\Debug\net8.0-windows\ref\CurrencyConverter_static.dll
+D:\backend\C#\CurrencyConverter_static\CurrencyConverter_static\obj\Debug\net8.0-windows\App.baml
+D:\backend\C#\CurrencyConverter_static\CurrencyConverter_static\obj\Debug\net8.0-windows\CurrencyConverter_static.sourcelink.json

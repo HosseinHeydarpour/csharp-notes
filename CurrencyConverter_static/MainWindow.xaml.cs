@@ -19,6 +19,35 @@ namespace CurrencyConverter_static
         public MainWindow()
         {
             InitializeComponent();
+
+            lblCurrency.Content = "HELLO WORLD";
+
         }
+
+
+        private void Convert_Click(object sender, RoutedEventArgs e)
+        {
+            lblCurrency.Content = "Convert Button Cicked";
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)  
+        {
+            lblCurrency.Content = "";
+        }
+
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e) 
+        { 
+            
+        }
+
+        private void txtCurrency_TextChanged(object sender, TextChangedEventArgs e) { }
+      
+
     }
+
+
+   
+
+    
 }
