@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyConverter_static"
         mc:Ignorable="d"
-        Title="مبدل ارز ارزینو" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="مبدل ارز ارزینو" SizeToContent="WidthAndHeight" MinHeight="400" MinWidth="1000" WindowStartupLocation="CenterScreen">
     <!-- 
 SizeToContent:
     Determines whether the window size is automatically adjusted based on its content.

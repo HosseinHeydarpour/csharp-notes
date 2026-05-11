@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -51,7 +52,7 @@ namespace CurrencyConverter_static
             cmbToCurrency.DisplayMemberPath = "Text";
             cmbToCurrency.SelectedValuePath = "Value";
             cmbToCurrency.SelectedIndex = 0;
-        } 
+        }
 
 
         private void Convert_Click(object sender, RoutedEventArgs e)
@@ -59,53 +60,79 @@ namespace CurrencyConverter_static
             // Create the variable as ConvertedValue with double datatype to store currency converted value
             double ConvertedValue;
 
-            // Check if the amount of text box is Null or Blank
-            if(txtCurrency.Text == null || txtCurrency.Text.Trim() == "")
+            // Check if amount textbox is empty
+            if (string.IsNullOrWhiteSpace(txtCurrency.Text))
             {
-                // If amount of the text box is null or blank show this
-                MessageBox.Show("لطفا مقدار ارز را وارد کنید", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    "لطفاً مبلغ ارز را وارد کنید.",
+                    "خطا",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
 
-                // Set focus on text box after clicking on messagebox ok
                 txtCurrency.Focus();
-
-                return;
-            } 
-            // else if currecny from is not selected or it has default select state -- Select --
-            else if(cmbFromCurrency.SelectedValue == null || cmbFromCurrency.SelectedIndex == 0)
-            {
-                // Show the Message
-                MessageBox.Show("لطفا یک واحد ارز را انتخاب نمایید", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
-
-                // Set focus on combo box after clicking on messagebox ok
-                cmbFromCurrency.Focus();
-
                 return;
             }
-            // else if currecny to is not selected or it has default select state -- Select --
+            // If source currency is not selected
+            else if (cmbFromCurrency.SelectedValue == null || cmbFromCurrency.SelectedIndex == 0)
+            {
+                MessageBox.Show(
+                    "لطفاً ارز مبدأ را انتخاب کنید.",
+                    "خطا",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
+                cmbFromCurrency.Focus();
+                return;
+            }
+
+            // If destination currency is not selected
             else if (cmbToCurrency.SelectedValue == null || cmbToCurrency.SelectedIndex == 0)
             {
-                // Show the Message
-                MessageBox.Show("لطفا یک واحد ارز را انتخاب نمایید", "خطا", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(
+                    "لطفاً ارز مقصد را انتخاب کنید.",
+                    "خطا",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
 
-                // Set focus on combo box after clicking on messagebox ok
                 cmbToCurrency.Focus();
-
                 return;
             }
+
+
+            // Check if From and To Combobox selected values are the same
+            if (cmbFromCurrency.Text == cmbToCurrency.Text)
+            {
+                // Amount textbox value set in ConvertedValue.
+                // double.Parse is used for converting datatype String to Duble
+                // Textbox text have string and Convertvalue is double data type
+                ConvertedValue = double.Parse(txtCurrency.Text);
+                // Show the label converted currecny and converted currecny name and ToSting("N3") - N3 is used to place 000 after the dot(.)
+                lblCurrency.Content = cmbToCurrency.Text + " " + ConvertedValue.ToString("N3");
+            }
+            else
+            {
+                //Calculation for currency converter is From Currency value multiply(*) 
+                //With the amount textbox value and then that total divided(/) with To Currency value
+                ConvertedValue = (double.Parse(cmbFromCurrency.SelectedValue.ToString()) * double.Parse(txtCurrency.Text)) /
+                                    double.Parse(cmbToCurrency.SelectedValue.ToString());
+
+                //Show the label converted currency and converted currency name.
+                lblCurrency.Content = cmbToCurrency.Text + " " + ConvertedValue.ToString("N3");
+            }
+
         }
 
-        private void Clear_Click(object sender, RoutedEventArgs e)  
+        private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            lblCurrency.Content = "";
             // Reset the comboboxes
-            cmbFromCurrency.SelectedIndex = 0;
-            cmbToCurrency.SelectedIndex = 0;
+            ClearControls();
         }
 
 
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e) 
-        { 
-            
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
 
@@ -115,16 +142,29 @@ namespace CurrencyConverter_static
         //}
 
 
-        private void txtCurrency_TextChanged(object sender, TextChangedEventArgs e) {
-            
-            
+        private void txtCurrency_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+
         }
-      
+
+        // Reset all controls
+        private void ClearControls()
+        {
+            txtCurrency.Text = string.Empty;
+            if (cmbFromCurrency.Items.Count > 0)
+            {
+                cmbFromCurrency.SelectedIndex = 0;
+            }
+            if (cmbToCurrency.Items.Count > 0)
+            {
+                cmbToCurrency.SelectedIndex = 0;
+            }
+            lblCurrency.Content = "";
+            txtCurrency.Focus();
+
+        }
 
     }
-
-
-   
-
     
 }
