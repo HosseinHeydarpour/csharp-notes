@@ -77,11 +77,11 @@ WindowStartupLocation:
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="90" Width="800" VerticalAlignment="Bottom">
 
-            <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="60 0 40 0" FontSize="18" VerticalContentAlignment="Center" 
-                      VerticalAlignment="Top" MaxDropDownHeight="150"></ComboBox>
+            <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="60 0 40 0" FontSize="14" VerticalContentAlignment="Center" 
+                      VerticalAlignment="Top" MaxDropDownHeight="150" FontFamily="IRHoma"></ComboBox>
             
-            <ComboBox Name="cmbFromCurrency" Width="170" Height="30" Margin="40 0 0 0" FontSize="18" VerticalContentAlignment="Center" 
-                      VerticalAlignment="Top" MaxDropDownHeight="150"></ComboBox>
+            <ComboBox Name="cmbFromCurrency" Width="170" Height="30" Margin="40 0 0 0" FontSize="14" VerticalContentAlignment="Center" 
+                      VerticalAlignment="Top" MaxDropDownHeight="150" FontFamily="IRHoma"></ComboBox>
 
             <TextBox Name="txtCurrency" PreviewTextInput="NumberValidationTextBox" Width="200" Height="30" Margin="40 0 0 0" FontSize="18" 
           VerticalContentAlignment="Center" VerticalAlignment="Top" TextChanged="txtCurrency_TextChanged"/>
@@ -91,7 +91,7 @@ WindowStartupLocation:
                     Style="{StaticResource ButtonRound}" FontFamily="IRHoma">
             
         -->
-            <Button Name="Convert" Height="40" Width="150" Content="تبدیل" Click="MyClickEvent" Margin="350 0 20 0" Foreground="White" FontSize="20" 
+            <Button Name="Convert" Height="40" Width="150" Content="تبدیل" Click="Convert_Click" Margin="350 0 20 0" Foreground="White" FontSize="20" 
         Style="{StaticResource ButtonRound}" FontFamily="IRHoma">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
