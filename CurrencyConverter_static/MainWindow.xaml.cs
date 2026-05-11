@@ -41,7 +41,17 @@ namespace CurrencyConverter_static
             
         }
 
-        private void txtCurrency_TextChanged(object sender, TextChangedEventArgs e) { }
+
+        //private void MyClickEvent(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBox.Show("Custom");
+        //}
+
+
+        private void txtCurrency_TextChanged(object sender, TextChangedEventArgs e) {
+            
+            
+        }
       
 
     }
