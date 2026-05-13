@@ -179,5 +179,149 @@ namespace ZooManagerApp
 
           
         }
+
+       
+
+        private void OnAddZoo(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "INSERT INTO ZOO VALUES (@Location)";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlCommand.Parameters.AddWithValue("@Location", MyTextBox.Text);
+
+                sqlCommand.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowZoos();
+            }
+        }
+
+
+        private void OnAddAnimalToZoo(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "INSERT INTO ZooAnimal VALUES (@ZooId, @AnimalId)";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlCommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue);
+                sqlCommand.Parameters.AddWithValue("@AnimalId", listAnimals.SelectedValue);
+
+                sqlCommand.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAnimalsOfAZoo();
+            }
+        }
+
+
+        private void OnAddAnimal(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "INSERT INTO Animal VALUES (@Name)";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlCommand.Parameters.AddWithValue("@Name", MyTextBox.Text);
+                
+
+                sqlCommand.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAllAnimals();
+            }
+        }
+
+        private void OnRemoveAnimalFromZoo(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "DELETE FROM ZooAnimal WHERE AnimalId = @AnimalId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlCommand.Parameters.AddWithValue("@AnimalId", zoosAnimals.SelectedValue);
+
+
+                sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAnimalsOfAZoo();
+            }
+        }
+
+        private void OnDeleteAnimal(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string query = "DELETE FROM Animal WHERE Id = @AnimalId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlCommand.Parameters.AddWithValue("@AnimalId", listAnimals.SelectedValue);
+
+
+                sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+                ShowAllAnimals();
+                ShowAnimalsOfAZoo();
+            }
+        }
     }
 }
