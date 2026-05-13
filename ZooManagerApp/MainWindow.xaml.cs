@@ -36,7 +36,43 @@ namespace ZooManagerApp
             sqlConnection = new SqlConnection(connectionString);
 
             ShowZoos();
+
+            ShowAllAnimals();
         }
+
+
+
+        private void ShowAllAnimals()
+        {
+            try
+            {
+                string query = "SELECT * FROM ANIMAL";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
+
+
+
+                using (sqlDataAdapter)
+                {
+                    DataTable animalTable = new DataTable();
+
+                    sqlDataAdapter.Fill(animalTable);
+
+                    listAnimals.DisplayMemberPath = "Name";
+                    listAnimals.SelectedValuePath = "Id";
+
+                    listAnimals.ItemsSource = animalTable.DefaultView;
+                }
+
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
+
 
 
         private void ShowZoos()
@@ -113,5 +149,7 @@ namespace ZooManagerApp
             }
             catch (Exception ex) { }
         }
+
+     
     }
 }
