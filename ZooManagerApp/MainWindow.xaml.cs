@@ -150,6 +150,34 @@ namespace ZooManagerApp
             catch (Exception ex) { }
         }
 
-     
+        private void OnDeleteZoo(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                string query = "DELETE FROM ZOO WHERE id = @ZooId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlCommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue);
+
+                sqlCommand.ExecuteScalar();
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            } finally
+            {
+                sqlConnection.Close();
+                ShowZoos();
+            }
+
+
+          
+        }
     }
 }
