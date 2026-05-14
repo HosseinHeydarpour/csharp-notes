@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Release\
 CurrencyConvertorDB
 none
 false
-DEBUG;TRACE
+TRACE
 D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\App.xaml
 1219584333
 
