@@ -27,6 +27,10 @@ WindowStartupLocation:
 
         <TabItem Header="مبدل ارز" Name="tbConvertor" FontFamily="IRHoma" FontSize="16">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="14*"/>
+                    <ColumnDefinition Width="129*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions >
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="80"/>
@@ -35,7 +39,7 @@ WindowStartupLocation:
                     <RowDefinition Height="150"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Row="2" Width="800" CornerRadius="10" BorderThickness="5" >
+                <Border Grid.Row="2" Width="800" CornerRadius="10" BorderThickness="5" Grid.Column="1" Margin="2,0,100,0" >
                     <Border.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Color="#ec2075" Offset="0.0"/>
@@ -64,20 +68,20 @@ WindowStartupLocation:
 
                     In this example, the two Label elements will appear side-by-side horizontally.
          -->
-                <StackPanel Width="1000" Height="50" Grid.Row="0" Orientation="Horizontal" >
+                <StackPanel Width="1000" Height="50" Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,5,0,5" >
                     <Label Content="ابزار مبدل ارزش ارز ارزینو"  Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" Foreground="#ec2075" FontFamily="IRHoma"></Label>
 
                 </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Height="80" Width="1000">
+                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" Height="80" Width="1000" Grid.ColumnSpan="2">
                     <Label Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="خروجی" FontSize="20" FontFamily="IRHoma"></Label>
                     <Label Name="lblCurrency" Height="40" Width="1000" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></Label>
                 </StackPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="60" Width="800">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="800" Grid.Column="1" Margin="2,0,0,0">
                     <Label Height="40" Width="100" Content="به" Margin="130 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="IRHoma"></Label>
                     <Label Height="40" Width="130" Content="از" Margin="110 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="IRHoma"></Label>
                     <Label Height="40" Width="210" Content="مقدار" Margin="35 0 0 0" VerticalAlignment="Bottom" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="IRHoma"></Label>
                 </StackPanel>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="90" Width="800" VerticalAlignment="Bottom">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Height="90" Width="800" VerticalAlignment="Bottom" Grid.Column="1" Margin="2,0,0,0">
 
                     <ComboBox Name="cmbToCurrency" Width="170" Height="30" Margin="60 0 40 0" FontSize="14" VerticalContentAlignment="Center" 
                       VerticalAlignment="Top" MaxDropDownHeight="150" FontFamily="IRHoma"></ComboBox>
@@ -88,7 +92,7 @@ WindowStartupLocation:
                     <TextBox Name="txtCurrency" PreviewTextInput="NumberValidationTextBox" Width="200" Height="30" Margin="40 0 0 0" FontSize="18" 
           VerticalContentAlignment="Center" VerticalAlignment="Top" TextChanged="txtCurrency_TextChanged"/>
                 </StackPanel>
-                <StackPanel Grid.Row="3" Height="100" Width="1000" Orientation="Horizontal">
+                <StackPanel Grid.Row="3" Height="100" Width="1000" Orientation="Horizontal" Grid.ColumnSpan="2">
                     <!--   <Button Name="Convert" Height="40" Width="150" Content="تبدیل" Click="MyClickEvent" Margin="350 0 20 0" Foreground="White" FontSize="20" 
                     Style="{StaticResource ButtonRound}" FontFamily="IRHoma">
             
@@ -112,7 +116,7 @@ WindowStartupLocation:
                         </Button.Background>
                     </Button>
                 </StackPanel>
-                <StackPanel Grid.Row="4" Height="100" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <StackPanel Grid.Row="4" Height="100" Width="800" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="1" Margin="2,0,0,0">
                     <Image Height="100" Width="800" Source="Images\logo.png" />
                 </StackPanel>
 
@@ -181,10 +185,17 @@ WindowStartupLocation:
                     </Button>
                 </StackPanel>
                 <StackPanel Height="200" Width="800" Grid.Row="3" Margin="150,0" VerticalAlignment="Top">
-                    <DataGrid Name="dgvCurrency" AutoGenerateColumns="False" Height="180" Margin="10" Width="480" Background="Transparent" CanUserAddRows="False" SelectedCellsChanged="dgvCurrency_SelectedCellsChanged" SelectionUnit="Cell" VerticalScrollBarVisibility="Auto" SelectionChanged="dgvCurrency_SelectionChanged">
+                    <DataGrid  FlowDirection="RightToLeft"  Name="dgvCurrency" AutoGenerateColumns="False" Height="180" Margin="10" Width="480" Background="Transparent" CanUserAddRows="False" SelectedCellsChanged="dgvCurrency_SelectedCellsChanged" SelectionUnit="Cell" VerticalScrollBarVisibility="Auto" SelectionChanged="dgvCurrency_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="Id" Header="Id" Width="100" CanUserResize="False" Visibility="Hidden" Binding="{Binding Path=Id}"/>
-                            <DataGridTemplateColumn Header="" Width="70" IsReadOnly="True" DisplayIndex="0">
+
+                            <DataGridTextColumn x:Name="CurrencyName"    DisplayIndex="0" Header="نام ارز" Width="*" MinWidth="20" CanUserResize="False" CanUserReorder="False" Binding="{Binding Path=CurrencyName}" IsReadOnly="True"/>
+
+                            <DataGridTextColumn x:Name="Amount"    DisplayIndex="1" Header="مقدار" Width="100" CanUserResize="False" CanUserReorder="False" Binding="{Binding Path=Amount}" IsReadOnly="True"/>
+
+
+
+                            <DataGridTemplateColumn Header="ویرایش"    Width="70" IsReadOnly="True" DisplayIndex="2">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Image Source="/Images/edit_button.png" ToolTip="Edit" Width="20" Height="20"  x:Name="Revise"/>
@@ -192,7 +203,7 @@ WindowStartupLocation:
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="" Width="70" IsReadOnly="True" DisplayIndex="1">
+                            <DataGridTemplateColumn Header="حذف" Width="70" IsReadOnly="True" DisplayIndex="3">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Image Source="/Images/delete_button.png" ToolTip="Delete" Width="20" Height="20"  x:Name="Delete"/>
@@ -200,8 +211,12 @@ WindowStartupLocation:
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTextColumn x:Name="Amount" Header="مقدار" Width="100" CanUserResize="False" CanUserReorder="False" Binding="{Binding Path=Amount}" IsReadOnly="True"/>
-                            <DataGridTextColumn x:Name="CurrencyName" Header="نام ارز" Width="*" MinWidth="20" CanUserResize="False" CanUserReorder="False" Binding="{Binding Path=CurrencyName}" IsReadOnly="True"/>
+                            
+
+                           
+
+                           
+                           
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
