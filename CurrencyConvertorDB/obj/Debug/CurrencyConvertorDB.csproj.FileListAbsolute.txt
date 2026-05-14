@@ -1,0 +1,16 @@
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\bin\Debug\CurrencyConvertorDB.exe.config
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\bin\Debug\CurrencyConvertorDB.exe
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\bin\Debug\CurrencyConvertorDB.pdb
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.csproj.AssemblyReference.cache
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\MainWindow.g.cs
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\App.g.cs
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB_MarkupCompile.cache
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB_MarkupCompile.lref
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\App.baml
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\MainWindow.baml
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.g.resources
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.Properties.Resources.resources
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.csproj.GenerateResource.cache
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.csproj.CoreCompileInputs.cache
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.exe
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.pdb
