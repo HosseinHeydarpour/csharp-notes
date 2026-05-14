@@ -169,6 +169,26 @@ namespace CurrencyConverter_static
 
         }
 
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dgvCurrency_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dgvCurrency_SelectedCellsChanged(object sender, EventArgs e)
+        {
+            // your code here
+        }
+
     }
 
 }
