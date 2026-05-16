@@ -14,3 +14,4 @@ D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConverto
 D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.csproj.CoreCompileInputs.cache
 D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.exe
 D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB.pdb
+D:\backend\C#\CurrencyConvertorDB\CurrencyConvertorDB\obj\Debug\CurrencyConvertorDB_Content.g.cs
