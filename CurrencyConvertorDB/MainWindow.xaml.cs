@@ -74,7 +74,7 @@ namespace CurrencyConverter_static
             DataTable dt = new DataTable();
 
             // Write query to get data from Currency_Master table
-            command = new SqlCommand("SELECT Id, CurrencyName form Currency_Master", con);
+            command = new SqlCommand("SELECT Id, CurrencyName from Currency_Master", con);
 
             // CommandType define which type of command we use to write a query
             command.CommandType = CommandType.Text;
