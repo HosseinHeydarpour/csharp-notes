@@ -39,6 +39,8 @@ namespace CurrencyConverter_static
 
             BindCurrecny();
 
+            GetData();
+
         }
 
 
@@ -293,24 +295,74 @@ namespace CurrencyConverter_static
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ClearRates();
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void dgvCurrency_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+     
 
         private void dgvCurrency_SelectedCellsChanged(object sender, EventArgs e)
         {
-            // your code here
+           
+            try
+            {
+                DataGrid grd = sender as DataGrid; // Create object for DataGrid
+                DataRowView row_selected = grd.CurrentItem as DataRowView; // Create Object for DataRowView
+
+                
+
+                if (row_selected != null)  // row selected is not null
+                {
+                    
+                    if (dgvCurrency.Items.Count > 0) // dgvCurrency items count greater than 0 
+                    {
+                        if (grd.SelectedCells.Count > 0) 
+                        { 
+                            CurrencyId = Int32.Parse(row_selected["Id"].ToString()); // Get selected row Id Col value and set
+
+                            if (grd.SelectedCells[0].Column.DisplayIndex == 2) // DisplayIndex is 0 then it is the edit cell
+                            {
+                                txtAmount.Text = row_selected["Amount"].ToString(); // get selected row amount col value
+                                txtCurrencyName.Text = row_selected["CurrencyName"].ToString(); // get selected row currencyname
+                                btnSave.Content = "به روز رسانی";
+                            }
+                            if (grd.SelectedCells[0].Column.DisplayIndex == 3) // Display index is equal to one then it is delete cell
+                            {
+                                if (MessageBox.Show("آیا از حذف رکورد مطمئن هستید؟", "Information", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                                {
+                                    MyCon();
+                                    DataTable dt = new DataTable();
+                                    command = new SqlCommand("DELETE FROM Currency_Master WHERE Id = @Id", con);  // Execute delete query for delete record from table using Id
+                                    command.CommandType = CommandType.Text;
+                                    command.Parameters.AddWithValue("@Id", CurrencyId);  // CurrencyId set in @Id param and send it in del statement
+                                    command.ExecuteNonQuery();
+                                    con.Close();
+
+                                    MessageBox.Show("رکورد با موفقیت حذف شد","Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    ClearRates();
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void txtCurrencyName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+      
 
         private void ClearRates() // This method is used to clear all the input which the user entered in Currency rates tab
         {
@@ -318,7 +370,7 @@ namespace CurrencyConverter_static
             {
                 txtAmount.Text = string.Empty;
                 txtCurrencyName.Text = string.Empty;
-                btnSave.Content = "Save";
+                btnSave.Content = "ذخیره";
                 GetData();
                 CurrencyId = 0;
                 BindCurrecny();
@@ -378,6 +430,15 @@ namespace CurrencyConverter_static
             con.Close();
         }
 
+        private void dgvCurrency_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void txtCurrencyName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
 }
