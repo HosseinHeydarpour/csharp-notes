@@ -238,7 +238,7 @@ namespace CurrencyConverter_static
                     txtAmount.Focus();
                     return;
                 } 
-                else if (txtCurrency.Text == null || txtCurrency.Text.Trim() == "")
+                else if (txtCurrencyName.Text == null || txtCurrencyName.Text.Trim() == "")
                 {
                     MessageBox.Show("لطفا نام ارز را وارد نمایید", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     txtCurrency.Focus();
@@ -265,10 +265,22 @@ namespace CurrencyConverter_static
 
                             MessageBox.Show("تعییرات با موفقیت صورت گرفت","Information", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
-                    } else
+                    } else // Save Button Code
                     {
+                        if(MessageBox.Show("از ذخیره ارز مورد نظر اطمینان دارید؟", "Information", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+                        {
+                            MyCon();
+                            command = new SqlCommand("INSERT INTO Currency_Master(Amount, CurrencyName) VALUES(@Amount, @CurrencyName)", con); // INSERT Query for Save data in the Table
+                            command.CommandType = CommandType.Text;
+                            command.Parameters.AddWithValue("@Amount", txtAmount.Text);
+                            command.Parameters.AddWithValue("@CurrencyName", txtCurrencyName.Text);
+                            command.ExecuteNonQuery();
+                            con.Close();
 
+                            MessageBox.Show("ارز مورد نظر با موفقیت ذخیره شد", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
                     }
+                    ClearRates();
                 }
 
 
@@ -292,6 +304,78 @@ namespace CurrencyConverter_static
         private void dgvCurrency_SelectedCellsChanged(object sender, EventArgs e)
         {
             // your code here
+        }
+
+        private void txtCurrencyName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+
+        private void ClearRates() // This method is used to clear all the input which the user entered in Currency rates tab
+        {
+            try
+            {
+                txtAmount.Text = string.Empty;
+                txtCurrencyName.Text = string.Empty;
+                btnSave.Content = "Save";
+                GetData();
+                CurrencyId = 0;
+                BindCurrecny();
+                txtAmount.Focus();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+
+        /// <summary>
+        /// Retrieves all records from the Currency_Master table
+        /// and binds the result to the DataGrid (dgvCurrency).
+        /// </summary>
+        /// <remarks>
+        /// This method:
+        /// 1. Opens a database connection
+        /// 2. Executes a SELECT query
+        /// 3. Loads data into a DataTable
+        /// 4. Binds the data to the DataGrid
+        /// 5. Closes the database connection
+        /// </remarks>
+        private void GetData()
+        {
+            // Open database connection
+            MyCon();
+
+            // Create a DataTable to store retrieved records
+            DataTable dt = new DataTable();
+
+            // Define SQL query to fetch all records from Currency_Master table
+            command = new SqlCommand("SELECT * FROM Currency_Master", con)
+            {
+                CommandType = CommandType.Text
+            };
+
+            // Execute query and fill DataTable using SqlDataAdapter
+            da = new SqlDataAdapter(command); // The data adapter serves as a bridge between a data set and a data source for retriving and saving
+            da.Fill(dt);
+
+            // Bind data to DataGridView if records exist
+            if (dt != null && dt.Rows.Count > 0) // dt is not null and rows count greater than 0
+            {
+                dgvCurrency.ItemsSource = dt.DefaultView; // Assign DataTable data to dgvCurrency using ItemSource Prop
+            }
+            else
+            {
+                // Clear DataGrid if no records are found
+                dgvCurrency.ItemsSource = null;
+            }
+
+            // Close database connection
+            con.Close();
         }
 
     }
