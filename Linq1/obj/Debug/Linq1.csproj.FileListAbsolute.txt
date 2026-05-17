@@ -1,0 +1,7 @@
+D:\backend\C#\Linq1\Linq1\bin\Debug\Linq1.exe.config
+D:\backend\C#\Linq1\Linq1\bin\Debug\Linq1.exe
+D:\backend\C#\Linq1\Linq1\bin\Debug\Linq1.pdb
+D:\backend\C#\Linq1\Linq1\obj\Debug\Linq1.csproj.AssemblyReference.cache
+D:\backend\C#\Linq1\Linq1\obj\Debug\Linq1.csproj.CoreCompileInputs.cache
+D:\backend\C#\Linq1\Linq1\obj\Debug\Linq1.exe
+D:\backend\C#\Linq1\Linq1\obj\Debug\Linq1.pdb
