@@ -89,7 +89,7 @@ namespace CurrencyConverter_static
             // Assign a value to Id column
             newRow["Id"] = 0;
             // Assign value to CurrencyName column
-            newRow["CurrencyName"] = "--SELECT--";
+            newRow["CurrencyName"] = "--انتخاب ارز--";
 
             // Insert a new row in dt with the data at a 0 position
             dt.Rows.InsertAt(newRow, 0);
@@ -230,7 +230,53 @@ namespace CurrencyConverter_static
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if(txtAmount.Text == null || txtAmount.Text.Trim() == "")
+                {
+                    MessageBox.Show("لطفا مقدار را وارد نمایید", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    txtAmount.Focus();
+                    return;
+                } 
+                else if (txtCurrency.Text == null || txtCurrency.Text.Trim() == "")
+                {
+                    MessageBox.Show("لطفا نام ارز را وارد نمایید", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    txtCurrency.Focus();
+                    return;
+                } else
+                {
 
+                    // Code for update button. Here Check currencyId greater than 0 if it is we can go for update
+                    if (CurrencyId > 0)
+                    {
+                        if(MessageBox.Show("از به روزرسانی ارز مورد نظر اطمینان دارید؟","Information", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes) // Show Confirmation Message
+                        {
+                            MyCon();
+                            DataTable dt = new DataTable();
+                            command = 
+                                new SqlCommand("UPDATE Currency_Master SET Amount = @Amount, CurrencyName = @CurrencyName WHERE Id = @Id", con); // Uodate Query Record udpate using ID
+
+                            command.CommandType = CommandType.Text;
+                            command.Parameters.AddWithValue("@Id",CurrencyId);
+                            command.Parameters.AddWithValue("@Amount", txtAmount.Text);
+                            command.Parameters.AddWithValue("@CurrencyName", txtCurrencyName.Text);
+                            command.ExecuteNonQuery();
+                            con.Close();
+
+                            MessageBox.Show("تعییرات با موفقیت صورت گرفت","Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    } else
+                    {
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
