@@ -29,54 +29,64 @@ namespace Linq1
             um.SortStudentsByAge();
             um.AllStudentsFromBejingTech();
 
-            int[] someInt = {30,12,4,3,12 };
-            IEnumerable<int> sortedInts = from i in someInt 
-                                          orderby i 
-                                          select i;
 
-            // reverse my sorted ints
-            IEnumerable<int> reversedInts = sortedInts.Reverse();
 
-            foreach (int i in sortedInts) 
-            {
-                Console.WriteLine(i);
-            }
 
-            Console.WriteLine("------------------");
+            um.StudentAndUniversityNameCollection();
 
-            foreach (int i in reversedInts)
-            {
-                Console.WriteLine(i);
-            }
 
-            IEnumerable<int> reversedSortedInts = from i in someInt
-                                                  orderby i descending
-                                                  select i;
-
-            Console.WriteLine("------------------");
-
-            foreach (int i in reversedSortedInts)
-            {
-                Console.WriteLine(i);
-            }
 
 
             /*
-             * 
-             *  Console.WriteLine("Enter a University ID:" );
-            string input = Console.ReadLine();
 
-            try
-            {
-            
-                int inputAsInt = Convert.ToInt32(input);
-                um.AllStudentsFromUserInputUni(inputAsInt);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("WRONG VALUE {0}",ex.Message);
-            }
-            */
+           int[] someInt = {30,12,4,3,12 };
+           IEnumerable<int> sortedInts = from i in someInt 
+                                         orderby i 
+                                         select i;
+
+           // reverse my sorted ints
+           IEnumerable<int> reversedInts = sortedInts.Reverse();
+
+           foreach (int i in sortedInts) 
+           {
+               Console.WriteLine(i);
+           }
+
+           Console.WriteLine("------------------");
+
+           foreach (int i in reversedInts)
+           {
+               Console.WriteLine(i);
+           }
+
+           IEnumerable<int> reversedSortedInts = from i in someInt
+                                                 orderby i descending
+                                                 select i;
+
+           Console.WriteLine("------------------");
+
+           foreach (int i in reversedSortedInts)
+           {
+               Console.WriteLine(i);
+           }
+
+
+
+            * 
+            *  Console.WriteLine("Enter a University ID:" );
+           string input = Console.ReadLine();
+
+           try
+           {
+
+               int inputAsInt = Convert.ToInt32(input);
+               um.AllStudentsFromUserInputUni(inputAsInt);
+           }
+           catch (Exception ex)
+           {
+               Console.WriteLine("WRONG VALUE {0}",ex.Message);
+           }
+           */
 
 
 
@@ -180,6 +190,20 @@ namespace Linq1
 
             }
 
+            public void StudentAndUniversityNameCollection()
+            {
+                var newCollection = from student in students
+                                    join university in universities on student.UniversityId equals university.Id
+                                    orderby student.Name
+                                    select new { StudentName = student.Name, UniversityName = university.Name };
+
+                Console.WriteLine("New Collection: ");
+                foreach (var col in newCollection)
+                {
+                    Console.WriteLine($"Student {col.StudentName} from university {col.UniversityName}");
+                }
+            }
+
         }
 
         class University
@@ -214,6 +238,8 @@ namespace Linq1
             }
 
         }
+
+
 
         
     }
