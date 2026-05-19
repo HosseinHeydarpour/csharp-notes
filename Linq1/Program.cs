@@ -26,9 +26,60 @@ namespace Linq1
             UniversityManager um = new UniversityManager();
             um.MaleStudents();
             um.FemaleStudents();
+            um.SortStudentsByAge();
+            um.AllStudentsFromBejingTech();
+
+            int[] someInt = {30,12,4,3,12 };
+            IEnumerable<int> sortedInts = from i in someInt 
+                                          orderby i 
+                                          select i;
+
+            // reverse my sorted ints
+            IEnumerable<int> reversedInts = sortedInts.Reverse();
+
+            foreach (int i in sortedInts) 
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("------------------");
+
+            foreach (int i in reversedInts)
+            {
+                Console.WriteLine(i);
+            }
+
+            IEnumerable<int> reversedSortedInts = from i in someInt
+                                                  orderby i descending
+                                                  select i;
+
+            Console.WriteLine("------------------");
+
+            foreach (int i in reversedSortedInts)
+            {
+                Console.WriteLine(i);
+            }
 
 
+            /*
+             * 
+             *  Console.WriteLine("Enter a University ID:" );
+            string input = Console.ReadLine();
+
+            try
+            {
             
+                int inputAsInt = Convert.ToInt32(input);
+                um.AllStudentsFromUserInputUni(inputAsInt);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("WRONG VALUE {0}",ex.Message);
+            }
+            */
+
+
+
 
             Console.ReadKey();
         }
@@ -82,6 +133,53 @@ namespace Linq1
                 }
                 Console.ResetColor();
             }
+
+            public void SortStudentsByAge()
+            {
+                // orderby is an operator which will sort by the value
+                // var is shortcut to not create IEnumerable but makes the running of the code a little bit slower
+                var sortedStudents = from student
+                                     in students
+                                     orderby student.Age select student;
+
+
+                Console.WriteLine("Students Sorted By Age: " );
+                foreach (Student student in sortedStudents)
+                {
+                    student.Print();
+                }
+
+
+            }
+            
+
+            public void AllStudentsFromBejingTech()
+            {
+                IEnumerable<Student> beijingTechStudents = from student in students
+                                                           join university in universities on student.UniversityId equals university.Id
+                                                           where university.Name == "Beijing Tech"
+                                                           select student;
+                Console.WriteLine("Students from Beijing Tech: ");
+                foreach (Student stu in beijingTechStudents)
+                {
+                    stu.Print();
+                }
+            }
+
+            public void AllStudentsFromUserInputUni(int id)
+            {
+                IEnumerable<Student> universityStudents = from student in students
+                                                          join university in universities on student.UniversityId equals university.Id
+                                                          where student.UniversityId == id 
+                                                          select student;
+                Console.WriteLine($"Students of university with ID: {id}");
+                foreach (Student stu in universityStudents)
+                {
+                    stu.Print();
+                }
+
+            }
+
         }
 
         class University
