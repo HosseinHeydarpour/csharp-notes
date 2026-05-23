@@ -50,6 +50,8 @@ namespace LinqToSQL
             GetAllStudentsFromYale();
             GetAllUniversitiesWithFemales();
             GetYaleLectures();
+            UpdateTony();
+            DeletePam();
 
         }
 
@@ -252,8 +254,36 @@ namespace LinqToSQL
                                select sl.Lecture;
 
 
-            MainDataGrid.ItemsSource = yaleLectures;
+            //MainDataGrid.ItemsSource = yaleLectures;
 
         }
+
+
+        public void UpdateTony()
+        {
+            Student tony = dataContext.Students.FirstOrDefault(st => st.Name.Equals("Tony"));
+
+            tony.Name = "Antony";
+
+            dataContext.SubmitChanges();
+
+
+            //MainDataGrid.ItemsSource = dataContext.Students;
+
+
+        }
+
+        public void DeletePam()
+        {
+            Student pam = dataContext.Students.FirstOrDefault(ST => ST.Name == "Pam");
+
+            dataContext.Students.DeleteOnSubmit(pam);
+
+            dataContext.SubmitChanges();
+
+
+            MainDataGrid.ItemsSource = dataContext.Students;
+        }
+
     }
 }
