@@ -35,12 +35,18 @@ namespace LinqToSQL
 
 
             // 1. Clear everything in the correct order (Children first)
-            dataContext.Students.DeleteAllOnSubmit(dataContext.Students);
-            dataContext.Universities.DeleteAllOnSubmit(dataContext.Universities);
-            dataContext.SubmitChanges();
+            dataContext.ExecuteCommand("DELETE FROM StudentLecture");
+            dataContext.ExecuteCommand("DELETE FROM Student");
+            dataContext.ExecuteCommand("DELETE FROM Lecture");
+            dataContext.ExecuteCommand("DELETE FROM University");
+           
 
             InsertUniversities();
             InsertStudents();
+            InsertLectures();
+            InsertStudentLectureAssociations();
+            GetUniversityOfTony();
+            GetTonysLecture();
 
         }
 
@@ -100,7 +106,7 @@ namespace LinqToSQL
                 dataContext.SubmitChanges();
 
                 // 4. Update the UI
-                MainDataGrid.ItemsSource = dataContext.Students;
+                //MainDataGrid.ItemsSource = dataContext.Students;
             }
             catch (Exception ex)
             {
@@ -108,5 +114,101 @@ namespace LinqToSQL
                 System.Windows.MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+
+
+        public void InsertLectures()
+        {
+            try
+            {
+                var dataStucture = new Lecture();
+
+                List<Lecture> lectures = new List<Lecture> 
+                {
+                    new Lecture { Name = "Data Structure" },
+                    new Lecture { Name = "Data Science" },
+                    
+                };
+
+                dataContext.Lectures.InsertAllOnSubmit(lectures);
+                dataContext.SubmitChanges();
+
+                
+
+                //MainDataGrid.ItemsSource = dataContext.Lectures;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: ", ex.Message);
+            }
+        }
+
+
+
+        public void InsertStudentLectureAssociations()
+        {
+            try
+            {
+                Student tonny = dataContext.Students.FirstOrDefault(stu => stu.Name == "Tony");
+                Student leon = dataContext.Students.FirstOrDefault(stu => stu.Name == "Leon");
+                Student ralf = dataContext.Students.FirstOrDefault(stu => stu.Name == "Ralf");
+                Student pam = dataContext.Students.FirstOrDefault(stu => stu.Name == "Pam");
+
+
+                Lecture DSA = dataContext.Lectures.FirstOrDefault(lec => lec.Name == "Data Structure");
+                Lecture DSI = dataContext.Lectures.FirstOrDefault(lec => lec.Name == "Data Science");
+
+                dataContext.StudentLectures.InsertOnSubmit(new StudentLecture { Student = tonny, Lecture = DSA });
+                dataContext.StudentLectures.InsertOnSubmit(new StudentLecture { Student = leon, Lecture = DSA });
+                dataContext.StudentLectures.InsertOnSubmit(new StudentLecture { Student = pam, Lecture = DSI });
+
+
+                // Other way
+                StudentLecture slToney = new StudentLecture();
+                slToney.Student = tonny;
+                slToney.Lecture = DSI;
+                dataContext.StudentLectures.InsertOnSubmit(slToney);
+
+                dataContext.SubmitChanges();
+
+                //MainDataGrid.ItemsSource = dataContext.StudentLectures;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+           
+        }
+
+
+
+        public void GetUniversityOfTony()
+        {
+            Student tony = dataContext.Students.First(st => st.Name.Equals("Tony"));
+
+            University tonysUni = tony.University;
+
+            List<University> universities = new List<University> { tonysUni };
+
+
+            //MainDataGrid.ItemsSource = tonysUni; this wont work because items source needs an IEnumarable
+
+            //MainDataGrid.ItemsSource = universities;
+        }
+
+        public void GetTonysLecture()
+        {
+            Student tony = dataContext.Students.First(st => st.Name.Equals("Tony"));
+
+            var tonysLectures = from sl in tony.StudentLectures select sl.Lecture;
+
+
+            MainDataGrid.ItemsSource = tonysLectures;
+
+        }
+
     }
 }
