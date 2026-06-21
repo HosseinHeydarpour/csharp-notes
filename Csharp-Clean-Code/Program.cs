@@ -20,29 +20,22 @@ namespace Csharp_Clean_Code
     }
 
 
-    // we are using Nouns | use Nouns for class names
+    
     class OrderProcessor
     {
 
+        // for boolean values - props - fields we always use and start with has or is
+        private bool hasErrors = false;
 
+        private bool isValid = true;
 
-        // We use verbs for methods | use verbs for method names
-        public void ProcssOrder()
+        public bool HasErrors { get; set; }
+
+        public bool IsValid()
         {
-
+            return true;
         }
-
-        // We use verbs for methods
-        public void PrintOrder()
-        {
-
-        }
-
-        // We use verbs for methods
-        public void DeleteOrder()
-        {
-
-        }
+        
 
     }
   
