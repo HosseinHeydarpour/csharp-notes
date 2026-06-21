@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\obj\Debug\
+D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\obj\Release\
 CurrencyConvertor_api
 none
 false
-DEBUG;TRACE
+TRACE
 D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\App.xaml
 1219584333
 
-6-502434485
+51579654133
 14-1600931111
 MainWindow.xaml;
 

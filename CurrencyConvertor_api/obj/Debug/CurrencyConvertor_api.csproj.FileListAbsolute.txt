@@ -14,3 +14,6 @@ D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\obj\Debug\CurrencyConv
 D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\obj\Debug\CurrencyConvertor_api.csproj.CoreCompileInputs.cache
 D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\obj\Debug\CurrencyConvertor_api.exe
 D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\obj\Debug\CurrencyConvertor_api.pdb
+D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\bin\Debug\Newtonsoft.Json.dll
+D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\bin\Debug\Newtonsoft.Json.xml
+D:\backend\C#\CurrencyConvertor_api\CurrencyConvertor_api\obj\Debug\Currency.79A94756.Up2Date
