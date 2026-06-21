@@ -20,26 +20,22 @@ namespace Csharp_Clean_Code
     }
 
 
-    // class naming follow PascalCase 
-    // starts always with CAPITAL letter and the second word is also in Capital
+
     class CustomerService
     {
-        public const int MAX_CUSTOMERS = 100; // ALL_CAPS 
+        // _camleCase
+        private string _customerName = "JohnDoe";
 
-        // Props in the classes follow PascalCase naming convention
-        public int CustomerCount { get; set; }
+        // another way for private fields
+        //private string customerName = "JohnDoe";
 
-        // for private fields we use the camelCase naming convetion
-        private string lastCustomerName = "John";
+        public CustomerService(string customerName) 
+        { 
+            _customerName = customerName;
 
-        // Again for methods we use PascalCase
-        public string GetCustomerName(int customerId) // customerId is with camelCase too 
-        {
-
-            // we use camelCase for loacl variables too
-            string customerName = "John Doe";
-
-            return name;
+            // another way for private fields | using this to avoid conflict and error
+            //this.customerName = customerName;
         }
+
     }
 }
