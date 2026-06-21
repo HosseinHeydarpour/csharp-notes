@@ -21,21 +21,44 @@ namespace Csharp_Clean_Code
 
 
     
-    class OrderProcessor
+    class CustomerService
     {
 
-        // for boolean values - props - fields we always use and start with has or is
-        private bool hasErrors = false;
+        // for method names it is best to use: Is, Get,Set,Has,Can
 
-        private bool isValid = true;
-
-        public bool HasErrors { get; set; }
-
-        public bool IsValid()
+        public void SetCustomerName()
         {
-            return true;
+
+        }
+
+        public bool HasErrors()
+        {
+            return false;
+        }
+
+        public bool CanReceiveEmails()
+        {
+            return false; 
+        }
+
+
+        // bad approach
+        public void Save()
+        {
+
         }
         
+
+        // good | because it is super obvious
+        public void SaveCustomer()
+        {
+
+        }
+
+        public void SaveCustomerName()
+        {
+
+        }
 
     }
   
