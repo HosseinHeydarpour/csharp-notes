@@ -20,22 +20,30 @@ namespace Csharp_Clean_Code
     }
 
 
-
-    class CustomerService
+    // we are using Nouns | use Nouns for class names
+    class OrderProcessor
     {
-        // _camleCase
-        private string _customerName = "JohnDoe";
 
-        // another way for private fields
-        //private string customerName = "JohnDoe";
 
-        public CustomerService(string customerName) 
-        { 
-            _customerName = customerName;
 
-            // another way for private fields | using this to avoid conflict and error
-            //this.customerName = customerName;
+        // We use verbs for methods | use verbs for method names
+        public void ProcssOrder()
+        {
+
+        }
+
+        // We use verbs for methods
+        public void PrintOrder()
+        {
+
+        }
+
+        // We use verbs for methods
+        public void DeleteOrder()
+        {
+
         }
 
     }
+  
 }
