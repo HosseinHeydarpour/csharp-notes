@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csharp_Clean_Code
+namespace Csharp_Clean_Code.Services
 {
-    internal class TestClass
+    internal class ProductService
     {
-        void Main()
-        {
-            
-        }
     }
 }

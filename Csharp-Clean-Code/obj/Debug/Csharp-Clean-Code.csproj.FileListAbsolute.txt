@@ -1,0 +1,7 @@
+D:\backend\C#\Csharp-Clean-Code\Csharp-Clean-Code\obj\Debug\Csharp-Clean-Code.csproj.AssemblyReference.cache
+D:\backend\C#\Csharp-Clean-Code\Csharp-Clean-Code\obj\Debug\Csharp-Clean-Code.csproj.CoreCompileInputs.cache
+D:\backend\C#\Csharp-Clean-Code\Csharp-Clean-Code\bin\Debug\Csharp-Clean-Code.exe.config
+D:\backend\C#\Csharp-Clean-Code\Csharp-Clean-Code\bin\Debug\Csharp-Clean-Code.exe
+D:\backend\C#\Csharp-Clean-Code\Csharp-Clean-Code\bin\Debug\Csharp-Clean-Code.pdb
+D:\backend\C#\Csharp-Clean-Code\Csharp-Clean-Code\obj\Debug\Csharp-Clean-Code.exe
+D:\backend\C#\Csharp-Clean-Code\Csharp-Clean-Code\obj\Debug\Csharp-Clean-Code.pdb
