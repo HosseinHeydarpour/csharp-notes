@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csharp_Clean_Code.Models
+namespace Csharp_Clean_Code
 {
-    internal class Customer
+    internal class Order
     {
-        public int Id { get; set; }
+        public int Quantity { get; set; }
     }
 }

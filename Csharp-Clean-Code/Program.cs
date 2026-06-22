@@ -1,6 +1,4 @@
-﻿using Csharp_Clean_Code.Models;
-using Csharp_Clean_Code.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +10,7 @@ namespace Csharp_Clean_Code
     {
         static void Main(string[] args)
         {
-            CustomerService cs = new CustomerService();
+            
           
         }
 
