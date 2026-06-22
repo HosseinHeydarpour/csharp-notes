@@ -10,25 +10,18 @@ namespace Csharp_Clean_Code
     {
         static void Main(string[] args)
         {
-            OrderProcessor processor = new OrderProcessor();
+            DiscountCalculator discountCalculator = new DiscountCalculator();
 
-            Order order = new Order();
+            double regularCustomerDiscount = discountCalculator.CalculateDiscount(CustomerType.Regular, 1200);
+            Console.WriteLine($"Regular Customer Discount: {regularCustomerDiscount}$" );
 
-            // Bad way - we have to use braces even if we have only a single statement
-            //if (processor.IsOrderValid(order))
-            //Console.WriteLine("Order is valid");
 
-            // Good way - we have to use braces even if we have only a single statement
-            if (processor.IsOrderValid(order))
-            {
-                Console.WriteLine("Order is valid");
-            }
+            double premiumCustomerDiscount = discountCalculator.CalculateDiscount(CustomerType.Premium, 800);
+            Console.WriteLine($"Premium Customer Discount: {premiumCustomerDiscount}$");
 
-            // Good way - we have to use braces even if we have only a single statement
-            foreach (int i in int[1,2,3])
-            {
-                Console.WriteLine(i);
-            }
+
+            double employeeCustomerDiscount = discountCalculator.CalculateDiscount(CustomerType.Employee,1500);
+            Console.WriteLine($"Employee Customer Discount: {employeeCustomerDiscount}$");
 
         }
 
