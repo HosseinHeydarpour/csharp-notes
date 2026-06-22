@@ -10,8 +10,26 @@ namespace Csharp_Clean_Code
     {
         static void Main(string[] args)
         {
-            
-          
+            OrderProcessor processor = new OrderProcessor();
+
+            Order order = new Order();
+
+            // Bad way - we have to use braces even if we have only a single statement
+            //if (processor.IsOrderValid(order))
+            //Console.WriteLine("Order is valid");
+
+            // Good way - we have to use braces even if we have only a single statement
+            if (processor.IsOrderValid(order))
+            {
+                Console.WriteLine("Order is valid");
+            }
+
+            // Good way - we have to use braces even if we have only a single statement
+            foreach (int i in int[1,2,3])
+            {
+                Console.WriteLine(i);
+            }
+
         }
 
     }

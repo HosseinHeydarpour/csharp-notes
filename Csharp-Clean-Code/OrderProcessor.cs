@@ -21,7 +21,7 @@ namespace Csharp_Clean_Code
         }
 
 
-        private bool IsOrderValid(Order order)
+        public bool IsOrderValid(Order order)
         {
             // TODO: Validate order logic
             return false;
