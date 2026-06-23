@@ -10,25 +10,18 @@ using System.IO.Pipes;
 namespace Csharp_Clean_Code
 {
 
-    // Interface segregation prnciple
-
+    
 
     internal class Program
     {
 
-        
+        // Dependency inversion principle (DIP)
 
         static void Main(string[] args)
         {
-            IWorkable human = new Worker();
-
-            human.Work();
-            ((IEatable)human).Eat(); // We need to cast because we are using Iwrokable to create human instance
-            
-
-            IWorkable robot = new Robot();
-            robot.Work();
-
+            IEmailService emailService = new EmailService();
+            Notification notification = new Notification(emailService);
+            notification.Send("Hello, this is a test notification. ")
         }
 
 
@@ -36,47 +29,44 @@ namespace Csharp_Clean_Code
     }
 
 
-    
-    public interface IWorkable
+    public interface IEmailService
     {
-        void Work();
-       
+        public void SendEmail(string to, string subject, string body);
     }
 
 
-    public interface IEatable
+    public class EmailService: IEmailService 
     {
-        void Eat();
+        public void SendEmail(string to, string subject, string body)
+        {
+            Console.WriteLine($"Sending email to {to} with subject {subject}");
+        }
     }
 
-    public class Worker : IWorkable, IEatable
+
+    public class Notification: IEmailService
     {
-        public void Work()
+        private readonly IEmailService _emailService;
+
+        public Notification(IEmailService emailService)
         {
-            Console.WriteLine("Working...");
+            _emailService = emailService;
         }
 
-        public void Eat()
+        public void Send(string message)
         {
-            Console.WriteLine("Eating...");
+            _emailService.SendEmail("user@example.com", "Notification", message);
         }
-
-
     }
 
-    public class Robot : IWorkable
+    public class  MockEmailService : IEmailService 
     {
-        public void Work()
-        {
-            Console.WriteLine("Working...");
-        }
 
-        public void Eat()
+        public void SendEmail(string to, string subject, string body)
         {
-            // Robots do not eat, but are forced to implement this method
             throw new NotImplementedException();
         }
-    }
 
+    }
 
 }
