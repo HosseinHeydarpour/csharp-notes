@@ -10,61 +10,57 @@ namespace Csharp_Clean_Code
 {
     internal class Program
     {
+
+        // Liskov substitution principle
+
+
         static void Main(string[] args)
         {
-            Invoice invoice = new Invoice {Amount = 1000 };
-            BillingsService billingsService = new BillingsService();
+            Bird sparrow = new Sparrow();
+            sparrow.MakeSound();
+            ((IFlyable)sparrow).Fly();
 
-            double total = billingsService.CalculateTotal(invoice);
-
-            Console.WriteLine($"Total: {total}");
-
-
-            DiscountedInvoice discountedInvoice = new DiscountedInvoice {Amount = 100, Discount=5 };
-            DiscountedBillingService discountedBillingService   = new DiscountedBillingService();
-            Console.WriteLine("Total: "+discountedBillingService.CalculateTotal(discountedInvoice));
+            Bird penguin = new Penguin();
+            // penguin.Fly(); // This will throw and exception
+            penguin.MakeSound();
             
         }
 
 
-
-
-    }
-
-
-    public class Invoice
-    {
-        public double Amount { get; set;}
-    }
-
-    // We extend the app and do not change the functionalities
-    public class DiscountedInvoice : Invoice
-    {
-        public double Discount { get; set; }
-    }
-
-    public class BillingsService
-    {
-        public virtual double CalculateTotal(Invoice invoice)
+        public class Bird 
         {
-            return invoice.Amount;
-        }
-    }
- 
-
-    public class DiscountedBillingService: BillingsService
-    {
-        public override double CalculateTotal(Invoice invoice)
-        {
-
-            if(invoice is DiscountedInvoice discountedInvoice)
+            public virtual void MakeSound() 
             {
-                return discountedInvoice.Amount - discountedInvoice.Discount;
+                Console.WriteLine("Chirp Chirp!");
             }
-
-            return base.CalculateTotal(invoice);
         }
+
+
+        public class Sparrow: Bird, IFlyable
+        {
+            public void Fly()
+            {
+                Console.WriteLine("Flying...");
+            }
+        }
+
+
+        public class Penguin : Bird
+        {
+            public override void MakeSound()
+            {
+                base.MakeSound();
+            }
+        }
+
+
+        public interface IFlyable
+        {
+            void Fly();
+        }
+
     }
 
 
+    
 }
