@@ -5,62 +5,78 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.IO.Pipes;
 
 namespace Csharp_Clean_Code
 {
+
+    // Interface segregation prnciple
+
+
     internal class Program
     {
 
-        // Liskov substitution principle
-
+        
 
         static void Main(string[] args)
         {
-            Bird sparrow = new Sparrow();
-            sparrow.MakeSound();
-            ((IFlyable)sparrow).Fly();
+            IWorkable human = new Worker();
 
-            Bird penguin = new Penguin();
-            // penguin.Fly(); // This will throw and exception
-            penguin.MakeSound();
+            human.Work();
+            ((IEatable)human).Eat(); // We need to cast because we are using Iwrokable to create human instance
             
+
+            IWorkable robot = new Robot();
+            robot.Work();
+
         }
 
 
-        public class Bird 
-        {
-            public virtual void MakeSound() 
-            {
-                Console.WriteLine("Chirp Chirp!");
-            }
-        }
-
-
-        public class Sparrow: Bird, IFlyable
-        {
-            public void Fly()
-            {
-                Console.WriteLine("Flying...");
-            }
-        }
-
-
-        public class Penguin : Bird
-        {
-            public override void MakeSound()
-            {
-                base.MakeSound();
-            }
-        }
-
-
-        public interface IFlyable
-        {
-            void Fly();
-        }
 
     }
 
 
     
+    public interface IWorkable
+    {
+        void Work();
+       
+    }
+
+
+    public interface IEatable
+    {
+        void Eat();
+    }
+
+    public class Worker : IWorkable, IEatable
+    {
+        public void Work()
+        {
+            Console.WriteLine("Working...");
+        }
+
+        public void Eat()
+        {
+            Console.WriteLine("Eating...");
+        }
+
+
+    }
+
+    public class Robot : IWorkable
+    {
+        public void Work()
+        {
+            Console.WriteLine("Working...");
+        }
+
+        public void Eat()
+        {
+            // Robots do not eat, but are forced to implement this method
+            throw new NotImplementedException();
+        }
+    }
+
+
 }
