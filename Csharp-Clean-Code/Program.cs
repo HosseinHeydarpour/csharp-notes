@@ -12,16 +12,17 @@ namespace Csharp_Clean_Code
     {
         static void Main(string[] args)
         {
-            Order order = new Order
-            {
-                Id = 1,
-                ProductName = "Test",
-                Quantity = 1,
-                Price = 100,
-            };
+            Invoice invoice = new Invoice {Amount = 1000 };
+            BillingsService billingsService = new BillingsService();
 
-            OrderService orderService = new OrderService();
-            orderService.AddOrder(order);
+            double total = billingsService.CalculateTotal(invoice);
+
+            Console.WriteLine($"Total: {total}");
+
+
+            DiscountedInvoice discountedInvoice = new DiscountedInvoice {Amount = 100, Discount=5 };
+            DiscountedBillingService discountedBillingService   = new DiscountedBillingService();
+            Console.WriteLine("Total: "+discountedBillingService.CalculateTotal(discountedInvoice));
             
         }
 
@@ -31,7 +32,39 @@ namespace Csharp_Clean_Code
     }
 
 
+    public class Invoice
+    {
+        public double Amount { get; set;}
+    }
+
+    // We extend the app and do not change the functionalities
+    public class DiscountedInvoice : Invoice
+    {
+        public double Discount { get; set; }
+    }
+
+    public class BillingsService
+    {
+        public virtual double CalculateTotal(Invoice invoice)
+        {
+            return invoice.Amount;
+        }
+    }
  
+
+    public class DiscountedBillingService: BillingsService
+    {
+        public override double CalculateTotal(Invoice invoice)
+        {
+
+            if(invoice is DiscountedInvoice discountedInvoice)
+            {
+                return discountedInvoice.Amount - discountedInvoice.Discount;
+            }
+
+            return base.CalculateTotal(invoice);
+        }
+    }
 
 
 }
