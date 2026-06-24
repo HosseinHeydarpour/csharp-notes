@@ -11,9 +11,11 @@ namespace Generics
         static void Main(string[] args)
         {
 
-            Box<string> boxStr = new Box<string>("Hossein");
-            boxStr.UpdateContent("Reza");
-            Console.WriteLine(boxStr.GetContent());
+            Box<string, int> toyBox = new Box<string, int>("Tommy Shelby Toy", 1);
+
+            toyBox.Display();
+
+
 
       
         }

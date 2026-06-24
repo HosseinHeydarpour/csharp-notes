@@ -6,30 +6,22 @@ using System.Threading.Tasks;
 
 namespace Generics
 {
-    internal class Box<T>
+    internal class Box<TFirst, TSecond>
     {
-        private T content;
+        public TFirst First { get; set; }
+        public TSecond Second { get; set; }
 
-
-        public Box(T initialValue)
+        public Box(TFirst first, TSecond second)
         {
-            content = initialValue; 
+            First = first;
+            Second = second;
+
+
         }
 
 
-        public void UpdateContent(T newContent)
+        public void Display()
         {
-            content = newContent;
-            Console.WriteLine($"Updated content to: {content}");
+            Console.WriteLine($"First: {First}, Second: {Second}");
         }
-
-
-        public T GetContent()
-        {
-            return content;
-        }
-
-
-      
-    }
-}
+}}
