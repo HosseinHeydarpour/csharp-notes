@@ -10,6 +10,16 @@ namespace Generics
     {
         static void Main(string[] args)
         {
+
+            Box<int> box = new Box<int>();
+            box.Content = 7;
+            Console.WriteLine(box.Log());
+
+            Box<string> boxStr = new Box<string>();
+            boxStr.Content = "Tiger Bear";
+            Console.WriteLine(boxStr.Log());
+
+            
         }
     }
 }
