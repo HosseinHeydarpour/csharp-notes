@@ -8,14 +8,28 @@ namespace Generics
 {
     internal class Box<T>
     {
-
-        // Could be anything - it is generic
-        public T Content { get; set; }
+        private T content;
 
 
-        public string Log()
+        public Box(T initialValue)
         {
-            return $"Box contains {Content}";
+            content = initialValue; 
         }
+
+
+        public void UpdateContent(T newContent)
+        {
+            content = newContent;
+            Console.WriteLine($"Updated content to: {content}");
+        }
+
+
+        public T GetContent()
+        {
+            return content;
+        }
+
+
+      
     }
 }

@@ -11,15 +11,11 @@ namespace Generics
         static void Main(string[] args)
         {
 
-            Box<int> box = new Box<int>();
-            box.Content = 7;
-            Console.WriteLine(box.Log());
+            Box<string> boxStr = new Box<string>("Hossein");
+            boxStr.UpdateContent("Reza");
+            Console.WriteLine(boxStr.GetContent());
 
-            Box<string> boxStr = new Box<string>();
-            boxStr.Content = "Tiger Bear";
-            Console.WriteLine(boxStr.Log());
-
-            
+      
         }
     }
 }
