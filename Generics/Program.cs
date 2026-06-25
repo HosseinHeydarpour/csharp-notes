@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,15 +11,26 @@ namespace Generics
     {
         static void Main(string[] args)
         {
+            // Now T is only accepts classes 
+            // Box<int> intBox = new Box<int>();
 
-            Logger logger = new Logger();
-            logger.Log<int>(10);
-            logger.Log<string>("Hello Fucking World!");
-
-            logger.Log("We can call this method without specifying type!");
-
-            logger.Log(new { Name="Hossein", Age=28});
-
+            Box<Book> bookBox = new Box<Book>();
+         
         }
+
     }
-}
+
+
+
+
+
+    class Book
+    {
+
+    }
+
+    
+}  
+
+
+
