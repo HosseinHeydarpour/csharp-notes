@@ -11,23 +11,29 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            // Now T is only accepts classes 
-            // Box<int> intBox = new Box<int>();
+            Repository<Product> repository
+                = new Repository<Product>();
 
-            Box<Book> bookBox = new Box<Book>();
+            var product = new Product();
+
+            repository.Add(product);
          
         }
 
     }
 
 
-
-
-
-    class Book
+    public class Product: IEntity
     {
+        public int Id { get;  }
+        
 
     }
+
+
+
+
+
 
     
 }  
