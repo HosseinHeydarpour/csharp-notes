@@ -13,33 +13,28 @@ namespace Generics
         {
 
 
-
-
+            
         }
 
     }
 
 
-    internal interface IEntity
-    {
-        int Id { get; }
-    }
+    
 
-
-    internal interface IRepository<T> where T: IEntity
+    internal interface IRepository<T>
     {
         void Add(T entity);
         void Remove(T entity);
 
     }
 
-    internal class Product: IEntity
+    internal class Product
     {
         public int Id { get; }
         public string Name { get; set; }
     }
 
-    internal class User: IEntity
+    internal class User
     {
 
         public int Id { get;  }
@@ -47,16 +42,19 @@ namespace Generics
     }
 
 
-    internal class ProductRepository: IRepository<Product>
+    internal class Repository<T>: IRepository<T>
     {
 
-        public void Add(Product product)
+        public void Add(T entity)
         {
+            if(entity.GetType() == typeof(Product)) 
+            {
 
+            }
         }
 
 
-        public void Remove(Product product)
+        public void Remove(T entity)
         {
 
         }
@@ -64,19 +62,7 @@ namespace Generics
     }
 
 
-    internal class UserRepository: IRepository<User>
-    {
-        public void Add(User user)
-        {
-
-        }
-
-
-        public void Remove(User user)
-        {
-
-        }
-    }
+   
 }  
 
 
