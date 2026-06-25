@@ -11,28 +11,28 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            Repository<Product> repository
-                = new Repository<Product>();
+            // We cannot do this because of the constraint we have set for AreEqual method
+            // Comparer.AreEqual(2, 3);
 
-            var product = new Product();
-
-            repository.Add(product);
+            var productOne = new Product();
+            var productTwo = new Product();
+            var res1 = Comparer.AreEqual(productOne, productOne);
+            var res2 = Comparer.AreEqual(productOne, productTwo);
+            Console.WriteLine($"Result 1: {res1}, Result 2: {res2}");
+   
+            
          
         }
 
     }
 
 
-    public class Product: IEntity
+    public class Product
     {
-        public int Id { get;  }
-        
 
     }
 
-
-
-
+  
 
 
     
