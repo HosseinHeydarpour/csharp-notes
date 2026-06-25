@@ -11,31 +11,45 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            // We cannot do this because of the constraint we have set for AreEqual method
-            // Comparer.AreEqual(2, 3);
 
-            var productOne = new Product();
-            var productTwo = new Product();
-            var res1 = Comparer.AreEqual(productOne, productOne);
-            var res2 = Comparer.AreEqual(productOne, productTwo);
-            Console.WriteLine($"Result 1: {res1}, Result 2: {res2}");
-   
-            
-         
+
+
+
         }
 
     }
 
 
-    public class Product
+
+    internal interface IRepository<T>
     {
+        void Add(T entity);
+        void Remove(T entity);
 
     }
 
-  
+    internal class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 
 
-    
+    internal class ProductRepository: IRepository<Product>
+    {
+
+        public void Add(Product product)
+        {
+
+        }
+
+
+        public void Remove(Product product)
+        {
+
+        }
+
+    }
 }  
 
 
