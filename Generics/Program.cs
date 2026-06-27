@@ -20,21 +20,26 @@ namespace Generics
 
             action();
 
-
-            Action<int> numPrint = x =>
+            // Func returns a value but action does not
+            // We have to explicitly put the string between angle brackets
+            Func<string> getName = () =>
             {
-                Console.WriteLine(x);
+                return "Hossien";
             };
 
-            numPrint(10);
+            var myName = getName();
 
+            Console.WriteLine(myName);
 
-            Action<float, float, float> sum = (x, y, z) =>
+            // Third one is the return value type
+            // you can add up to 16 params here Func<...here...>
+            Func<int, int, string> sum = (a, b) =>
             {
-                Console.WriteLine(x + y + z);
+                return (a + b).ToString();
             };
 
-            sum(1.2f, 1.3f, 1.2f);
+            Console.WriteLine(sum(2,3));
+
 
         }
 
