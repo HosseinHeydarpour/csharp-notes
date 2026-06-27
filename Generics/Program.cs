@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Generics
 {
@@ -11,59 +13,40 @@ namespace Generics
     {
         static void Main(string[] args)
         {
+            // set a break point at the next like
+            // Type type = typeof(ConfigurationManager<>);
+
+            string myName = "Hossein";
 
 
-            
-        }
-
-    }
-
-
-    
-
-    internal interface IRepository<T>
-    {
-        void Add(T entity);
-        void Remove(T entity);
-
-    }
-
-    internal class Product
-    {
-        public int Id { get; }
-        public string Name { get; set; }
-    }
-
-    internal class User
-    {
-
-        public int Id { get;  }
-        public string Name { get; set; }
-    }
-
-
-    internal class Repository<T>: IRepository<T>
-    {
-
-        public void Add(T entity)
-        {
-            if(entity.GetType() == typeof(Product)) 
+            if(myName.GetType() == typeof(string))
             {
-
+                Console.WriteLine("Hey this is a string");
             }
-        }
-
-
-        public void Remove(T entity)
-        {
 
         }
 
     }
 
+    public class ConfigurationManager<T>
+    {
+        public T LoadedConfiguration { get; set; }
 
-   
-}  
+        public ConfigurationManager(T config) 
+        {
+            LoadedConfiguration = config;
+        }
+
+
+
+        public static void SaveConfig(T configToSave)
+        {
+            // Logic
+        }
+
+    }
+
+}
 
 
 
