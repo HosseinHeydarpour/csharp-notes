@@ -13,41 +13,33 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            Action action = () =>
+            Predicate<int> isEven = (x) =>
             {
-                Console.WriteLine("Hello World");
+                return x % 2 == 0; 
             };
 
-            action();
+       
+            //Console.WriteLine(isEven(7) ? "Even" : "Odd");
+            //Console.WriteLine(isEven(8) ? "Even" : "Odd");
 
-            // Func returns a value but action does not
-            // We have to explicitly put the string between angle brackets
-            Func<string> getName = () =>
+            List<int> list = new List<int>() {1,2,3,4,5,6,7,8 };
+
+
+            //foreach (int x in list)
+            //{
+            //    Console.WriteLine(isEven(x) ? "Even" : "Odd");
+            //}
+
+            var evenInts = list.FindAll(isEven);
+
+            foreach (int i in evenInts)
             {
-                return "Hossien";
-            };
-
-            var myName = getName();
-
-            Console.WriteLine(myName);
-
-            // Third one is the return value type
-            // you can add up to 16 params here Func<...here...>
-            Func<int, int, string> sum = (a, b) =>
-            {
-                return (a + b).ToString();
-            };
-
-            Console.WriteLine(sum(2,3));
-
-
-        }
-
-    }
+                Console.WriteLine(i);
+            }
 
  
 
-}
+}}}
 
 
 
