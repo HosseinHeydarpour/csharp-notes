@@ -13,38 +13,34 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            // set a break point at the next like
-            // Type type = typeof(ConfigurationManager<>);
-
-            string myName = "Hossein";
-
-
-            if(myName.GetType() == typeof(string))
+            Action action = () =>
             {
-                Console.WriteLine("Hey this is a string");
-            }
+                Console.WriteLine("Hello World");
+            };
+
+            action();
+
+
+            Action<int> numPrint = x =>
+            {
+                Console.WriteLine(x);
+            };
+
+            numPrint(10);
+
+
+            Action<float, float, float> sum = (x, y, z) =>
+            {
+                Console.WriteLine(x + y + z);
+            };
+
+            sum(1.2f, 1.3f, 1.2f);
 
         }
 
     }
 
-    public class ConfigurationManager<T>
-    {
-        public T LoadedConfiguration { get; set; }
-
-        public ConfigurationManager(T config) 
-        {
-            LoadedConfiguration = config;
-        }
-
-
-
-        public static void SaveConfig(T configToSave)
-        {
-            // Logic
-        }
-
-    }
+ 
 
 }
 
