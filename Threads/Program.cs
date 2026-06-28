@@ -46,21 +46,42 @@ namespace Threads
 
             */
 
-            var taskCompletionSource = new TaskCompletionSource<bool>();
-
-            var thread = new Thread(() =>
+            new Thread(() =>
             {
-                Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} started");
-                Thread.Sleep(5000);
-                taskCompletionSource.TrySetResult(true);
-                Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} ended");
+                Thread.Sleep(1000);
+                Console.WriteLine("Thread 4");
+            })
+            {IsBackground=true }.Start();
+
+
+            // This will create 1000 threads
+            // Order will be different 
+            Enumerable.Range(0,1000).ToList().ForEach(f => 
+            {
+                // Thread pool takes a lot of time but is more smooth
+                // DO NOT RANDOMLY USE THREADS
+                ThreadPool.QueueUserWorkItem((o) =>
+                {
+                    Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} started");
+                    Thread.Sleep(5000);
+
+                    Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} ended");
+                });
+                //new Thread(() =>
+                //{
+                //    Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} started");
+                //Thread.Sleep(5000);
+
+                //Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} ended");
+                //}).Start();
             });
+
+
+            
     
             
 
-            thread.Start();
-            var task = taskCompletionSource.Task.Result;
-            Console.WriteLine("Task was done: {0}",task);
+           
 
             Console.ReadLine();
         }
