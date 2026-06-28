@@ -11,79 +11,66 @@ namespace Threads
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("The main thread started! ");
 
-            // Excecutes one row after another
-            /*
-            Console.WriteLine("Hello World 1");
-            Thread.Sleep(1000); // Pause our whoel program for 1 second
-            Console.WriteLine("Hello World 2");
-            Thread.Sleep(1000); // Pause our whoel program for 1 second
-            Console.WriteLine("Hello World 3");
-            Thread.Sleep(1000); // Pause our whoel program for 1 second
-            Console.WriteLine("Hello World 4");
-         
+            Thread thread1 = new Thread(ThreadFunction);
+            Thread thread2 = new Thread(Thread2Function);
 
-            new Thread(() =>
-            {
-                Thread.Sleep(1000);
-                Console.WriteLine("Thread 1");
-            }).Start();
-            new Thread(() =>
-            {
-                Thread.Sleep(1000);
-                Console.WriteLine("Thread 2");
-            }).Start();
-            new Thread(() =>
-            {
-                Thread.Sleep(1000);
-                Console.WriteLine("Thread 3");
-            }).Start();
-            new Thread(() =>
-            {
-                Thread.Sleep(1000);
-                Console.WriteLine("Thread 4");
-            }).Start();
+            thread1.Start();
+            thread2.Start();
 
-            */
+            // joins thread 1 and the main thread
+            //thread1.Join();
+            //Console.WriteLine("Thread 1 func is done");
+            //thread2.Join();
+            //Console.WriteLine("Thread 2 func is done");
 
-            new Thread(() =>
+            // Only blocks the main thread for 1 second
+            if (thread1.Join(1000))
             {
-                Thread.Sleep(1000);
-                Console.WriteLine("Thread 4");
-            })
-            {IsBackground=true }.Start();
-
-
-            // This will create 1000 threads
-            // Order will be different 
-            Enumerable.Range(0,1000).ToList().ForEach(f => 
+                Console.WriteLine("Thread1 func is done");
+            }
+            else
             {
-                // Thread pool takes a lot of time but is more smooth
-                // DO NOT RANDOMLY USE THREADS
-                ThreadPool.QueueUserWorkItem((o) =>
+                Console.WriteLine("Thread1 func was not done within 1 sec");
+            }
+            thread2.Join();
+
+            Console.WriteLine("Thread 2 func is done");
+
+            for (int i = 0; i < 10; i++)
+            {
+                // Is the thread done or not done
+                if (thread1.IsAlive)
                 {
-                    Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} started");
-                    Thread.Sleep(5000);
+                    Console.WriteLine("Thread1 is still doing stuff");
+                    Thread.Sleep(300);
+                }
+                else
+                {
+                    Console.WriteLine("Thread 1 is completed.");
+                }
 
-                    Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} ended");
-                });
-                //new Thread(() =>
-                //{
-                //    Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} started");
-                //Thread.Sleep(5000);
-
-                //Console.WriteLine($"Thread Number: {Thread.CurrentThread.ManagedThreadId} ended");
-                //}).Start();
-            });
+            }
 
 
-            
-    
-            
 
+
+            Console.WriteLine("The main thread ended! ");
            
+        }
 
-            Console.ReadLine();
+        public static void ThreadFunction()
+        {
+            Console.WriteLine("Thread1Function started.");
+            Thread.Sleep(3000);
+            Console.WriteLine("Thread 1 func coming back to caller");
+        }
+
+
+        public static void Thread2Function()
+        {
+            Console.WriteLine("Thread2Function started.");
         }
     }
 }
