@@ -1,0 +1,11 @@
+D:\backend\C#\Calculator-tdd\Domain\bin\Debug\net10.0\Domain.deps.json
+D:\backend\C#\Calculator-tdd\Domain\bin\Debug\net10.0\Domain.dll
+D:\backend\C#\Calculator-tdd\Domain\bin\Debug\net10.0\Domain.pdb
+D:\backend\C#\Calculator-tdd\Domain\obj\Debug\net10.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\backend\C#\Calculator-tdd\Domain\obj\Debug\net10.0\Domain.AssemblyInfoInputs.cache
+D:\backend\C#\Calculator-tdd\Domain\obj\Debug\net10.0\Domain.AssemblyInfo.cs
+D:\backend\C#\Calculator-tdd\Domain\obj\Debug\net10.0\Domain.csproj.CoreCompileInputs.cache
+D:\backend\C#\Calculator-tdd\Domain\obj\Debug\net10.0\Domain.dll
+D:\backend\C#\Calculator-tdd\Domain\obj\Debug\net10.0\refint\Domain.dll
+D:\backend\C#\Calculator-tdd\Domain\obj\Debug\net10.0\Domain.pdb
+D:\backend\C#\Calculator-tdd\Domain\obj\Debug\net10.0\ref\Domain.dll
