@@ -11,8 +11,8 @@ namespace Web.Controllers
 
         public int  Get(int left, int right)
         {
-            Calculator calculator = new Calculator();
-            return calculator.Sum(left, right);
+          
+            return new Calculator().Sum(left, right);
         }
     }
 }
