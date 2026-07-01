@@ -30,6 +30,22 @@ namespace FlightTest
             // Then
             error.Should().BeOfType<OverbookingError>();
         }
+
+
+        [Fact]
+        public void Books_flight_successfully()
+        {
+            // Given
+            var flight = new Flight(seatCapicity:3);
+
+            // When
+            var error = flight.Book("A@g.com", 1);
+
+            // Then
+            error.Should().BeNull();
+
+        }
+
     }
 
     
