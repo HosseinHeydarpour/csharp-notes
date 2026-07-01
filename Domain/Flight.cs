@@ -40,9 +40,24 @@
             }
 
             RemainingNumberOfSeats -= numberOfSeats;
+           
+
+            // Devils codes
+            // assume hardcoded values
+            //if(numberOfSeats == 1)
+            //{
+            //    RemainingNumberOfSeats = 2;
+            //}
+
+            //if (numberOfSeats == 3)
+            //{
+            //    RemainingNumberOfSeats = 3;
+            //}
+
+            //RemainingNumberOfSeats = 2;
             return null;
 
-           
+
 
 
         }
