@@ -1,17 +1,17 @@
 ﻿using System;
 using Xunit;
 using FluentAssertions;
-using Domain.Tests;
+using Domain;
 
 namespace FlightTest
 {
-    public class UnitTest1
+    public class FlightSpecifications
     {
         [Fact]
-        public void Test1()
+        public void Booking_reduces_the_number_of_seats()
         {
 
-            var flight = new Domain.Tests.Flight(seatCapicity: 3);
+            var flight = new Flight(seatCapicity: 3);
 
             flight.Book("Hossein@gmail.com", 1);
 

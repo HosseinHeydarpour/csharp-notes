@@ -100,3 +100,5 @@ D:\backend\C#\Flight\Flight\obj\Debug\net10.0\refint\Flight.dll
 D:\backend\C#\Flight\Flight\obj\Debug\net10.0\Flight.pdb
 D:\backend\C#\Flight\Flight\obj\Debug\net10.0\Flight.genruntimeconfig.cache
 D:\backend\C#\Flight\Flight\obj\Debug\net10.0\ref\Flight.dll
+D:\backend\C#\Flight\Flight\bin\Debug\net10.0\Domain.dll
+D:\backend\C#\Flight\Flight\bin\Debug\net10.0\Domain.pdb

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "Flight/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "Domain.Tests": "1.0.0",
           "FluentAssertions": "8.10.0",
           "Microsoft.NET.Test.Sdk": "17.14.1",
@@ -340,6 +341,14 @@
           }
         }
       },
+      "Domain/1.0.0": {
+        "runtime": {
+          "Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Domain.Tests/1.0.0": {
         "runtime": {
           "Domain.Tests.dll": {
@@ -439,6 +448,11 @@
       "sha512": "sha512-yMb6vMESlSrE3Wfj7V6cjQ3S4TXdXpRqYeNEI3zsX31uTsGMJjEw6oD5F5u1cHnMptjhEECnmZSsPxB6ChZHDQ==",
       "path": "xunit.extensibility.execution/2.9.3",
       "hashPath": "xunit.extensibility.execution.2.9.3.nupkg.sha512"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Domain.Tests/1.0.0": {
       "type": "project",

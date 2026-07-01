@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Domain.Tests/Domain.Tests.csproj" />
+  <Project Path="Domain/Domain.csproj" Id="45adc049-dbdc-431e-b95d-ca2231673ec0" />
   <Project Path="Flight/Flight.csproj" />
 </Solution>

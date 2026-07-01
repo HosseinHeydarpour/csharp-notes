@@ -407,6 +407,16 @@
           "build/net8.0/xunit.runner.visualstudio.props": {}
         }
       },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
       "Domain.Tests/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -952,6 +962,11 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
     "Domain.Tests/1.0.0": {
       "type": "project",
       "path": "../Domain.Tests/Domain.Tests.csproj",
@@ -960,6 +975,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Domain >= 1.0.0",
       "Domain.Tests >= 1.0.0",
       "FluentAssertions >= 8.10.0",
       "Microsoft.NET.Test.Sdk >= 17.14.1",
@@ -1002,6 +1018,9 @@
           "projectReferences": {
             "D:\\backend\\C#\\Flight\\Domain.Tests\\Domain.Tests.csproj": {
               "projectPath": "D:\\backend\\C#\\Flight\\Domain.Tests\\Domain.Tests.csproj"
+            },
+            "D:\\backend\\C#\\Flight\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\backend\\C#\\Flight\\Domain\\Domain.csproj"
             }
           }
         }
