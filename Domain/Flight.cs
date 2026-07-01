@@ -5,8 +5,13 @@
 
     public class Flight
     {
+        // Make booking list private so we can only access it from the inside of the class
+        List<Booking> bookingList = new();
+        public IEnumerable<Booking> BookingList => bookingList;
+
+
         public int RemainingNumberOfSeats { get; set; }
-        public List<Booking> BookingsList { get; set; } = new List<Booking>();
+        
 
 
         public Flight(int seatCapicity)
@@ -25,7 +30,7 @@
 
             RemainingNumberOfSeats -= numberOfSeats;
 
-            BookingsList.Add(new Booking(passengerEmail, numberOfSeats));
+            bookingList.Add(new Booking(passengerEmail, numberOfSeats));
 
             return null;
 

@@ -65,7 +65,7 @@ namespace FlightTest
             flight.Book("Joe@j.me", 5);
 
             // Then
-            flight.BookingsList.Should().ContainEquivalentOf(new Booking( "Joe@j.me", 5 ));
+            flight.BookingList.Should().ContainEquivalentOf(new Booking( "Joe@j.me", 5 ));
         }
 
     }
