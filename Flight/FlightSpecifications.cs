@@ -7,54 +7,24 @@ namespace FlightTest
 {
     public class FlightSpecifications
     {
-        [Fact]
-        public void Booking_reduces_the_number_of_seats()
+        [Theory]
+        [InlineData(3,1,2)]
+        [InlineData(6, 3, 3)]
+        [InlineData(10, 6, 4)]
+        [InlineData(100, 1, 99)]
+        [InlineData(100, 100, 0)]
+        public void Booking_reduces_the_number_of_seats(int seatCapacity,int numberOfSeats, int remainingNumOfSeats)
         {
             // Given
-            var flight = new Flight(seatCapicity: 3);
+            var flight = new Flight(seatCapicity: seatCapacity);
 
-            flight.Book("Hossein@gmail.com", 1);
+            flight.Book("Hossein@gmail.com", numberOfSeats);
 
-            flight.RemainingNumberOfSeats.Should().Be(2);   
+            flight.RemainingNumberOfSeats.Should().Be(remainingNumOfSeats);   
         }
 
 
-        // DRY principle is not important here
-        [Fact]
-        public void Booking_reduces_the_number_of_seats_2()
-        {
-            // Given
-            var flight = new Flight(seatCapicity: 6);
-
-            flight.Book("Hossein@gmail.com", 3);
-
-            flight.RemainingNumberOfSeats.Should().Be(3);
-        }
-
-        // DRY principle is not important here
-        [Fact]
-        public void Booking_reduces_the_number_of_seats_3()
-        {
-            // Given
-            var flight = new Flight(seatCapicity: 10);
-
-            flight.Book("Hossein@gmail.com", 3);
-
-            flight.RemainingNumberOfSeats.Should().Be(7);
-        }
-
-
-        [Fact]
-        public void Booking_reduces_the_number_of_seats_4()
-        {
-            // Given
-            var flight = new Flight(seatCapicity: 10897);
-
-            flight.Book("Hossein@gmail.com", 3);
-
-            flight.RemainingNumberOfSeats.Should().Be(10897-3);
-        }
-
+       
 
 
         [Fact]
