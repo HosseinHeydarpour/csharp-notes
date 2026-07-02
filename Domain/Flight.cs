@@ -35,5 +35,17 @@
             return null;
 
         }
+
+        public object? CancelBooking(string passengerEmail, int numberOfSeats)
+        {
+            if (!bookingList.Any(booking => booking.PassengerEmail == passengerEmail))
+                return new BookingNotFoundError();
+
+
+            RemainingNumberOfSeats  += numberOfSeats;
+
+
+            return null;
+        }
     }
 }
