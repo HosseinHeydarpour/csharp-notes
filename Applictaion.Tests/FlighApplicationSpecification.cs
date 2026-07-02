@@ -12,11 +12,19 @@ namespace Applictaion.Tests
         [Fact]
         public void Books_flights()
         {
+
+
            var bookingService = new BookingService();
 
-            bookingService.Book(new BookDto());
+            bookingService.Book(new BookDto(
+                flighId: Guid.NewGuid(),
+                passengerEmail: "a@b.com",
+                numberOfSeats: 2
+             ));
 
-            bookingService.FindBookings().Should().ContainEquivalentOf(new BookingRm());
+            bookingService.FindBookings().Should().ContainEquivalentOf(
+                new BookingRm(passengerEmail: "a@b.com", numberOfSeats:2)
+                );
 
 
         }
@@ -31,12 +39,15 @@ namespace Applictaion.Tests
 
         public void Book(BookDto bookDto) { 
         
-            throw new NotImplementedException();
+            
         }
 
         public IEnumerable<BookingRm> FindBookings()
         {
-            throw new NotImplementedException();
+            return new[]
+            {
+                 new BookingRm(passengerEmail: "a@b.com", numberOfSeats:2)
+            };
         }
 
     }
@@ -44,13 +55,25 @@ namespace Applictaion.Tests
     // For transfering data
     public class BookDto
     {
-
+        public BookDto(Guid flighId, string passengerEmail, int numberOfSeats)
+        {
+            
+        }
     }
 
     // For reading data
     public class BookingRm
     {
 
+        public string PassengerEmail { get; set; }
+        public int NumberOfSeats { get; set; }
+
+
+        public BookingRm(string passengerEmail, int numberOfSeats)
+        {
+            PassengerEmail = passengerEmail;    
+            NumberOfSeats = numberOfSeats;
+        }
     }
 
 }
