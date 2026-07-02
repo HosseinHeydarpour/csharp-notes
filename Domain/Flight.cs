@@ -12,7 +12,7 @@
 
         public int RemainingNumberOfSeats { get; set; }
         
-
+        public Guid Id { get;  }
 
         public Flight(int seatCapicity)
         {

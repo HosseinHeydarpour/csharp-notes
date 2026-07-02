@@ -2,7 +2,8 @@
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
-
+using Data;
+using Domain;
 
 
 namespace Applictaion.Tests
@@ -14,15 +15,21 @@ namespace Applictaion.Tests
         {
 
 
-           var bookingService = new BookingService();
+            var entities = new Entities();
+            var flight = new Flight(3);
+
+            entities.Flights.Add(flight);
+
+           var bookingService = new BookingService(entities: entities);
+
 
             bookingService.Book(new BookDto(
-                flighId: Guid.NewGuid(),
+                flighId: flight.Id,
                 passengerEmail: "a@b.com",
                 numberOfSeats: 2
              ));
 
-            bookingService.FindBookings().Should().ContainEquivalentOf(
+            bookingService.FindBookings(flight.Id).Should().ContainEquivalentOf(
                 new BookingRm(passengerEmail: "a@b.com", numberOfSeats:2)
                 );
 
@@ -36,13 +43,17 @@ namespace Applictaion.Tests
     public class BookingService
     {
 
+        public BookingService(Entities entities)
+        {
+            
+        }
 
         public void Book(BookDto bookDto) { 
         
             
         }
 
-        public IEnumerable<BookingRm> FindBookings()
+        public IEnumerable<BookingRm> FindBookings(Guid flightId)
         {
             return new[]
             {
