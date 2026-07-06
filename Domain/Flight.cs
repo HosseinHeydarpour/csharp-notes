@@ -14,7 +14,7 @@
         
         public Guid Id { get;  }
 
-        [Obsolete("Neede By Ef")]
+        [Obsolete("Needed By Ef")]
         public Flight()
         {
             
