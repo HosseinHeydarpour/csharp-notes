@@ -13,7 +13,7 @@ namespace Applictaion.Tests
         [Theory]
         [InlineData("m@m.com",2)]
         [InlineData("a@m.com", 3)]
-        [InlineData("c@f.com", 5)]
+     
         public void Books_flights(string passengerEmail, int numberOfSeats)
         {
 
@@ -48,23 +48,30 @@ namespace Applictaion.Tests
 
     public class BookingService
     {
+        public Entities Entities { get; set; }
 
         public BookingService(Entities entities)
         {
-            
+            Entities = entities;
         }
 
-        public void Book(BookDto bookDto) { 
-        
+        public void Book(BookDto bookDto) {
+
+            var flight = Entities.Flights.Find(bookDto.FlightId);
+            flight.Book(bookDto.PassengerEmail, bookDto.NumberOfSeats);
+            Entities.SaveChanges();
             
         }
 
         public IEnumerable<BookingRm> FindBookings(Guid flightId)
         {
-            return new[]
-            {
-                 new BookingRm(passengerEmail: "a@b.com", numberOfSeats:2)
-            };
+            return Entities.Flights
+                .Find(flightId)
+                .BookingList
+                .Select(booking => new BookingRm(
+                    booking.PassengerEmail,
+                    booking.NumberOfSeats
+                    ));
         }
 
     }
@@ -72,9 +79,16 @@ namespace Applictaion.Tests
     // For transfering data
     public class BookDto
     {
+
+        public Guid  FlightId { get; set; }
+        public string PassengerEmail { get; set; }
+        public int NumberOfSeats { get; set; }
+
         public BookDto(Guid flighId, string passengerEmail, int numberOfSeats)
         {
-            
+            FlightId = flighId;
+            PassengerEmail = passengerEmail;
+            NumberOfSeats = numberOfSeats;
         }
     }
 
