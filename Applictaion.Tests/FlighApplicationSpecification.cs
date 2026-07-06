@@ -30,7 +30,7 @@ namespace Applictaion
         [InlineData("m@m.com",2)]
         [InlineData("a@m.com", 3)]
      
-        public void Books_flights(string passengerEmail, int numberOfSeats)
+        public void Remembers_bookings(string passengerEmail, int numberOfSeats)
         {
 
 
@@ -59,7 +59,7 @@ namespace Applictaion
         [Theory]
         [InlineData(3)]
         [InlineData(10)]
-        public void Cancels_booking(int initialCapacity)
+        public void Frees_up_seats_after_booking(int initialCapacity)
         {
             // Given
             
