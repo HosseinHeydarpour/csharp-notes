@@ -14,6 +14,13 @@
         
         public Guid Id { get;  }
 
+        [Obsolete("Neede By Ef")]
+        public Flight()
+        {
+            
+
+        }
+
         public Flight(int seatCapicity)
         {
             RemainingNumberOfSeats = seatCapicity;

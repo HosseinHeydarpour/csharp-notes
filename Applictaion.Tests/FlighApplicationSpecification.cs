@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Data;
 using Domain;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Applictaion.Tests
 {
@@ -15,7 +15,10 @@ namespace Applictaion.Tests
         {
 
 
-            var entities = new Entities();
+            var entities = new Entities
+            (
+                new DbContextOptionsBuilder<Entities>().UseInMemoryDatabase("Flights").Options
+            );
             var flight = new Flight(3);
 
             entities.Flights.Add(flight);
