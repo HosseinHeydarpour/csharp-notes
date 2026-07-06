@@ -10,3 +10,9 @@ D:\backend\C#\Flight\Application\obj\Debug\net10.0\Application.dll
 D:\backend\C#\Flight\Application\obj\Debug\net10.0\refint\Application.dll
 D:\backend\C#\Flight\Application\obj\Debug\net10.0\Application.pdb
 D:\backend\C#\Flight\Application\obj\Debug\net10.0\ref\Application.dll
+D:\backend\C#\Flight\Application\bin\Debug\net10.0\Data.dll
+D:\backend\C#\Flight\Application\bin\Debug\net10.0\Domain.dll
+D:\backend\C#\Flight\Application\bin\Debug\net10.0\Data.pdb
+D:\backend\C#\Flight\Application\bin\Debug\net10.0\Domain.pdb
+D:\backend\C#\Flight\Application\obj\Debug\net10.0\Application.csproj.AssemblyReference.cache
+D:\backend\C#\Flight\Application\obj\Debug\net10.0\Applicat.44B5EDA2.Up2Date

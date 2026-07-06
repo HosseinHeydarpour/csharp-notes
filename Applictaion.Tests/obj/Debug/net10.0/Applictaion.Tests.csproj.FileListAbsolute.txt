@@ -113,3 +113,5 @@ D:\backend\C#\Flight\Applictaion.Tests\bin\Debug\net10.0\Domain.dll
 D:\backend\C#\Flight\Applictaion.Tests\bin\Debug\net10.0\Data.pdb
 D:\backend\C#\Flight\Applictaion.Tests\bin\Debug\net10.0\Domain.pdb
 D:\backend\C#\Flight\Applictaion.Tests\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\backend\C#\Flight\Applictaion.Tests\bin\Debug\net10.0\Application.dll
+D:\backend\C#\Flight\Applictaion.Tests\bin\Debug\net10.0\Application.pdb
