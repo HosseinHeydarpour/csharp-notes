@@ -10,8 +10,11 @@ namespace Applictaion.Tests
 {
     public class FlighApplicationSpecification
     {
-        [Fact]
-        public void Books_flights()
+        [Theory]
+        [InlineData("m@m.com",2)]
+        [InlineData("a@m.com", 3)]
+        [InlineData("c@f.com", 5)]
+        public void Books_flights(string passengerEmail, int numberOfSeats)
         {
 
 
@@ -28,12 +31,12 @@ namespace Applictaion.Tests
 
             bookingService.Book(new BookDto(
                 flighId: flight.Id,
-                passengerEmail: "a@b.com",
-                numberOfSeats: 2
+              passengerEmail,
+                numberOfSeats: numberOfSeats
              ));
 
             bookingService.FindBookings(flight.Id).Should().ContainEquivalentOf(
-                new BookingRm(passengerEmail: "a@b.com", numberOfSeats:2)
+                new BookingRm(passengerEmail: passengerEmail, numberOfSeats: numberOfSeats)
                 );
 
 
